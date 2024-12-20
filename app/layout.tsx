@@ -1,10 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { publicSans } from './ui/fonts';
 import { ClerkProvider } from "@clerk/nextjs";
 import ToastProvider from '@/components/providers/toaster.provider';
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +17,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`${publicSans.className} antialiased`}>
           <ToastProvider />
           {children}
           </body>
