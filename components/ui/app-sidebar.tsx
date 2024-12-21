@@ -5,6 +5,7 @@ import {
   AudioWaveform,
   BookOpen,
   Bot,
+  ChartNoAxesColumnIncreasing,
   Command,
   Compass,
   Frame,
@@ -182,7 +183,7 @@ const data = {
     {
       title: "Analytics",
       url: "/teacher/analytics",
-      icon: Compass,
+      icon: ChartNoAxesColumnIncreasing,
       items: [
         {
           title: "None",
