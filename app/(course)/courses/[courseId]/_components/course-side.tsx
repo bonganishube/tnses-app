@@ -43,14 +43,16 @@ const CourseSidebar = async ({
         </div>
         <div>
             {course.chapters.map((chapter) => {
-                <CourseSidebarItem 
-                    key={chapter.id}
-                    id={chapter.id}
-                    label={chapter.title}
-                    isCompleted={!!chapter.userProgress?.[0]?.isCompleted}
-                    courseId={course.id}
-                    isLocked={!chapter.isFree && !purchase}
-                />
+                return (
+                    <CourseSidebarItem 
+                        key={chapter.id}
+                        id={chapter.id}
+                        label={chapter.title}
+                        isCompleted={!!chapter.userProgress?.[0]?.isCompleted}
+                        courseId={course.id}
+                        isLocked={!chapter.isFree && !purchase}
+                    />
+                );
             })}
         </div>
     </div>

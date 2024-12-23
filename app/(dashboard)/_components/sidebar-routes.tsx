@@ -12,7 +12,7 @@ const SidebarRoutes = () => {
     const pathname = usePathname();
 
     const isTeacherPage = pathname?.startsWith("/teacher");
-    const isPlayerPage = pathname?.includes("/chapter");
+    const isCoursePage = pathname?.includes("/courses");
     const isSearchPage = pathname === "/search";
 
   return (
@@ -22,8 +22,8 @@ const SidebarRoutes = () => {
                 <SearchInput />
             </div>
         )}
-        <div className="flex gap-1 p-2 ml-auto">
-            {isTeacherPage || isPlayerPage ? (
+        <div className="flex gap-4 p-2 ml-auto">
+            {isTeacherPage || isCoursePage ? (
                 <Link href="/">
                     <Button size="sm" variant="ghost">
                         <LogOut className="h-4 w-4 mr-2"/>

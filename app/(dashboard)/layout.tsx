@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/ui/app-sidebar"
+import { AppSidebar } from "@/components/ui/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,58 +6,58 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
-import SidebarRoutes from "./_components/sidebar-routes"
+} from "@/components/ui/sidebar";
+import SidebarRoutes from "./_components/sidebar-routes";
 
-const Dashboard  = ({
-  children
-}: {
-  children: React.ReactNode;
-}) => {
+const Dashboard = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="h-full">
+    <div className="min-h-screen overflow-hidden flex flex-col">
       <SidebarProvider>
-        <AppSidebar />
-        <SidebarInset>
-          <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 inset-y-0 w-full">
-            <div className="flex items-center gap-2 px-4">
-              <SidebarTrigger className="-ml-1" />
-              <Separator orientation="vertical" className="mr-2 h-4" />
-              {/* <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem className="hidden md:block">
-                    <BreadcrumbLink href="#">
-                      Building Your Application
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator className="hidden md:block" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb> */}
-              <SidebarRoutes />
+        <div className="flex flex-1">
+          {/* Sidebar */}
+          <AppSidebar />
+          
+          {/* Content */}
+          <SidebarInset className="flex-1 overflow-hidden">
+            <header className="flex h-12 shrink-0 items-center gap-2 w-full px-4 transition-all ease-linear">
+              <div className="flex items-center gap-2 w-full">
+                <SidebarTrigger className="w-4 h-4 ml-2" />
+                <Separator orientation="vertical" className="mr-2 h-4" />
+                
+                {/* Optional breadcrumb */}
+                {/* <Breadcrumb>
+                  <BreadcrumbList>
+                    <BreadcrumbItem className="hidden md:block">
+                      <BreadcrumbLink href="#">
+                        Building Your Application
+                      </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator className="hidden md:block" />
+                    <BreadcrumbItem>
+                      <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                    </BreadcrumbItem>
+                  </BreadcrumbList>
+                </Breadcrumb> */}
+                
+                <SidebarRoutes />
+              </div>
+            </header>
+
+            {/* Main Content Area */}
+            <div className="pt-0 h-full max-w-full overflow-x-hidden">
+              {children}
             </div>
-          </header>
-          {/* <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-            <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-              <div className="aspect-video rounded-xl bg-muted/50" />
-              <div className="aspect-video rounded-xl bg-muted/50" />
-              <div className="aspect-video rounded-xl bg-muted/50" />
-            </div>
-            <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-          </div> */}
-          {children}
-        </SidebarInset>
+          </SidebarInset>
+        </div>
       </SidebarProvider>
     </div>
   );
-}
+};
 
 export default Dashboard;
