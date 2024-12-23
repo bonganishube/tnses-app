@@ -24,7 +24,7 @@ const SidebarRoutes = () => {
         )}
         <div className="flex gap-4 p-2 ml-auto">
             {isTeacherPage || isCoursePage ? (
-                <Link href="/">
+                <Link href="/search">
                     <Button size="sm" variant="ghost">
                         <LogOut className="h-4 w-4 mr-2"/>
                         Exit
