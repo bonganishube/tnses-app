@@ -14,7 +14,12 @@ const brandsData = [
     { id: 2, img: "https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg" },
     { id: 3, img: "https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg" },
     { id: 4, img: "https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg" },
-    { id: 5, img: "https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg" }
+    { id: 5, img: "https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg" },
+    { id: 6, img: "https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg" },
+    { id: 7, img: "https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg" },
+    { id: 8, img: "https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg" },
+    { id: 9, img: "https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg" },
+    { id: 10, img: "https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg" }
 ];
 
 export const Brands = () => {
