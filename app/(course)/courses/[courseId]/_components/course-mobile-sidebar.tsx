@@ -7,7 +7,7 @@ import {
     SheetContent,
     SheetTrigger
 } from "@/components/ui/sheet";
-import CourseSidebar from './course-side';
+import CourseSidebar from './course-sidebar';
 
 
 

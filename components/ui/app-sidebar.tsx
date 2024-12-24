@@ -147,7 +147,7 @@ const data = {
   guestRoutes: [
     {
       title: "Home",
-      url: "/search",
+      url: "/home",
       icon: List,
       items: [
         {
@@ -158,7 +158,7 @@ const data = {
     },
     {
       title: "Browse",
-      url: "/search",
+      url: "/browse",
       icon: Compass,
       items: [
         {

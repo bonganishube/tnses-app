@@ -29,6 +29,27 @@ export const VideoPlayer = ({
     title
 }: VideoPlayerProps) => {
     const [isReady, setIsReady] = useState(false);
+    const router = useRouter();
+
+    const onEnd = async () => {
+        try {
+            if (completeOnEnd) {
+                await axios.put(`/api/courses/${courseId}/chapters/${chapterId}/progress`, {
+                    isCompleted: true,
+                });
+            } 
+            
+            toast.success("Progress updated");
+            router.refresh();
+
+            if (nextChapterId) {
+                router.push(`/courses/${courseId}/chapters/${nextChapterId}`)
+            }
+
+        } catch (error) {
+            toast.error("Something went wrong")
+        }
+    }
 
     return (
         <div>
@@ -53,7 +74,7 @@ export const VideoPlayer = ({
                             !isReady && "hidden"
                         )}
                         onCanPlay={() => setIsReady(true)}
-                        onEnded={() => {}}
+                        onEnded={onEnd}
                         autoPlay
                         playbackId={playbackId}
                     />

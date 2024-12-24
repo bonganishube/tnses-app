@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { stripe } from "@/lib/stripe";
 import { currentUser } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
@@ -90,6 +91,6 @@ export async function POST(
 
     } catch (error) {
         console.log("[COURSE_ID_CHECKOUT]", error);
-        return new NextResponse("Internal Error", { status: 500 });9
+        return new NextResponse("Internal Error", { status: 500 });
     }
 }
