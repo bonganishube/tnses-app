@@ -25,15 +25,16 @@ const SidebarRoutes = () => {
         <div className="flex gap-4 p-2 ml-auto">
             {isTeacherPage || isCoursePage ? (
                 <Link href="/home">
-                    <Button size="sm" variant="ghost">
-                        <LogOut className="h-4 w-4 mr-2"/>
-                        Exit
+                    <Button size="sm" className="bg-primaryColor">
+                        <LogOut className="h-4 w-4"/>
+                        Student Mode
                     </Button>
                 </Link>
             ) : (
                 <Link href="/teacher/courses">
-                    <Button size="sm" variant="ghost">
-                        Admin mode
+                    <Button size="sm" className="bg-primaryColor">
+                        <LogOut className="h-4 w-4" />
+                        Admin Mode
                     </Button>
                 </Link>
             )}
