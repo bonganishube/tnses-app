@@ -5,20 +5,20 @@ const Testimonials = () => {
   return (
     <section className="py-20 lg:py-20 text-gray-600 body-font bg-tertiaryColor">
       <div className="container px-4 mx-auto">
-      <div className="flex gap-4 flex-col text-center">
+      <div className="flex gap-4 flex-col md:text-center">
             <div>
               <Badge variant="outline" className="text-lg font-tertiary">Testimonials</Badge>
             </div>
-            <div className="flex gap-2 flex-col text-center">
-              <h4 className="text-3xl max-w-xl md:text-5xl tracking-tighter text-secondaryColor font-bold mx-auto">
+            <div className="flex gap-2 flex-col">
+              <h4 className="text-3xl  md:text-5xl tracking-tighter text-secondaryColor font-bold md:mx-auto">
                 Hear what people are saying about us
               </h4>
-              <p className="text-lg max-w-3xl leading-relaxed tracking-tight my-4 mx-auto">
+              <p className="text-lg leading-relaxed tracking-tight my-4 mx-auto">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe neque quia odit distinctio, eum minima doloribus! Rerum consequatur cum in quia similique ducimus dolore adipisci! Molestias deleniti dolorem harum incidunt!
               </p>
             </div>
           </div>
-        <div className="flex flex-wrap -m-4">
+        <div className="flex flex-wrap ">
           {/* Testimonial 1 */}
           <div className="p-4 md:w-1/2 w-full">
             <div className="h-full bg-gray-100 p-8 rounded">

@@ -1,4 +1,4 @@
-import { BookOpenText, BriefcaseBusiness, Check, MoveRight, TvMinimalPlay } from "lucide-react";
+import { Book, BookOpenText, BriefcaseBusiness, Check, MoveRight, TvMinimalPlay } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Service1 from "../../public/services/service1.jpg";
+import { IconBadge } from "@/components/icon-badge";
 
 
 export const Features = () => (
@@ -31,43 +32,68 @@ export const Features = () => (
           </div>
           <div className="grid lg:pl-6 grid-cols-1 items-start  gap-6">
             <div className="flex flex-row gap-6 items-center">
-              <TvMinimalPlay size="icon" className="w-6 h-6 mt-2 text-primary"/>
+                <IconBadge 
+                  variant="success"
+                  icon={TvMinimalPlay}
+                />
               <Accordion type="single" collapsible>
                 <AccordionItem value="item-1" className="flex flex-col gap-1">
-                  <AccordionTrigger>Applied Digital Skills</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm">
-                  <p>We&apos;ve made it easy to use and understand.</p>
-                  <Button variant="ghost" className="my-3 px-0 text-black" >Learn more <MoveRight className="w-4 h-4" /></Button>
+                  <AccordionTrigger className="text-lg font-semibold">Applied Digital Skills</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                  <p className="text-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque culpa facere quisquam quae quo esse placeat, corporis totam omnis iure eaque sapiente maiores deleniti, expedita ipsa ut. Laboriosam, omnis libero?</p>
+                  <Button variant="ghost" className="my-3 text-secondaryColor text-lg" >Learn more <MoveRight className="w-4 h-4" /></Button>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
             </div>
 
             <div className="flex flex-row gap-6 items-center">
-              <BookOpenText className="w-6 h-6 mt-2 text-primary "/>
+                <IconBadge 
+                  variant="default"
+                  icon={BookOpenText}
+                />
               <Accordion type="single" collapsible>
                 <AccordionItem value="item-1" className="flex flex-col gap-1">
-                  <AccordionTrigger>Blueprint</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm">
-                  <p>We&apos;ve made it easy to use and understand.</p>
-                  <Button variant="ghost" className="my-3 px-0 text-black" >Learn more <MoveRight className="w-4 h-4" /></Button>
+                  <AccordionTrigger className="text-lg font-semibold">Blueprint</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                  <p className="text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint, officiis! Delectus quo ab cum quasi dolorem veniam quas in debitis sed repellat fugit eum beatae, rem consequuntur sit suscipit qui?</p>
+                  <Button variant="ghost" className="my-3 text-secondaryColor text-lg" >Learn more <MoveRight className="w-4 h-4" /></Button>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
             </div>
 
             <div className="flex flex-row gap-6 items-center">
-              <BriefcaseBusiness className="w-6 h-6 mt-2 text-primary"/>
+                <IconBadge 
+                  variant="tertiary"
+                  icon={BriefcaseBusiness}
+                />
               <Accordion type="single" collapsible>
                 <AccordionItem value="item-1" className="flex flex-col gap-1">
-                  <AccordionTrigger>Mentorship</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm">
-                  <p>We&apos;ve made it easy to use and understand.</p>
-                  <Button variant="ghost" className="my-3 px-0 text-black" >Learn more <MoveRight className="w-4 h-4" /></Button>
+                  <AccordionTrigger className="text-lg font-semibold">Consultation & Monitoring</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                  <p className="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa accusamus eveniet autem et veniam. Explicabo ullam et alias id sint nobis delectus voluptatem molestiae earum deserunt numquam, aliquid facilis tempore.</p>
+                  <Button variant="ghost" className="my-3 text-secondaryColor text-lg" >Learn more <MoveRight className="w-4 h-4" /></Button>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-            </div>      
+            </div>    
+
+            <div className="flex flex-row gap-6 items-center">
+                <IconBadge 
+                  variant="extra"
+                  icon={Book}
+                />
+              <Accordion type="single" collapsible>
+                <AccordionItem value="item-1" className="flex flex-col gap-1">
+                  <AccordionTrigger className="text-lg font-semibold">Recruitment & Fieldwork</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                  <p className="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa accusamus eveniet autem et veniam. Explicabo ullam et alias id sint nobis delectus voluptatem molestiae earum deserunt numquam, aliquid facilis tempore.</p>
+                  <Button variant="ghost" className="my-3 text-secondaryColor text-lg" >Learn more <MoveRight className="w-4 h-4" /></Button>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>   
           </div>
         </div>
         <div className="bg-muted rounded-md aspect-square">

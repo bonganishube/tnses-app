@@ -145,7 +145,7 @@ return (
                     <form action className="grid w-full relative max-w-xl">
                         <div className="flex flex-col gap-3 w-full relative">
                             <Input type="Email" placeholder="johndoe@gmail.com"/>
-                            <Button size="lg" className="bg-primaryColor">Subscribe</Button>
+                            <Button className="bg-primaryColor">Subscribe</Button>
                         </div>
                     </form>
                 </div>

@@ -41,45 +41,53 @@ export const Header = () => {
         },
         {
         title: "Services",
-        description: "Managing a small business today is already tough.",
+        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         items: [
             {
-            title: "Reports",
-            href: "/reports",
+            title: "Applied Digital Skills",
+            href: "#services",
             },
             {
-            title: "Statistics",
-            href: "/statistics",
+            title: "Blueprint",
+            href: "#services",
             },
             {
-            title: "Dashboards",
-            href: "/dashboards",
+            title: "Consultation & Monitoring",
+            href: "#services",
             },
             {
-            title: "Recordings",
-            href: "/recordings",
+            title: "Recruitment & Fieldwork",
+            href: "#services",
             },
         ],
         },
         {
         title: "Organisation",
-        description: "Managing a small business today is already tough.",
+        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         items: [
             {
             title: "About us",
-            href: "/about",
+            href: "#about",
             },
             {
-            title: "Fundraising",
-            href: "/fundraising",
+            title: "Services",
+            href: "#services",
             },
             {
-            title: "Investors",
-            href: "/investors",
+            title: "FAQ",
+            href: "#FAQ",
+            },
+            {
+            title: "Team",
+            href: "#team",
+            },
+            {
+            title: "Testimonials",
+            href: "#testimonial",
             },
             {
             title: "Contact us",
-            href: "/contact",
+            href: "#contact",
             },
         ],
         },
@@ -102,7 +110,7 @@ export const Header = () => {
                     {item.href ? (
                         <>
                         <NavigationMenuLink>
-                            <Button variant="ghost" className={`header-secction text-lg bg-transparent ${isHeaderActive 
+                            <Button variant="ghost" className={`header-secction  bg-transparent ${isHeaderActive 
                                 ? "text-black hover:text-black"
                                 : "text-white hover:bg-white" 
                             }`}>{item.title}</Button>
@@ -110,7 +118,7 @@ export const Header = () => {
                         </>
                     ) : (
                         <>
-                        <NavigationMenuTrigger className={`font-medium text-lg bg-transparent ${isHeaderActive
+                        <NavigationMenuTrigger className={`font-medium bg-transparent ${isHeaderActive
                             ? "text-black"
                             : "text-white"
                         }`}>
@@ -125,9 +133,10 @@ export const Header = () => {
                                     {item.description}
                                 </p>
                                 </div>
-                                <Button size="sm" className="mt-10">
-                                Book a call today
+                                <Button size="sm" className="mt-10" onClick={() => window.location.href = 'tel:+123456789'}>
+                                    Book a call today
                                 </Button>
+
                             </div>
                             <div className="flex flex-col text-sm h-full justify-end">
                                 {item.items?.map((subItem) => (
@@ -160,15 +169,15 @@ export const Header = () => {
                 </div>
             </Link>
             <div className="flex justify-end w-full gap-4">
-            <Button variant="ghost" size="lg" className={`hidden md:inline ${isHeaderActive 
+            <Button variant="ghost" className={`hidden md:inline ${isHeaderActive 
                 ? "text-black"
                 : "text-white"
             }`}>
-                <Link href="#contact">Contact us</Link>
+                <Link href="#contact">Contact Us</Link>
             </Button>
             <div className="border-r hidden md:inline"></div>
-            <Button variant="outline" size="lg" className="hidden md:inline" ><Link href="/sign-in">Log in</Link></Button>
-            <Button className="bg-primaryColor" size="lg"><Link href="/sign-up">Get started</Link></Button>
+            <Button variant="outline" className="hidden md:inline" ><Link href="/sign-in">Log In</Link></Button>
+            <Button className="bg-primaryColor"><Link href="/sign-up">Get Started</Link></Button>
             </div>
             <div className="flex w-12 shrink lg:hidden items-end justify-end">
             <Button variant="outline" size="icon" className={`bg-transparent text-white ${isHeaderActive 
@@ -181,17 +190,17 @@ export const Header = () => {
                 <div className="absolute top-20 border-t flex flex-col h-dvh right-0 bg-background shadow-lg pt-24 container gap-8">
                 {navigationItems.map((item) => (
                     <div key={item.title}>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 text-sm">
                         {item.href ? (
                         <Link
                             href={item.href}
                             className="flex justify-between items-center"
                         >
-                            <span className="text-md">{item.title}</span>
+                            <span>{item.title}</span>
                             <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
                         </Link>
                         ) : (
-                        <p className="text-md">{item.title}</p>
+                        <p>{item.title}</p>
                         )}
                         {item.items &&
                         item.items.map((subItem) => (
