@@ -6,7 +6,7 @@ import Testimonial2 from "../../public/testimonials/testimonial2.jpg";
 
 const Testimonials = () => {
   return (
-    <section className="py-20 lg:py-20 text-gray-600 body-font bg-tertiaryColor">
+    <section className="py-20 lg:py-20 text-gray-600 body-font bg-tertiaryColor" id="testimonials">
       <div className="container px-4 mx-auto">
       <div className="flex gap-4 flex-col md:text-center">
             <div>

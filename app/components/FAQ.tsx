@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 export const FAQ = () => (
-  <div className="w-full py-20 lg:py-20 bg-secondaryColor">
+  <div className="w-full py-20 lg:py-20 bg-secondaryColor" id="faq">
     <div className="container px-4 mx-auto">
       <div className="grid lg:grid-cols-2 gap-10">
         <div className="flex gap-10 flex-col">

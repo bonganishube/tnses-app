@@ -53,7 +53,7 @@ useEffect(() => {
 }, [api, current]);
 
 return (
-    <div className="w-full py-20 lg:py-20">
+    <div className="w-full py-20 lg:py-20" id="brands">
         <div className="container px-0 mx-auto">
             <h3 className="text-md text-secondaryColor md:text-3xl tracking-tighter font-bold text-left m-7 mt-0">
                 Trusted by market leaders

@@ -72,7 +72,7 @@ const teamMembers = [
 
 export default function Team () {
   return (
-    <section className="py-20 lg:py-20 bg-white dark:bg-gray-900">
+    <section className="py-20 lg:py-20 bg-white dark:bg-gray-900" id="team">
       <div className="container px-4 mx-auto">
       <div className="flex gap-4 flex-col md:text-center">
             <div>

@@ -13,7 +13,7 @@ import { IconBadge } from "@/components/icon-badge";
 
 
 export const Features = () => (
-  <div className="w-full py-20 lg:py-20" >
+  <div className="w-full py-20 lg:py-20" id="services">
     <div className="container px-4 mx-auto">
       <div className="grid border rounded-lg container py-8 grid-cols-1 gap-8 items-center md:grid-cols-2">
         <div className="flex gap-10 flex-col">
@@ -32,11 +32,10 @@ export const Features = () => (
           </div>
           <div className="grid lg:pl-6 grid-cols-1 items-start  gap-6">
             <div className="flex flex-row gap-6 items-center">
-                <IconBadge 
-                  variant="success"
-                  icon={TvMinimalPlay}
-                />
-              <Accordion type="single" collapsible>
+              <span className="rounded-full bg-secondaryColor dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex">
+                <TvMinimalPlay className="h-6 w-6"/>
+              </span>
+              <Accordion type="single" className="w-full" collapsible>
                 <AccordionItem value="item-1" className="flex flex-col gap-1">
                   <AccordionTrigger className="text-lg font-semibold">Applied Digital Skills</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
@@ -48,11 +47,10 @@ export const Features = () => (
             </div>
 
             <div className="flex flex-row gap-6 items-center">
-                <IconBadge 
-                  variant="default"
-                  icon={BookOpenText}
-                />
-              <Accordion type="single" collapsible>
+              <span className="rounded-full bg-secondaryColor dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex">
+                <BookOpenText className="h-6 w-6"/>
+              </span>
+              <Accordion type="single" className="w-full" collapsible>
                 <AccordionItem value="item-1" className="flex flex-col gap-1">
                   <AccordionTrigger className="text-lg font-semibold">Blueprint</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
@@ -64,11 +62,10 @@ export const Features = () => (
             </div>
 
             <div className="flex flex-row gap-6 items-center">
-                <IconBadge 
-                  variant="tertiary"
-                  icon={BriefcaseBusiness}
-                />
-              <Accordion type="single" collapsible>
+              <span className="rounded-full bg-secondaryColor dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex">
+                <BriefcaseBusiness className="h-6 w-6"/>
+              </span>
+              <Accordion type="single" className="w-full" collapsible>
                 <AccordionItem value="item-1" className="flex flex-col gap-1">
                   <AccordionTrigger className="text-lg font-semibold">Consultation & Monitoring</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
@@ -80,11 +77,10 @@ export const Features = () => (
             </div>    
 
             <div className="flex flex-row gap-6 items-center">
-                <IconBadge 
-                  variant="extra"
-                  icon={Book}
-                />
-              <Accordion type="single" collapsible>
+              <span className="rounded-full bg-secondaryColor dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex">
+                <Book className="h-6 w-6"/>
+              </span>
+              <Accordion type="single" className="w-full" collapsible>
                 <AccordionItem value="item-1" className="flex flex-col gap-1">
                   <AccordionTrigger className="text-lg font-semibold">Recruitment & Fieldwork</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">

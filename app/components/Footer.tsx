@@ -39,17 +39,37 @@ const footerBlocks = [
         {
             id: 1,
             text: "Home",
-            link: "#"
+            link: "#home"
         },
         {
             id: 2,
-            text: "About",
-            link: "#"
+            text: "About Us",
+            link: "#about"
         },
         {
             id: 3,
-            text: "Contact",
-            link: "#"
+            text: "Services",
+            link: "#services"
+        },
+        {
+            id: 4,
+            text: "FAQ",
+            link: "#faq"
+        },
+        {
+            id: 5,
+            text: "Team",
+            link: "#team"
+        },
+        {
+            id: 6,
+            text: "Testimonials",
+            link: "#testimonials"
+        },
+        {
+            id: 3,
+            text: "Contact Us",
+            link: "#contact"
         },
     ]
 },
@@ -60,17 +80,22 @@ const footerBlocks = [
         {
             id: 1,
             text: "Applied Digital Skills",
-            link: "#"
+            link: "#services"
         },
         {
             id: 2,
             text: "Blueprint",
-            link: "#"
+            link: "#services"
         },
         {
             id: 3,
-            text: "Mentorship",
-            link: "#"
+            text: "Consultation & Mentoring",
+            link: "#services"
+        },
+        {
+            id: 4,
+            text: "Recruitment & Fieldwork",
+            link: "#services"
         },
     ]
 },

@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" className="scroll-smooth scroll-pt-10">
         <body className={`${publicSans.className} antialiased`}>
           <ToastProvider />
           {children}

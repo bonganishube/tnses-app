@@ -66,7 +66,7 @@ export const Header = () => {
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         items: [
             {
-            title: "About us",
+            title: "About Us",
             href: "#about",
             },
             {
@@ -75,7 +75,7 @@ export const Header = () => {
             },
             {
             title: "FAQ",
-            href: "#FAQ",
+            href: "#faq",
             },
             {
             title: "Team",
@@ -83,10 +83,10 @@ export const Header = () => {
             },
             {
             title: "Testimonials",
-            href: "#testimonial",
+            href: "#testimonials",
             },
             {
-            title: "Contact us",
+            title: "Contact Us",
             href: "#contact",
             },
         ],
@@ -99,7 +99,7 @@ export const Header = () => {
             isHeaderActive
                 ? "bg-white shadow-lg transition-all duration-300 ease-in-out"
                 : "bg-transparent"
-            }`}
+            }`} id="home"
         >
         <div className="container px-4 relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
             <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
@@ -159,7 +159,7 @@ export const Header = () => {
                 </NavigationMenuList>
             </NavigationMenu>
             </div>
-            <Link href="#">
+            <Link href="#home">
                 <div className="flex lg:justify-center items-center gap-2">
                 <Image src={Logo} alt="Logo" width={40} height={40} className="rounded-[5px]" />
                 <p className={`font-tertiary text-2xl ${isHeaderActive 
