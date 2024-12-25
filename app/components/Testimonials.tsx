@@ -1,5 +1,8 @@
 import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 import React from 'react';
+import Testimonial1 from "../../public/testimonials/testimonial1.jpg";
+import Testimonial2 from "../../public/testimonials/testimonial2.jpg";
 
 const Testimonials = () => {
   return (
@@ -34,9 +37,11 @@ const Testimonials = () => {
                 Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.
               </p>
               <a className="inline-flex items-center">
-                <img
+                <Image
                   alt="testimonial"
-                  src="https://dummyimage.com/106x106"
+                  src={Testimonial1}
+                  width={80}
+                  height={80}
                   className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
                 />
                 <span className="flex-grow flex flex-col pl-4">
@@ -61,9 +66,11 @@ const Testimonials = () => {
                 Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.
               </p>
               <a className="inline-flex items-center">
-                <img
+                <Image
                   alt="testimonial"
-                  src="https://dummyimage.com/107x107"
+                  src={Testimonial2}
+                  width={80}
+                  height={80}
                   className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
                 />
                 <span className="flex-grow flex flex-col pl-4">

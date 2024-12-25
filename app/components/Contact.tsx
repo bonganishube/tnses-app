@@ -7,7 +7,7 @@ const Contact = () => {
     <section className="py-20 lg:py-20 text-gray-600 body-font relative" id="contact">
       <div className="container px-4 mx-auto flex sm:flex-nowrap flex-wrap">
         {/* Map Section */}
-        <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+        <div className="lg:w-2/3 md:w-1/2 w-full min-h-64 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
           <iframe
             width="100%"
             height="100%"
@@ -17,10 +17,10 @@ const Contact = () => {
             marginHeight={0}
             marginWidth={0}
             scrolling="no"
-            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Belhar%2C%20Pentech%2C%20Cape%20Town%2C%20Western%20Cape%207493&ie=UTF8&t=&z=14&iwloc=B&output=embed"
             style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
           ></iframe>
-          <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+          {/* <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
             <div className="lg:w-1/2 px-6">
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
                 ADDRESS
@@ -30,8 +30,7 @@ const Contact = () => {
                 typewriter
               </p>
             </div>
-
-          </div>
+          </div> */}
         </div>
 
         {/* Feedback Form Section */}

@@ -1,17 +1,18 @@
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import Team1 from "../../public/team/team1.jpg"
-import Team2 from "../../public/team/team2.jpg"
-import Team3 from "../../public/team/team3.jpg"
-import Team4 from "../../public/team/team4.jpg"
-import Team5 from "../../public/team/team5.jpg"
+import Team1 from "../../public/team/team1.jpg";
+import Team2 from "../../public/team/team2.jpg";
+import Team3 from "../../public/team/team3.jpg";
+import Team4 from "../../public/team/team4.jpg";
+import Team5 from "../../public/team/team5.jpg";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const teamMembers = [
   {
     name: "Bonnie Green",
     role: "CEO",
     description:
-      "Bonnie drives the company with a passion for excellence and a vision for success.",
+      "Bonnie leads the company with a focus on innovation, driving excellence and inspiring the team to reach new heights.",
     image: Team1,
     social: [
       { platform: "twitter", url: "https://twitter.com", icon: "/icons/twitter.svg" },
@@ -23,7 +24,7 @@ const teamMembers = [
     name: "Jese Leos",
     role: "CFO",
     description:
-      "Jese leads the tech team to build world-class products and solutions.",
+      "Jese ensures financial stability and growth, guiding investments and strategies for long-term success.",
     image: Team2,
     social: [
       { platform: "twitter", url: "https://twitter.com", icon: "/icons/twitter.svg" },
@@ -32,10 +33,10 @@ const teamMembers = [
     ],
   },
   {
-    name: "Jese Leos",
+    name: "Lara King",
     role: "CTO",
     description:
-      "Jese leads the tech team to build world-class products and solutions.",
+      "Lara leads the tech team, pushing innovation and creating cutting-edge products that meet customer needs.",
     image: Team3,
     social: [
       { platform: "twitter", url: "https://twitter.com", icon: "/icons/twitter.svg" },
@@ -44,10 +45,10 @@ const teamMembers = [
     ],
   },
   {
-    name: "Jese Leos",
+    name: "Miles Edwards",
     role: "COO",
     description:
-      "Jese leads the tech team to build world-class products and solutions.",
+      "Miles optimizes daily operations, ensuring efficiency and helping the company scale effectively.",
     image: Team4,
     social: [
       { platform: "twitter", url: "https://twitter.com", icon: "/icons/twitter.svg" },
@@ -56,10 +57,10 @@ const teamMembers = [
     ],
   },
   {
-    name: "Jese Leos",
+    name: "Sophie Adams",
     role: "CPO",
     description:
-      "Jese leads the tech team to build world-class products and solutions.",
+      "Sophie leads product development, designing innovative solutions that delight customers and drive growth.",
     image: Team5,
     social: [
       { platform: "twitter", url: "https://twitter.com", icon: "/icons/twitter.svg" },
@@ -107,9 +108,19 @@ export default function Team () {
             <span className="text-sm text-gray-500 dark:text-gray-400">
               {member.role}
             </span>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-              {member.description}
-            </p>
+            <Accordion type="single" collapsible className="w-full text-gray-600 dark:text-gray-400">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>
+                    <p className="mt-2 text-sm">
+                      {member.description}
+                    </p>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore officiis voluptas ad! Omnis error tempore voluptatibus illo porro perferendis minima iusto voluptatem perspiciatis tenetur ab ut non, obcaecati repellat.",
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            
 
             {/* <div className="flex justify-center mt-4 space-x-4">
               {member.social.map((social, socialIndex) => (
