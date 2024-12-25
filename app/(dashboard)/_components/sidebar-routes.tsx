@@ -1,7 +1,8 @@
 "use client"
 
 import { Button } from '@/components/ui/button';
-import { UserButton } from '@clerk/nextjs'
+import { useAuth, UserButton } from '@clerk/nextjs'
+import { isTeacher } from '@/lib/teacher';
 import { Book, Lock, LogOut } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -19,6 +20,7 @@ import {
   
 
 const SidebarRoutes = () => {
+    const { userId }  = useAuth()
     const pathname = usePathname();
 
     const isTeacherPage = pathname?.startsWith("/teacher");
@@ -53,7 +55,7 @@ const SidebarRoutes = () => {
                         </DropdownMenuLabel>
                     </DropdownMenuContent>
                 </DropdownMenu>
-            ) : (
+            ) : isTeacher(userId) ? (
                 <DropdownMenu>
                     <DropdownMenuTrigger>
                         <Button size="sm" className="bg-primaryColor">
@@ -72,7 +74,7 @@ const SidebarRoutes = () => {
                         </DropdownMenuLabel>
                     </DropdownMenuContent>
                 </DropdownMenu>
-            )}
+            ) : null}
             <UserButton 
                 afterSignOutUrl="/"
             />
