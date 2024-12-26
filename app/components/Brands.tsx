@@ -64,7 +64,7 @@ return (
                 <CarouselContent>
                     {brandsData.map(( {id, img }) => (
                     <CarouselItem
-                        className="basis-1/5 lg:basis-1/12"
+                        className="basis-1/4 lg:basis-1/12"
                         key={id}
                     >
                         <div className="flex rounded-md aspect-square bg-muted items-center justify-center p-2">

@@ -7,7 +7,7 @@ return (
     <section className="py-20 lg:py-40 bg-tertiaryColor" id="about">
         <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row gap-16">
             <div className="flex md:flex-1">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" className="w-full md:h-full object-cover rounded-lg aspect-video hover:aspect-square"></iframe>
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" className="w-full h-[400px] md:h-full object-cover rounded-lg aspect-video hover:aspect-square"></iframe>
             </div>
             <div className="lg:w-1/2 space-y-12 text-gray-700 dark:text-gray-300">
                 <div className="flex gap-4 flex-col">
