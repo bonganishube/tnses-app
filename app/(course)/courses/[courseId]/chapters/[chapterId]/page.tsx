@@ -6,16 +6,13 @@ import React from 'react';
 import { VideoPlayer } from './_components/video-player';
 import CourseEnrollButton from './_components/course-enroll-button';
 import { Separator } from '@/components/ui/separator';
-import { Preview } from '@/components/preview';
 import { File } from 'lucide-react';
 import CourseProgressButton from './_components/course-progress-button';
 
-const ChapterIdPage = async ({
-    params,
-}: {
-    params: { courseId: string; chapterId: string } | Promise<{ courseId: string; chapterId: string }>;
-}) => {
-    const resolvedParams = await params; // Resolve params if it's asynchronous
+const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId: string } }) => {
+    // Await params destructuring
+    const { courseId, chapterId } = await Promise.resolve(params);
+
     const { userId } = await auth();
 
     if (!userId) {
@@ -32,8 +29,8 @@ const ChapterIdPage = async ({
         purchase,
     } = await getChapter({
         userId,
-        chapterId: resolvedParams.chapterId,
-        courseId: resolvedParams.courseId,
+        courseId,
+        chapterId,
     });
 
     if (!chapter || !course) {
@@ -46,23 +43,17 @@ const ChapterIdPage = async ({
     return (
         <div>
             {userProgress?.isCompleted && (
-                <Banner
-                    variant="success"
-                    label="You have already completed this chapter."
-                />
+                <Banner variant="success" label="You have already completed this chapter." />
             )}
             {isLocked && (
-                <Banner
-                    variant="warning"
-                    label="You need to purchase this course to watch this chapter."
-                />
+                <Banner variant="warning" label="You need to purchase this course to watch this chapter." />
             )}
             <div className="flex flex-col max-w-4xl mx-auto pb-20">
                 <div className="p-4">
                     <VideoPlayer
-                        chapterId={resolvedParams.chapterId}
+                        chapterId={chapterId}
                         title={chapter.title}
-                        courseId={resolvedParams.courseId}
+                        courseId={courseId}
                         nextChapterId={nextChapter?.id}
                         playbackId={muxData?.playbackId!}
                         isLocked={isLocked}
@@ -71,21 +62,16 @@ const ChapterIdPage = async ({
                 </div>
                 <div>
                     <div className="p-4 flex flex-col md:flex-row items-center justify-between">
-                        <h2 className="text-2xl font-semibold mb-2">
-                            {chapter.title}
-                        </h2>
+                        <h2 className="text-2xl font-semibold mb-2">{chapter.title}</h2>
                         {purchase ? (
                             <CourseProgressButton
-                                chapterId={resolvedParams.chapterId}
-                                courseId={resolvedParams.courseId}
+                                chapterId={chapterId}
+                                courseId={courseId}
                                 nextChapterId={nextChapter?.id}
                                 isCompleted={!!userProgress?.isCompleted}
                             />
                         ) : (
-                            <CourseEnrollButton
-                                courseId={resolvedParams.courseId}
-                                price={course.price!}
-                            />
+                            <CourseEnrollButton courseId={courseId} price={course.price!} />
                         )}
                     </div>
                     <Separator />
