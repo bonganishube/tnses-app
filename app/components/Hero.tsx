@@ -105,7 +105,7 @@ export const Hero = () => {
                         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-slate-900/[0.5]">
                               <div className="container flex gap-8 items-center justify-center flex-col">
                                   <div>
-                                  <Button variant="secondary" size="lg" className="gap-4">
+                                  <Button variant="secondary" size="lg" className="gap-4 hidden md:inline-flex">
                                       Read our launch article <MoveRight className="w-4 h-4" />
                                   </Button>
                                   </div>
@@ -127,8 +127,8 @@ export const Hero = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute top-[55%] left-[5%]" />
-            <CarouselNext className="absolute top-[55%] right-[5%]"/>
+            <CarouselPrevious className="absolute top-[57%] left-[5%] opacity-50" />
+            <CarouselNext className="absolute top-[57%] right-[5%] opacity-50"/>
           </Carousel>
         </div>
       </div>

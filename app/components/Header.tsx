@@ -190,7 +190,7 @@ export const Header = () => {
                 <div className="absolute top-20 border-t flex flex-col h-dvh right-0 bg-background shadow-lg pt-24 container gap-8">
                 {navigationItems.map((item) => (
                     <div key={item.title}>
-                    <div className="flex flex-col gap-2 text-sm">
+                    <div className="flex flex-col gap-2 ">
                         {item.href ? (
                         <Link
                             href={item.href}
