@@ -90,11 +90,11 @@ const Contact = () => {
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               ></textarea>
             </div>
-            <p className="text-xs text-gray-500">
+            <Button className="bg-primaryColor w-full">Submit</Button>
+            <p className="text-xs text-gray-500 mt-4">
               Chicharrones blog helvetica normcore iceland tousled brook viral
               artisan.
             </p>
-            <Button className="bg-primaryColor mt-4 w-full">Submit</Button>
           </div>
         </div>
       </div>
