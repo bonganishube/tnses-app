@@ -6,12 +6,11 @@ import React from 'react';
 import { VideoPlayer } from './_components/video-player';
 import CourseEnrollButton from './_components/course-enroll-button';
 import { Separator } from '@/components/ui/separator';
-import { Preview } from '@/components/preview';
 import { File } from 'lucide-react';
 import CourseProgressButton from './_components/course-progress-button';
 
 const ChapterIdPage = async ({
-    params: paramsPromise,
+    params,
 }: {
     params: Promise<{ courseId: string; chapterId: string }>;
 }) => {
@@ -21,8 +20,8 @@ const ChapterIdPage = async ({
         return redirect("/browser");
     }
 
-    // Await the dynamic `params`
-    const { courseId, chapterId } = await paramsPromise;
+    // Await the dynamic `params` object to handle the async nature
+    const { courseId, chapterId } = await params;
 
     const {
         chapter,
