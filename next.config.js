@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-            "utfs.io"
-        ]
-    }
-}
-
-module.exports = nextConfig
+      domains: ["utfs.io"],
+    },
+    experimental: {
+      missingSuspenseWithCSRBailout: false,
+    },
+  };
+  
+  module.exports = nextConfig;
+  
