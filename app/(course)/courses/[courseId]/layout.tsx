@@ -6,13 +6,18 @@ import React from 'react';
 import CourseSidebar from './_components/course-sidebar';
 import CourseNavbar from './_components/course-navbar';
 
-const CourseLayout = async ({
-    children,
-    params,
-}: {
-    children: React.ReactNode;
-    params: { courseId: string };
-}) => {
+const CourseLayout = async (
+    props: {
+        children: React.ReactNode;
+        params: Promise<{ courseId: string }>;
+    }
+) => {
+    const params = await props.params;
+
+    const {
+        children
+    } = props;
+
     // Await params resolution
     const { courseId } = await Promise.resolve(params);
 
