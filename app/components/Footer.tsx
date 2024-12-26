@@ -79,7 +79,7 @@ const footerBlocks = [
 const Footer: React.FC = () => {
   return (
     <footer className="bg-secondaryColor dark:bg-gray-900 py-20 lg:py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8">
         <div className="w-full text-slate-200 dark:text-gray-300 grid grid-cols-2 lg:grid-cols-4 gap-8 pb-4 border-b border-b-gray-200 dark:border-b-gray-800">
           <div>
             <Link href="#" className="flex gap-1 items-center">

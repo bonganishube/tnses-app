@@ -94,7 +94,7 @@ const Contact = () => {
               Chicharrones blog helvetica normcore iceland tousled brook viral
               artisan.
             </p>
-            <Button className="bg-primaryColor mt-4">Submit</Button>
+            <Button className="bg-primaryColor mt-4 w-full">Submit</Button>
           </div>
         </div>
       </div>
