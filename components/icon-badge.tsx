@@ -15,6 +15,7 @@ const backgroundVariants = cva(
             },
             size: {
                 default: "p-2",
+                md: "p-1",
                 sm: "p-1",
             }
         },
@@ -39,6 +40,7 @@ const iconVariants = cva(
             },
             size: {
                 default: "h-8 w-8",
+                md: "h-6 w-6",
                 sm: "h-4 w-4"
             },
         },

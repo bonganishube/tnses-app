@@ -17,7 +17,7 @@ const Dashboard = async () => {
 
   return (
     <div className="p-6 space-y-4">
-        <div className="grid grid-cols sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols sm:grid-cols-2 gap-4 w-full lg:w-2/3">
             <InfoCard 
                 icon={Clock}
                 label="In Progress"

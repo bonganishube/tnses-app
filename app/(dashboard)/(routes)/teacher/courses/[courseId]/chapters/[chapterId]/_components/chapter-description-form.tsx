@@ -67,7 +67,7 @@ export const ChapterDescriptionForm = ({
     }
 
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="mt-6 border rounded-md p-4">
         <div className="font-medium flex items-center justify-between">
             Chapter description
             <Button onClick={toggleEdit} variant="ghost">
@@ -125,6 +125,7 @@ export const ChapterDescriptionForm = ({
                         <Button 
                             disabled={!isValid || isSubmitting} 
                             type="submit"
+                            variant="secndary"
                         >
                             Save
                         </Button>
