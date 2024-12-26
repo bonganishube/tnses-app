@@ -6,14 +6,13 @@ import React from 'react';
 import { VideoPlayer } from './_components/video-player';
 import CourseEnrollButton from './_components/course-enroll-button';
 import { Separator } from '@/components/ui/separator';
-import { Preview } from '@/components/preview';
 import { File } from 'lucide-react';
 import CourseProgressButton from './_components/course-progress-button';
 
 const ChapterIdPage = async ({
-    params
+    params: paramsPromise
 }: {
-    params: { courseId: string; chapterId: string }
+    params: Promise<{ courseId: string; chapterId: string }>
 }) => {
     const { userId } = await auth();
 
@@ -21,7 +20,8 @@ const ChapterIdPage = async ({
         return redirect("/browser");
     }
 
-    const { courseId, chapterId } = await params;
+    // Await the params Promise
+    const { courseId, chapterId } = await paramsPromise;
 
     const {
         chapter,
