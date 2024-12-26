@@ -34,8 +34,9 @@ const CourseEnrollButton = ({
    <Button
         onClick={onClick}
         disabled={isLoading}
+        variant="outline"
         size="sm" 
-        className="w-full md:w-auto"
+        className="md:w-auto"
     >
         Enroll for {formatPrice(price)}
    </Button>

@@ -146,9 +146,9 @@ const data = {
   ],
   guestRoutes: [
     {
-      title: "Home",
-      url: "/home",
-      icon: List,
+      title: "Browse courses",
+      url: "/browse",
+      icon: Compass,
       items: [
         {
           title: "None",
@@ -157,9 +157,9 @@ const data = {
       ],
     },
     {
-      title: "Browse",
-      url: "/browse",
-      icon: Compass,
+      title: "My courses",
+      url: "/home",
+      icon: List,
       items: [
         {
           title: "None",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from "lucide-react";
+import { Menu, PanelRight, PanelRightClose } from "lucide-react";
 import { Chapter, Course, UserProgress } from "@prisma/client";
 
 import {
@@ -8,6 +8,7 @@ import {
     SheetTrigger
 } from "@/components/ui/sheet";
 import CourseSidebar from './course-sidebar';
+import { Separator } from '@/components/ui/separator';
 
 
 
@@ -26,10 +27,11 @@ const CourseMobileSidebar = ({
 }: CourseMobileSidebarProps) => {
   return (
     <Sheet>
-        <SheetTrigger className="md:hidden pr-4 hover:opacity-75 transition">
-            <Menu />
+        <SheetTrigger className="md:hidden hover:opacity-75 transition">
+            <PanelRight size="icon" className="h-4 w-4 ml-2 rotate-180" />
         </SheetTrigger>
-        <SheetContent side="left" className="p-0 bg-white w-72">
+        <Separator orientation="vertical" className="mx-2 h-4 md:hidden" />
+        <SheetContent side="left" className="p-0 bg-white ">
             <CourseSidebar 
                 course={course}
                 progressCount={progressCount}
