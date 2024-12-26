@@ -1,11 +1,14 @@
 import { db } from '@/lib/db';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Categories } from './_components/categories';
 import SearchInput from '../../_components/search-input';
 import { getCourses } from '@/actions/get-courses';
 import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
-import CoursesList from '@/components/courses-list';
+import dynamic from 'next/dynamic';
+
+// Lazy load CoursesList component to be client-side
+const CoursesList = dynamic(() => import('@/components/courses-list'), { ssr: false });
 
 interface SearchPageProps {
   searchParams: {
@@ -29,11 +32,13 @@ const SearchPage = async ({
     },
   });
 
-  const resolvedSearchParams = await searchParams; 
+  const { title, categoryId } = searchParams;
 
+  // Server-side fetch to get courses
   const courses = await getCourses({
     userId,
-    ...resolvedSearchParams, 
+    title,
+    categoryId,
   });
 
   return (
@@ -43,7 +48,10 @@ const SearchPage = async ({
       </div>
       <div className="p-6 space-y-4">
         <Categories items={categories} />
-        <CoursesList items={courses} />
+        {/* Wrap CoursesList in Suspense */}
+        <Suspense fallback={<div>Loading courses...</div>}>
+          <CoursesList items={courses} />
+        </Suspense>
       </div>
     </>
   );
