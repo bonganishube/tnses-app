@@ -20,7 +20,7 @@ const ChapterIdPage = async ({
     chapterIdParams,
  }: ChapterIdPageProps) => {
     
-    const {courseId, chapterId} = await chapterIdParams
+    const {courseId, chapterId} = chapterIdParams
 
     const { userId } = await auth();
 
