@@ -11,7 +11,7 @@ import CourseProgressButton from './_components/course-progress-button';
 
 const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId: string } }) => {
     // Await params destructuring
-    const { courseId, chapterId } = await Promise.resolve(params);
+    const { courseId, chapterId } = await params;
 
     const { userId } = await auth();
 
