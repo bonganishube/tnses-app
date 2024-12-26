@@ -44,7 +44,9 @@ const SearchPage = async ({
   return (
     <>
       <div className="px-6 pt-6 md:hidden md:mb-0 block">
-        <SearchInput />
+        <Suspense fallback={<div>Loading...</div>}>
+          <SearchInput />
+        </Suspense>
       </div>
       <div className="p-6 space-y-4">
         <Categories items={categories} />
