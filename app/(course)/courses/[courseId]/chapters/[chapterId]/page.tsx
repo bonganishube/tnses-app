@@ -9,9 +9,18 @@ import { Separator } from '@/components/ui/separator';
 import { File } from 'lucide-react';
 import CourseProgressButton from './_components/course-progress-button';
 
-const ChapterIdPage = async ({ params }: { params: { courseId: string; chapterId: string } }) => {
-    // Await params destructuring
-    const { courseId, chapterId } = await params;
+interface ChapterIdPageProps {
+    chapterIdParams: {
+        courseId: string;
+        chapterId: string;
+    };
+}
+
+const ChapterIdPage = async ({ 
+    chapterIdParams,
+ }: ChapterIdPageProps) => {
+    
+    const {courseId, chapterId} = await chapterIdParams
 
     const { userId } = await auth();
 

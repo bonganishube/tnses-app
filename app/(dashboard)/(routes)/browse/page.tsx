@@ -1,5 +1,5 @@
-import { db } from '@/lib/db'
-import React from 'react'
+import { db } from '@/lib/db';
+import React from 'react';
 import { Categories } from './_components/categories';
 import SearchInput from '../../_components/search-input';
 import { getCourses } from '@/actions/get-courses';
@@ -11,28 +11,30 @@ interface SearchPageProps {
   searchParams: {
     title: string;
     categoryId: string;
-  }
-};
+  };
+}
 
 const SearchPage = async ({
-  searchParams
+  searchParams,
 }: SearchPageProps) => {
   const { userId } = await auth();
 
-  if(!userId) {
-    return redirect("/");
+  if (!userId) {
+    return redirect('/');
   }
 
   const categories = await db.category.findMany({
-      orderBy: {
-        name: "asc"
-      }
+    orderBy: {
+      name: 'asc',
+    },
   });
+
+  const resolvedSearchParams = await searchParams; 
 
   const courses = await getCourses({
     userId,
-    ...searchParams,
-  })
+    ...resolvedSearchParams, 
+  });
 
   return (
     <>
@@ -40,13 +42,11 @@ const SearchPage = async ({
         <SearchInput />
       </div>
       <div className="p-6 space-y-4">
-        <Categories
-          items={categories}
-        />
-        <CoursesList items={courses}/>
+        <Categories items={categories} />
+        <CoursesList items={courses} />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SearchPage
+export default SearchPage;
