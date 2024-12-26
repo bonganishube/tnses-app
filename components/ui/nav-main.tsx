@@ -65,7 +65,7 @@ export function NavMain({
                   onClick={() => onClick(item.url)}
                   className={cn(
                     "default",
-                    isItemActive(item.url) && "text-primaryColor bg-primaryColor/20 hover:bg-primaryColor/20 hover:text-primaryColor"
+                    isItemActive(item.url) && "text-primaryColor bg-primaryColor/20 font-semibold hover:bg-primaryColor/20 hover:text-primaryColor "
                   )}
                 >
                   {item.icon && (
