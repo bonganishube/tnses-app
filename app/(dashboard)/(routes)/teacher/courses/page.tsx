@@ -22,7 +22,7 @@ const CoursesPage = async () => {
   });
 
   return (
-    <div className="p-6">
+    <div className="w-full overflow-hidden p-6">
       <DataTable columns={columns} data={courses} />
     </div>
   )

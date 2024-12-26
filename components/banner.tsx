@@ -34,8 +34,8 @@ export const Banner = ({
     const Icon = iconMap[variant || "warning"];
 
   return (
-    <div className={cn(bannerVariants({ variant }), "")}>
-        <Icon className="h-4 w-4 mx-2" />
+    <div className={cn(bannerVariants({ variant }), "text-left")}>
+        <Icon className="h-4 w-4 ml-2 mr-4" />
         {label}
     </div>
   );
