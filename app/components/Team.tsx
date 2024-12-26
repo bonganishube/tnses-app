@@ -116,7 +116,7 @@ export default function Team () {
                     </p>
                   </AccordionTrigger>
                   <AccordionContent>
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore officiis voluptas ad! Omnis error tempore voluptatibus illo porro perferendis minima iusto voluptatem perspiciatis tenetur ab ut non, obcaecati repellat.",
+                    &quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore officiis voluptas ad! Omnis error tempore voluptatibus illo porro perferendis minima iusto voluptatem perspiciatis tenetur ab ut non, obcaecati repellat.&quot;
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
