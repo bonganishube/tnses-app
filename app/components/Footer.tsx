@@ -2,9 +2,14 @@ import Image from "next/image"
 import Link from "next/link"
 import Logo from "../../public/logo.png"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/ui/input";
+
+type FooterItemProps = {
+    text: string;
+    link: string;
+  }
  
-const FooterItem = ({ text, link }) => {
+const FooterItem: React.FC<FooterItemProps> = ({ text, link }) => {
 return (
     <li>
         <Link href={link} className="duration-200 hover:text-blue-600 dark:hover:text-blue-500">
