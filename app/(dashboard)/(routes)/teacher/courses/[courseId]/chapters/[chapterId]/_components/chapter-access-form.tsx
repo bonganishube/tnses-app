@@ -21,7 +21,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { cn } from '@/lib/utils';
 import { Chapter } from '@prisma/client';
-import { Editor } from '@/components/editor';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 
