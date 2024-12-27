@@ -207,7 +207,7 @@ export const Header = () => {
                         </div>
                     </Link>
                 </SheetHeader>
-                    <div className="absolute top-20 border-t flex flex-col h-dvh right-0 bg-background shadow-lg pt-10 container gap-8">
+                    <div className="absolute top-20 border-t flex flex-col right-0 bg-background shadow-lg pt-10 container gap-8 overflow-auto">
                         {navigationItems.map((item) => (
                             <div key={item.title}>
                             <div className="flex flex-col gap-2 ">
@@ -216,8 +216,7 @@ export const Header = () => {
                                     href={item.href}
                                     className="flex justify-between items-center"
                                 >
-                                    <span>{item.title}</span>
-                                    <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
+                                    <span>{item.title}</span> 
                                 </Link>
                                 ) : (
                                 <p>{item.title}</p>
@@ -232,7 +231,6 @@ export const Header = () => {
                                     <span className="text-muted-foreground">
                                         {subItem.title}
                                     </span>
-                                    <MoveRight className="w-4 h-4 stroke-1" />
                                     </Link>
                                 ))}
                             </div>
