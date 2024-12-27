@@ -210,7 +210,7 @@ export const Header = () => {
                             </div>
                         </Link>
                     </SheetHeader>
-                        <div className="flex flex-col gap-6 border-t mt-6 pt-6">
+                        <div className="flex flex-col gap-6 border-t mt-6 pt-6 px-4">
                         
                             {navigationItems.map((item) => (
                                 <div key={item.title}>
@@ -241,16 +241,16 @@ export const Header = () => {
                                 </div>
                             ))}
                         </div>
-                    <SheetFooter className="flex items-center">
-                            <SheetClose asChild>
-                            <Button className="bg-primaryColor lg:hidden w-full">
+                    <SheetFooter className="px-4">
+                            <SheetClose asChild >
+                            <Button className="bg-primaryColor lg:hidden">
                                 <Link href="/sign-up">
                                     Get Started
                                 </Link>
                             </Button>
                             </SheetClose>
                             <SheetClose asChild>
-                                <Button variant="outline" className="lg:hidden w-full mt-6 mb-5">
+                                <Button variant="outline" className="lg:hidden mt-6 mb-5">
                                     <Link href="/sign-in">
                                         Log In
                                     </Link>
