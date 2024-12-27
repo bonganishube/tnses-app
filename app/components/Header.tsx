@@ -15,6 +15,7 @@ import Link from "next/link";
 import Logo from "../../public/logo.png"
 import Image from "next/image";
 import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar";
 
 export const Header = () => {
 
@@ -37,11 +38,12 @@ export const Header = () => {
     const navigationItems = [
         {
         title: "Home",
-        href: "/",
+        href: "#home",
         description: "",
         },
         {
         title: "Services",
+        href: "#services",
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         items: [
             {
@@ -64,6 +66,7 @@ export const Header = () => {
         },
         {
         title: "Organisation",
+        href: "#about",
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         items: [
             {
@@ -207,7 +210,7 @@ export const Header = () => {
                         </div>
                     </Link>
                 </SheetHeader>
-                    <div className="absolute top-20 border-t flex flex-col right-0 bg-background shadow-lg pt-10 container gap-8 overflow-auto">
+                    <div className="border-t flex flex-col bg-background pt-10 mt-7 container gap-8 h-full overflow-y-auto">
                         {navigationItems.map((item) => (
                             <div key={item.title}>
                             <div className="flex flex-col gap-2 ">
@@ -236,11 +239,38 @@ export const Header = () => {
                             </div>
                             </div>
                         ))}
-                        <Button variant="outline" className="lg:hidden"><Link href="/sign-in">Log In</Link></Button>
-                        <Button className="bg-primaryColor lg:hidden"><Link href="/sign-up">Get Started</Link></Button>
+                        <div className="flex gap-4">
+                            <Button variant="outline" className="lg:hidden"><Link href="/sign-in">Log In</Link></Button>
+                            <Button className="bg-primaryColor lg:hidden"><Link href="/sign-up">Get Started</Link></Button>
+                        </div>
                     </div>
+                    
             </SheetContent>
             </Sheet>
+            
+            {/* <SidebarProvider>
+            <Sidebar>
+                <SidebarContent>
+                    <SidebarGroup>
+                    <SidebarGroupLabel>Application</SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                        {navigationItems.map((item) => (
+                            <SidebarMenuItem key={item.title}>
+                            <SidebarMenuButton asChild>
+                                <Link href={item.href}>
+                                <span>{item.title}</span>
+                                </Link>
+                            </SidebarMenuButton>
+                            </SidebarMenuItem>
+                        ))}
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                    </SidebarGroup>
+                </SidebarContent>
+            </Sidebar>
+            </SidebarProvider> */}
+
             </div>
         </div>
         </header>
