@@ -42,7 +42,7 @@ export const Header = () => {
         },
         {
         title: "Services",
-        href: "#services",
+        // href: "#services",
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         items: [
             {
@@ -65,7 +65,7 @@ export const Header = () => {
         },
         {
         title: "Organisation",
-        href: "#about",
+        // href: "#about",
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         items: [
             {
