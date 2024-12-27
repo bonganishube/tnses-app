@@ -74,8 +74,8 @@ export const DescriptionForm = ({
                     <>Cancel</>
                 ) : (
                     <>
-                        <Pencil className="h-4 w-4 mr-2" />
-                        Edit
+                        <Pencil className="h-4 w-4" />
+                        {/* Edit */}
                     </>
                 )}
             </Button>

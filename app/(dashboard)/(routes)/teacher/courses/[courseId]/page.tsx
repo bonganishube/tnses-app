@@ -107,12 +107,12 @@ const CourseIdPage = async (
                   </div>
               </div>
               <div className="mt-16 space-y-6 md:w-2/3 xl:w-1/2">
-                  <div className="flex items-center gap-x-2">
+                  {/* <div className="flex items-center gap-x-2">
                       <IconBadge icon={LayoutDashboard} size="md" />
                       <h2 className="text-lg font-semibold">
                           Customise your course
                       </h2>
-                  </div>
+                  </div> */}
                   <TitleForm 
                       initialData={course}
                       courseId={course.id}
@@ -133,37 +133,37 @@ const CourseIdPage = async (
                           value: category.id,
                       }))}
                   />
-                  <div className="pt-8">
-                      <div className="flex items-center gap-x-2">
+                  <div>
+                      {/* <div className="flex items-center gap-x-2">
                           <IconBadge icon={ListChecks} size="md" />
                           <h2 className="text-lg font-semibold">
                               Course chapters
                           </h2>
-                      </div>
+                      </div> */}
                       <ChaptersForm
                           initialData={course}
                           courseId={course.id}
                       />
                   </div>
-                  <div className="pt-8">
-                      <div className="flex items-center gap-x-2">
+                  <div>
+                      {/* <div className="flex items-center gap-x-2">
                           <IconBadge icon={CircleDollarSign} size="md" />
                           <h2 className="text-lg font-semibold">
                               Sell your course
                           </h2>
-                      </div>
+                      </div> */}
                       <PriceForm 
                           initialData={course}
                           courseId={course.id}
                       />
                   </div>
-                  <div className="pt-8">
-                      <div className="flex items-center gap-x-2">
+                  <div>
+                      {/* <div className="flex items-center gap-x-2">
                           <IconBadge icon={File} size="md" />
                           <h2 className="text-lg font-semibold">
                               Resources & Attachments
                           </h2>
-                      </div>
+                      </div> */}
                       <AttachmentForm
                       initialData={course}
                       courseId={course.id}

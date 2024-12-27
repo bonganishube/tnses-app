@@ -90,12 +90,12 @@ const ChapterIdPage = async (
           <div className="md:w-2/3 xl:w-1/2 mt-16 space-y-6">
                <div className="space-y-4">
                    <div>
-                      <div className="flex items-center gap-x-2">
+                      {/* <div className="flex items-center gap-x-2">
                           <IconBadge icon={LayoutDashboard} size="md" />
                           <h2 className="text-lg font-semibold">
                               Customise your chapter 
                           </h2>
-                      </div>
+                      </div> */}
                       <ChapterTitleForm 
                           initialData={chapter}
                           courseId={params.courseId}
@@ -107,13 +107,13 @@ const ChapterIdPage = async (
                           chapterId={params.chapterId}
                       />
                    </div>
-                   <div className="pt-8">
-                      <div  className="flex items-center gap-x-2">
+                   <div>
+                      {/* <div  className="flex items-center gap-x-2">
                           <IconBadge icon={Eye} size="md" />
                           <h2 className="text-lg font-semibold">
                               Access Settings
                           </h2>
-                      </div>
+                      </div> */}
                       <ChapterAccessForm 
                           initialData={chapter}
                           courseId={params.courseId}
@@ -121,13 +121,13 @@ const ChapterIdPage = async (
                       />
                    </div>
                </div>
-               <div className="pt-8">
-                  <div className="flex items-center gap-x-2">
+               <div>
+                  {/* <div className="flex items-center gap-x-2">
                       <IconBadge icon={Video} size="md" />
                       <h2 className="text-lg font-semibold">
                           Add a video
                       </h2>
-                  </div>
+                  </div> */}
                   <div>
                       <ChapterVideoForm 
                           initialData={chapter}

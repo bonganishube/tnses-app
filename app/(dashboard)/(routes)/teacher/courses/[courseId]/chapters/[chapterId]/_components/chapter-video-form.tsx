@@ -58,13 +58,13 @@ export const ChapterVideoForm = ({
                 )}
                 {!isEditing && !initialData.videoUrl && (
                     <>
-                        <PlusCircle className="w-4 h-4 mr-2" />
-                        Add a video
+                        <PlusCircle className="w-4 h-4" />
+                        {/* Add a video */}
                     </>
                 )}
                 {!isEditing && initialData.videoUrl && (
                     <>
-                        <Pencil className="h-4 w-4 mr-2" />
+                        <Pencil className="h-4 w-4" />
                         Edit video
                     </>
                 )}
@@ -72,7 +72,7 @@ export const ChapterVideoForm = ({
         </div> 
         {!isEditing && (
             !initialData.videoUrl ? (
-                <div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
+                <div className="flex items-center justify-center h-60 bg-slate-200 mt-4 rounded-md">
                     <Video className="h-10 w-10 text-slate-500"/>
                 </div>
             ) : (

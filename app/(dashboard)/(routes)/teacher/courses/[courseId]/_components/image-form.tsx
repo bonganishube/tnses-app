@@ -57,13 +57,13 @@ export const ImageForm = ({
                 )}
                 {!isEditing && !initialData.imageUrl && (
                     <>
-                        <PlusCircle className="w-4 h-4 mr-2" />
-                        Add
+                        <PlusCircle className="w-4 h-4" />
+                        {/* Add */}
                     </>
                 )}
                 {!isEditing && initialData.imageUrl && (
                     <>
-                        <Pencil className="h-4 w-4 mr-2" />
+                        <Pencil className="h-4 w-4" />
                         Edit image
                     </>
                 )}
@@ -71,7 +71,7 @@ export const ImageForm = ({
         </div> 
         {!isEditing && (
             !initialData.imageUrl ? (
-                <div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
+                <div className="flex items-center justify-center h-60 bg-slate-200 mt-4 rounded-md">
                     <ImageIcon className="h-10 w-10 text-slate-500"/>
                 </div>
             ) : (

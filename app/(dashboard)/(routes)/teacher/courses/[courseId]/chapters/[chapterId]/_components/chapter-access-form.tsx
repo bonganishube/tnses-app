@@ -76,8 +76,8 @@ export const ChapterAccessForm = ({
                     <>Cancel</>
                 ) : (
                     <>
-                        <Pencil className="h-4 w-4 mr-2" />
-                        Edit access
+                        <Pencil className="h-4 w-4" />
+                        {/* Edit access */}
                     </>
                 )}
             </Button>

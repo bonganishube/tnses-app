@@ -101,8 +101,8 @@ export const ChaptersForm = ({
                     <>Cancel</>
                 ) : (
                     <>
-                        <PlusCircle className="h-4 w-4 mr-2" />
-                        Add
+                        <PlusCircle className="h-4 w-4" />
+                        {/* Add */}
                     </>
                 )}
             </Button>
