@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "../../public/logo.png"
 import Image from "next/image";
-import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar";
 
 export const Header = () => {
@@ -183,94 +183,82 @@ export const Header = () => {
             <Button variant="outline" className="hidden md:inline" ><Link href="/sign-in">Log In</Link></Button>
             <Button className="bg-primaryColor hidden md:inline"><Link href="/sign-up">Get Started</Link></Button>
             </div>
-            <div className="flex shrink lg:hidden items-end justify-end">
-            <Sheet>
-            <SheetTrigger>
-                <Button 
-                    variant="outline" 
-                    size="icon" 
-                    className={`bg-transparent text-white ${
-                        isHeaderActive 
-                            ? "text-black"
-                            : "text-white"
-                    }`} 
-                >
-                    <Menu />
-                </Button>
-            </SheetTrigger>
-            
-            <SheetContent className="w-full" side="left">
-                <SheetHeader>
-                    <Link href="#home">
-                        <div className="flex lg:justify-center items-center gap-2">
-                        <Image src={Logo} alt="Logo" width={40} height={40} className="rounded-[5px]" />
-                        <p className="font-tertiary text-2xl text-black">
-                            Tnses
-                        </p>
-                        </div>
-                    </Link>
-                </SheetHeader>
-                    <div className="border-t flex flex-col bg-background pt-10 mt-7 container gap-8 h-full overflow-y-auto">
-                        {navigationItems.map((item) => (
-                            <div key={item.title}>
-                            <div className="flex flex-col gap-2 ">
-                                {item.href ? (
-                                <Link
-                                    href={item.href}
-                                    className="flex justify-between items-center"
-                                >
-                                    <span>{item.title}</span> 
-                                </Link>
-                                ) : (
-                                <p>{item.title}</p>
-                                )}
-                                {item.items &&
-                                item.items.map((subItem) => (
+            <div>
+                <Sheet>
+                <SheetTrigger asChild>
+                    <Button 
+                        variant="outline" 
+                        size="icon" 
+                        className={`bg-transparent text-white ${
+                            isHeaderActive 
+                                ? "text-black"
+                                : "text-white"
+                        }`} 
+                    >
+                        <Menu />
+                    </Button>
+                </SheetTrigger>
+                
+                <SheetContent className="w-full overflow-y-auto" side="left">
+                    <SheetHeader>
+                        <Link href="#home">
+                            <div className="flex lg:justify-center items-center gap-2">
+                            <Image src={Logo} alt="Logo" width={40} height={40} className="rounded-[5px]" />
+                            <p className="font-tertiary text-2xl text-black">
+                                Tnses
+                            </p>
+                            </div>
+                        </Link>
+                    </SheetHeader>
+                        <div className="flex flex-col gap-5 border-t mt-6 pt-10">
+                        
+                            {navigationItems.map((item) => (
+                                <div key={item.title}>
+                                <div className="flex flex-col gap-2 ">
+                                    {item.href ? (
                                     <Link
-                                    key={subItem.title}
-                                    href={subItem.href}
-                                    className="flex justify-between items-center"
+                                        href={item.href}
+                                        className="flex justify-between items-center"
                                     >
-                                    <span className="text-muted-foreground">
-                                        {subItem.title}
-                                    </span>
+                                        <span>{item.title}</span> 
                                     </Link>
-                                ))}
-                            </div>
-                            </div>
-                        ))}
-                        <div className="flex gap-4">
-                            <Button variant="outline" className="lg:hidden"><Link href="/sign-in">Log In</Link></Button>
-                            <Button className="bg-primaryColor lg:hidden"><Link href="/sign-up">Get Started</Link></Button>
+                                    ) : (
+                                    <p>{item.title}</p>
+                                    )}
+                                    {item.items &&
+                                    item.items.map((subItem) => (
+                                        <Link
+                                        key={subItem.title}
+                                        href={subItem.href}
+                                        className="flex justify-between items-center"
+                                        >
+                                        <span className="text-muted-foreground">
+                                            {subItem.title}
+                                        </span>
+                                        </Link>
+                                    ))}
+                                </div>
+                                </div>
+                            ))}
                         </div>
-                    </div>
-                    
-            </SheetContent>
-            </Sheet>
-            
-            {/* <SidebarProvider>
-            <Sidebar>
-                <SidebarContent>
-                    <SidebarGroup>
-                    <SidebarGroupLabel>Application</SidebarGroupLabel>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                        {navigationItems.map((item) => (
-                            <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton asChild>
-                                <Link href={item.href}>
-                                <span>{item.title}</span>
+                    <SheetFooter className="flex items-center">
+                            <SheetClose asChild>
+                            <Button className="bg-primaryColor lg:hidden w-full">
+                                <Link href="/sign-up">
+                                    Get Started
                                 </Link>
-                            </SidebarMenuButton>
-                            </SidebarMenuItem>
-                        ))}
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                    </SidebarGroup>
-                </SidebarContent>
-            </Sidebar>
-            </SidebarProvider> */}
-
+                            </Button>
+                            </SheetClose>
+                            <SheetClose asChild>
+                                <Button variant="outline" className="lg:hidden w-full my-5">
+                                    <Link href="/sign-in">
+                                        Log In
+                                    </Link>
+                                </Button>
+                            </SheetClose>
+                    </SheetFooter>   
+                </SheetContent>
+            </Sheet>
             </div>
         </div>
         </header>
