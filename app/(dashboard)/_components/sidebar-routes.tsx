@@ -39,7 +39,7 @@ const SidebarRoutes = () => {
                 
                 <DropdownMenu>
                     <DropdownMenuTrigger>
-                        <Button size="sm" className="bg-primaryColor">
+                        <Button variant="outline" size="sm">
                             <Lock className="h-4 w-4"/>
                             Admin Mode
                         </Button>
@@ -58,7 +58,7 @@ const SidebarRoutes = () => {
             ) : isTeacher(userId) ? (
                 <DropdownMenu>
                     <DropdownMenuTrigger>
-                        <Button size="sm" className="bg-primaryColor">
+                        <Button variant="outline" size="sm">
                             <Book className="h-4 w-4"/>
                             Student Mode
                         </Button>
