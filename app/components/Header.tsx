@@ -14,8 +14,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "../../public/logo.png"
 import Image from "next/image";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar";
+import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
 
 export const Header = () => {
 
@@ -214,13 +213,13 @@ export const Header = () => {
                         
                             {navigationItems.map((item) => (
                                 <div key={item.title}>
-                                <div className="flex flex-col gap-2 ">
+                                <div className="flex flex-col gap-2">
                                     {item.href ? (
                                     <Link
                                         href={item.href}
                                         className="flex justify-between items-center"
                                     >
-                                        <span>{item.title}</span> 
+                                        <span className="text-semibold">{item.title}</span> 
                                     </Link>
                                     ) : (
                                     <p>{item.title}</p>
