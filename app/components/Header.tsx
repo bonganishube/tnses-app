@@ -179,8 +179,8 @@ export const Header = () => {
                 <Link href="#contact">Contact Us</Link>
             </Button>
             <div className="border-r hidden md:inline"></div>
-            <Button variant="outline" className="hidden md:inline" ><Link href="/sign-in">Log In</Link></Button>
-            <Button className="bg-primaryColor hidden md:inline"><Link href="/sign-up">Get Started</Link></Button>
+            <Link href="/sign-in"><Button variant="outline" className="hidden md:inline" >Log In</Button></Link>
+            <Link href="/sign-up"><Button className="bg-primaryColor hidden md:inline">Get Started</Button></Link>
             </div>
             <div className="lg:hidden">
                 <Sheet>
@@ -188,7 +188,7 @@ export const Header = () => {
                     <Button 
                         variant="outline" 
                         size="icon" 
-                        className={`bg-transparent text-white ${
+                        className={`bg-transparent text-white border border-primaryColor ${
                             isHeaderActive 
                                 ? "text-black"
                                 : "text-white"
@@ -242,18 +242,18 @@ export const Header = () => {
                         </div>
                     <SheetFooter className="px-4 flex-row-reverse gap-4">
                             <SheetClose asChild>
-                            <Button className="bg-primaryColor lg:hidden mt-6">
                                 <Link href="/sign-up">
-                                    Get Started
+                                    <Button className="bg-primaryColor lg:hidden mt-6">
+                                        Get Started
+                                    </Button>
                                 </Link>
-                            </Button>
                             </SheetClose>
                             <SheetClose asChild>
-                                <Button variant="outline" className=" lg:hidden mt-6 mb-5">
-                                    <Link href="/sign-in">
+                                <Link href="/sign-in">
+                                    <Button variant="outline" className=" lg:hidden mt-6 mb-5">
                                         Log In
-                                    </Link>
-                                </Button>
+                                    </Button>
+                                </Link>
                             </SheetClose>
                     </SheetFooter>   
                 </SheetContent>

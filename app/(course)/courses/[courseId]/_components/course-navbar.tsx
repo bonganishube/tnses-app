@@ -2,6 +2,7 @@ import SidebarRoutes from '@/app/(dashboard)/_components/sidebar-routes';
 import { Chapter, Course, UserProgress } from '@prisma/client';
 import React from 'react';
 import CourseMobileSidebar from './course-mobile-sidebar';
+import { UserButton } from '@clerk/nextjs';
 
 interface CourseNavbarProps {
     course: Course & {
@@ -17,12 +18,14 @@ const CourseNavbar = ({
     progressCount,
 }: CourseNavbarProps) => {
   return (
-    <div className="p-4 h-full flex items-center bg-white">
+    <div className="p-4 h-full w-full flex items-center bg-white">
         <CourseMobileSidebar
             course={course}
             progressCount={progressCount}
         />
-        <SidebarRoutes />
+        <UserButton 
+            afterSignOutUrl="/"
+        />
     </div>
   )
 }

@@ -34,11 +34,11 @@ const CourseEnrollButton = ({
    <Button
         onClick={onClick}
         disabled={isLoading}
-        variant="outline"
+        variant="primary"
         size="sm" 
         className="md:w-auto"
     >
-        Enroll for {formatPrice(price)}
+        Enrol for {formatPrice(price)}
    </Button>
   )
 }
