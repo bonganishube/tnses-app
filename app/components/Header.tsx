@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "../../public/logo.png"
 import Image from "next/image";
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 export const Header = () => {
 
@@ -177,49 +178,71 @@ export const Header = () => {
             </Button>
             <div className="border-r hidden md:inline"></div>
             <Button variant="outline" className="hidden md:inline" ><Link href="/sign-in">Log In</Link></Button>
-            <Button className="bg-primaryColor"><Link href="/sign-up">Get Started</Link></Button>
+            <Button className="bg-primaryColor hidden md:inline"><Link href="/sign-up">Get Started</Link></Button>
             </div>
-            <div className="flex w-12 shrink lg:hidden items-end justify-end">
-            <Button variant="outline" size="icon" className={`bg-transparent text-white ${isHeaderActive 
-                ? "text-black"
-                : "text-white"
-            }`} onClick={() => setOpen(!isOpen)}>
-                {isOpen ? <X /> : <Menu />}
-            </Button>
-            {isOpen && (
-                <div className="absolute top-20 border-t flex flex-col h-dvh right-0 bg-background shadow-lg pt-10 container gap-8">
-                {navigationItems.map((item) => (
-                    <div key={item.title}>
-                    <div className="flex flex-col gap-2 ">
-                        {item.href ? (
-                        <Link
-                            href={item.href}
-                            className="flex justify-between items-center"
-                        >
-                            <span>{item.title}</span>
-                            <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
-                        </Link>
-                        ) : (
-                        <p>{item.title}</p>
-                        )}
-                        {item.items &&
-                        item.items.map((subItem) => (
-                            <Link
-                            key={subItem.title}
-                            href={subItem.href}
-                            className="flex justify-between items-center"
-                            >
-                            <span className="text-muted-foreground">
-                                {subItem.title}
-                            </span>
-                            <MoveRight className="w-4 h-4 stroke-1" />
-                            </Link>
+            <div className="flex shrink lg:hidden items-end justify-end">
+            <Sheet>
+            <SheetTrigger>
+                <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className={`bg-transparent text-white ${
+                        isHeaderActive 
+                            ? "text-black"
+                            : "text-white"
+                    }`} 
+                >
+                    <Menu />
+                </Button>
+            </SheetTrigger>
+            
+            <SheetContent className="w-full" side="left">
+                <SheetHeader>
+                    <Link href="#home">
+                        <div className="flex lg:justify-center items-center gap-2">
+                        <Image src={Logo} alt="Logo" width={40} height={40} className="rounded-[5px]" />
+                        <p className="font-tertiary text-2xl text-black">
+                            Tnses
+                        </p>
+                        </div>
+                    </Link>
+                </SheetHeader>
+                    <div className="absolute top-20 border-t flex flex-col h-dvh right-0 bg-background shadow-lg pt-10 container gap-8">
+                        {navigationItems.map((item) => (
+                            <div key={item.title}>
+                            <div className="flex flex-col gap-2 ">
+                                {item.href ? (
+                                <Link
+                                    href={item.href}
+                                    className="flex justify-between items-center"
+                                >
+                                    <span>{item.title}</span>
+                                    <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
+                                </Link>
+                                ) : (
+                                <p>{item.title}</p>
+                                )}
+                                {item.items &&
+                                item.items.map((subItem) => (
+                                    <Link
+                                    key={subItem.title}
+                                    href={subItem.href}
+                                    className="flex justify-between items-center"
+                                    >
+                                    <span className="text-muted-foreground">
+                                        {subItem.title}
+                                    </span>
+                                    <MoveRight className="w-4 h-4 stroke-1" />
+                                    </Link>
+                                ))}
+                            </div>
+                            </div>
                         ))}
+                        <Button variant="outline" className="lg:hidden"><Link href="/sign-in">Log In</Link></Button>
+                        <Button className="bg-primaryColor lg:hidden"><Link href="/sign-up">Get Started</Link></Button>
                     </div>
-                    </div>
-                ))}
-                </div>
-            )}
+            </SheetContent>
+            </Sheet>
             </div>
         </div>
         </header>

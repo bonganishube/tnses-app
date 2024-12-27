@@ -91,7 +91,7 @@ const Contact = () => {
               ></textarea>
             </div>
             <Button className="bg-primaryColor w-full">Submit</Button>
-            <p className="text-xs text-gray-500 mt-4">
+            <p className="text-xs text-gray-500 mt-4 ml-1">
               Chicharrones blog helvetica normcore iceland tousled brook viral
               artisan.
             </p>
