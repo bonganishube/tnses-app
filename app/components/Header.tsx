@@ -210,7 +210,7 @@ export const Header = () => {
                             </div>
                         </Link>
                     </SheetHeader>
-                        <div className="flex flex-col gap-8 border-t mt-6 pt-10">
+                        <div className="flex flex-col gap-6 border-t mt-6 pt-6">
                         
                             {navigationItems.map((item) => (
                                 <div key={item.title}>
@@ -250,7 +250,7 @@ export const Header = () => {
                             </Button>
                             </SheetClose>
                             <SheetClose asChild>
-                                <Button variant="outline" className="lg:hidden w-full mt-8 mb-5">
+                                <Button variant="outline" className="lg:hidden w-full mt-6 mb-5">
                                     <Link href="/sign-in">
                                         Log In
                                     </Link>
