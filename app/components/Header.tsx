@@ -240,16 +240,16 @@ export const Header = () => {
                                 </div>
                             ))}
                         </div>
-                    <SheetFooter className="px-4">
-                            <SheetClose asChild >
-                            <Button className="bg-primaryColor lg:hidden">
+                    <SheetFooter className="px-4 flex-row-reverse gap-4">
+                            <SheetClose asChild>
+                            <Button className="bg-primaryColor lg:hidden mt-6">
                                 <Link href="/sign-up">
                                     Get Started
                                 </Link>
                             </Button>
                             </SheetClose>
                             <SheetClose asChild>
-                                <Button variant="outline" className="lg:hidden mt-6 mb-5">
+                                <Button variant="outline" className=" lg:hidden mt-6 mb-5">
                                     <Link href="/sign-in">
                                         Log In
                                     </Link>
