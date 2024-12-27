@@ -166,7 +166,7 @@ export const Header = () => {
                 <div className="flex lg:justify-center items-center gap-2">
                 <Image src={Logo} alt="Logo" width={40} height={40} className="rounded-[5px]" />
                 <p className={`font-tertiary text-2xl ${isHeaderActive 
-                    ? "text-black"
+                    ? "text-secondaryColor"
                     : "text-white"
                 }`}>Tnses</p>
                 </div>
@@ -190,7 +190,7 @@ export const Header = () => {
                         size="icon" 
                         className={`bg-transparent text-white border border-primaryColor ${
                             isHeaderActive 
-                                ? "text-black"
+                                ? "text-secondaryColor"
                                 : "text-white"
                         }`} 
                     >
