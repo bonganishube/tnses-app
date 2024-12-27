@@ -188,7 +188,7 @@ export const Header = () => {
                     <Button 
                         variant="outline" 
                         size="icon" 
-                        className={`bg-transparent text-white border border-primaryColor ${
+                        className={`bg-transparent text-white ${
                             isHeaderActive 
                                 ? "text-secondaryColor"
                                 : "text-white"
@@ -203,7 +203,7 @@ export const Header = () => {
                         <Link href="#home">
                             <div className="flex lg:justify-center items-center gap-2">
                             <Image src={Logo} alt="Logo" width={40} height={40} className="rounded-[5px]" />
-                            <p className="font-tertiary text-2xl text-black">
+                            <p className="font-tertiary text-2xl text-secondaryColor">
                                 Tnses
                             </p>
                             </div>
@@ -229,9 +229,9 @@ export const Header = () => {
                                         <Link
                                         key={subItem.title}
                                         href={subItem.href}
-                                        className="flex justify-between items-center"
+                                        className="flex justify-between items-center ml-2"
                                         >
-                                        <span className="text-muted-foreground">
+                                        <span className="text-muted-foreground text-sm">
                                             {subItem.title}
                                         </span>
                                         </Link>
