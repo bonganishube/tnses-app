@@ -183,7 +183,7 @@ export const Header = () => {
             <Button variant="outline" className="hidden md:inline" ><Link href="/sign-in">Log In</Link></Button>
             <Button className="bg-primaryColor hidden md:inline"><Link href="/sign-up">Get Started</Link></Button>
             </div>
-            <div>
+            <div className="lg:hidden">
                 <Sheet>
                 <SheetTrigger asChild>
                     <Button 
