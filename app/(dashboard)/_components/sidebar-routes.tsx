@@ -75,9 +75,11 @@ const SidebarRoutes = () => {
                     </DropdownMenuContent>
                 </DropdownMenu>
             ) : null}
-            <UserButton 
-                afterSignOutUrl="/"
-            />
+            <div className="flex items-center active:bg-color-0 active:border-0">
+                <UserButton 
+                    afterSignOutUrl="/"
+                />
+            </div>
         </div>
     </>
   )

@@ -20,10 +20,7 @@ const Dashboard = ({ children }: { children: React.ReactNode }) => {
     <div className="min-h-screen overflow-hidden flex flex-col">
       <SidebarProvider>
         <div className="flex flex-1">
-          {/* Sidebar */}
           <AppSidebar />
-          
-          {/* Content */}
           <SidebarInset className="flex-1 overflow-hidden">
             <header className="flex h-12 shrink-0 items-center gap-2 w-full px-4 transition-all ease-linear">
               <div className="flex items-center gap-2 w-full">

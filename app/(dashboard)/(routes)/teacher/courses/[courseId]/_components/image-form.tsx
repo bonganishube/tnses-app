@@ -58,7 +58,7 @@ export const ImageForm = ({
                 {!isEditing && !initialData.imageUrl && (
                     <>
                         <PlusCircle className="w-4 h-4 mr-2" />
-                        Add an image
+                        Add
                     </>
                 )}
                 {!isEditing && initialData.imageUrl && (

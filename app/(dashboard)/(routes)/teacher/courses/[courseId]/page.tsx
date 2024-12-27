@@ -86,10 +86,10 @@ const CourseIdPage = async (
                           href={`/teacher/courses`}
                           className="flex items-center text-sm hover:opacity-75 transition mb-6"
                       >
-                          <ArrowLeft className="h-4 w-4 mr-2" />
+                          <ArrowLeft className="h-4 w-4 mr-4" />
                           Back to courses
                       </Link>
-                      <div className="flex items-center justify-between w-full">
+                      <div className="flex flex-wrap items-center justify-between w-full">
                           <div className="flex flex-col gap-y-2">
                               <h1 className="text-2xl font-semibold">
                                   Course setup 
@@ -101,7 +101,7 @@ const CourseIdPage = async (
                           <Actions 
                               disabled={!isComplete}
                               courseId={params.courseId}
-                              isPublished={course.isPublished}     
+                              isPublished={course.isPublished}   
                           />
                       </div>
                   </div>
