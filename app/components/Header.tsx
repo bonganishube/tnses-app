@@ -237,7 +237,7 @@ export const Header = () => {
                                         <Link
                                         key={subItem.title}
                                         href={subItem.href}
-                                        className="flex justify-between items-center font-semibold"
+                                        className="flex justify-between items-center"
                                         >
                                         <span className="text-muted-foreground">
                                             {subItem.title}
