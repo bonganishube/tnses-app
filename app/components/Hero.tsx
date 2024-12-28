@@ -127,8 +127,8 @@ export const Hero = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute top-[57%] left-[5%] opacity-50" />
-            <CarouselNext className="absolute top-[57%] right-[5%] opacity-50"/>
+            <CarouselPrevious className="absolute top-[60%] left-[5%] opacity-50" />
+            <CarouselNext className="absolute top-[60%] right-[5%] opacity-50"/>
           </Carousel>
         </div>
       </div>
