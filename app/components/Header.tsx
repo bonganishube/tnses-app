@@ -227,7 +227,7 @@ export const Header = () => {
                                         href={item.href}
                                         className="flex justify-between items-center"
                                     >
-                                        <span className="text-bold">{item.title}</span> 
+                                        <span>{item.title}</span> 
                                     </Link>
                                     ) : (
                                     <p>{item.title}</p>
@@ -237,7 +237,7 @@ export const Header = () => {
                                         <Link
                                         key={subItem.title}
                                         href={subItem.href}
-                                        className="flex justify-between items-center"
+                                        className="flex justify-between items-center font-semibold"
                                         >
                                         <span className="text-muted-foreground">
                                             {subItem.title}
