@@ -81,15 +81,15 @@ export const Hero = () => {
       return;
     }
 
-    setTimeout(() => {
-      if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
-        setCurrent(0);
-        api.scrollTo(0);
-      } else {
-        api.scrollNext();
-        setCurrent(current + 1);
-      }
-    }, 4000);
+    // setTimeout(() => {
+    //   if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
+    //     setCurrent(0);
+    //     api.scrollTo(0);
+    //   } else {
+    //     api.scrollNext();
+    //     setCurrent(current + 1);
+    //   }
+    // }, 4000);
   }, [api, current]);
 
   return (
