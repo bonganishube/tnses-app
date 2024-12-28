@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-secondaryColor dark:bg-gray-900 py-20 lg:py-20">
       <div className="container mx-auto px-6">
-        <div className="w-full text-slate-200 dark:text-gray-300 grid grid-cols-2 lg:grid-cols-4 gap-8 pb-20 border-b border-b-gray-200 dark:border-b-gray-800">
+        <div className="w-full text-slate-200 dark:text-gray-300 grid grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-b-gray-200 dark:border-b-gray-800">
           <div>
             <Link href="#" className="flex gap-1 items-center">
               <Image src={Logo} alt="Logo" width={27} height={27} className="rounded-[5px]" />
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
             <span className="text-sm md:text-base">info@tnses.org</span>
           </div>
         </div>
-        <nav className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-8 py-20 text-slate-200 dark:text-gray-300 font-extralight">
+        <nav className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-8 py-10 text-slate-200 dark:text-gray-300 font-extralight">
           {
             footerBlocks.map(footerBlock => (
               <FooterBlockItem key={footerBlock.id} {...footerBlock} />
