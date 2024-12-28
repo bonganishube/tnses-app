@@ -118,7 +118,7 @@ export const Hero = () => {
                                   </p>
                                   </div>
                                   <div className="flex flex-wrap gap-5 justify-center">
-                                    {button1}
+                                    <span className="hidden md:flex">{button1}</span>
                                     {button2}
                                   </div>
                               </div>

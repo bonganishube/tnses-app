@@ -9,7 +9,7 @@ NavigationMenuLink,
 NavigationMenuList,
 NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Menu, MoveRight, X } from "lucide-react";
+import { Menu, MoveRight, PhoneCall, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "../../public/logo.png"
@@ -182,7 +182,15 @@ export const Header = () => {
             <Link href="/sign-in"><Button variant="outline" className="hidden md:inline" >Log In</Button></Link>
             <Link href="/sign-up"><Button className="bg-primaryColor hidden md:inline">Get Started</Button></Link>
             </div>
-            <div className="lg:hidden">
+            <div className="flex gap-4 lg:hidden">
+                <Button 
+                    className={`md:hidden bg-transparent text-white ${
+                        isHeaderActive 
+                            ? "text-secondaryColor"
+                            : "text-white"
+                    }`}  
+                    variant="outline">Jump on a call<PhoneCall className="w-4 h-4" />
+                </Button>
                 <Sheet>
                 <SheetTrigger asChild>
                     <Button 
@@ -198,7 +206,7 @@ export const Header = () => {
                     </Button>
                 </SheetTrigger>
                 
-                <SheetContent className="w-full overflow-y-auto" side="left">
+                <SheetContent className="w-4/5 overflow-y-auto" side="left">
                     <SheetHeader>
                         <Link href="#home">
                             <div className="flex lg:justify-center items-center gap-2">
@@ -231,7 +239,7 @@ export const Header = () => {
                                         href={subItem.href}
                                         className="flex justify-between items-center ml-2"
                                         >
-                                        <span className="text-muted-foreground text-sm">
+                                        <span className="text-muted-foreground">
                                             {subItem.title}
                                         </span>
                                         </Link>
@@ -240,17 +248,17 @@ export const Header = () => {
                                 </div>
                             ))}
                         </div>
-                    <SheetFooter className="px-4 flex-row-reverse gap-4">
+                    <SheetFooter className="px-4 flex-row-reverse gap-4 mt-10">
                             <SheetClose asChild>
                                 <Link href="/sign-up">
-                                    <Button className="bg-primaryColor lg:hidden mt-6">
+                                    <Button className="bg-primaryColor lg:hidden ">
                                         Get Started
                                     </Button>
                                 </Link>
                             </SheetClose>
                             <SheetClose asChild>
                                 <Link href="/sign-in">
-                                    <Button variant="outline" className=" lg:hidden mt-6 mb-5">
+                                    <Button variant="outline" className=" lg:hidden mb-5">
                                         Log In
                                     </Button>
                                 </Link>
