@@ -217,7 +217,7 @@ export const Header = () => {
                             </div>
                         </Link>
                     </SheetHeader>
-                        <div className="flex flex-col gap-6 border-t mt-6 pt-6 px-4">
+                        <div className="flex flex-col gap-6 border-t mt-6 pt-6">
                         
                             {navigationItems.map((item) => (
                                 <div key={item.title}>
