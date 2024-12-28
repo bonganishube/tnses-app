@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
           <div>
             <Link href="#" className="flex gap-1 items-center">
               <Image src={Logo} alt="Logo" width={27} height={27} className="rounded-[5px]" />
-              <p className="font-tertiary text-base">Tnses</p>
+              <p className="font-tertiary text-base md:text-lg">Tnses</p>
             </Link>
           </div>
           <div className="flex items-center space-x-2">
