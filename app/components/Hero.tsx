@@ -100,7 +100,7 @@ export const Hero = () => {
             <CarouselContent>
               {heroData.map(( { id, heading, text, img, button1, button2 }) => (
                 <CarouselItem key={id}>
-                    <div className="w-full h-dvh flex justify-center items-center relative overflow-hidden">
+                    <div className="w-full h-screen flex justify-center items-center relative overflow-hidden">
                         <Image src={img} alt={`slide ${id}`} className="object-cover w-full h-full" />
                         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-slate-900/[0.5]">
                               <div className="container flex gap-8 items-center justify-center flex-col">
