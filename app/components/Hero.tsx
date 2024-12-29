@@ -93,7 +93,7 @@ export const Hero = () => {
   }, [api, current]);
 
   return (
-    <div className="w-full ">
+    <div className="w-full">
       <div className="mx-auto">
         <div className="flex flex-col gap-10">
           <Carousel setApi={setApi} className="w-full">

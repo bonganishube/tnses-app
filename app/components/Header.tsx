@@ -15,6 +15,7 @@ import Link from "next/link";
 import Logo from "../../public/logo.png"
 import Image from "next/image";
 import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export const Header = () => {
 
@@ -112,12 +113,14 @@ export const Header = () => {
                     <NavigationMenuItem key={item.title}>
                     {item.href ? (
                         <>
-                        <NavigationMenuLink>
+                        <Link
+                            href={item.href}
+                        >
                             <Button variant="ghost" className={`header-secction  bg-transparent ${isHeaderActive 
                                 ? "text-black hover:text-black"
                                 : "text-white hover:bg-white" 
                             }`}>{item.title}</Button>
-                        </NavigationMenuLink>
+                        </Link>
                         </>
                     ) : (
                         <>
@@ -206,48 +209,65 @@ export const Header = () => {
                     </Button>
                 </SheetTrigger>
                 
-                <SheetContent className="w-4/5 overflow-y-auto" side="left">
+                <SheetContent className="overflow-y-auto" side="left">
                     <SheetHeader>
                         <Link href="#home">
                             <div className="flex lg:justify-center items-center gap-2">
-                            <Image src={Logo} alt="Logo" width={40} height={40} className="rounded-[5px]" />
-                            <p className="font-tertiary text-2xl text-secondaryColor">
-                                Tnses
-                            </p>
+                                <Image src={Logo} alt="Logo" width={40} height={40} className="rounded-[5px]" />
+                                <p className="font-tertiary text-2xl text-secondaryColor">
+                                    Tnses
+                                </p>
                             </div>
                         </Link>
                     </SheetHeader>
-                        <div className="flex flex-col gap-6 border-t mt-6 pt-6 px-4">
-                        
-                            {navigationItems.map((item) => (
-                                <div key={item.title}>
-                                <div className="flex flex-col gap-2">
+                        <NavigationMenu className="w-full mt-6 pt-6 px-4">
+                            <NavigationMenuList className="w-full flex flex-col gap-4">
+                                {navigationItems.map((item) => (
+                                    <NavigationMenuItem className="w-full" key={item.title}>
                                     {item.href ? (
-                                    <Link
-                                        href={item.href}
-                                        className="flex justify-between items-center"
-                                    >
-                                        <span>{item.title}</span> 
-                                    </Link>
+                                        <div className="w-full border-b">
+                                            <SheetClose asChild>
+                                                <Link
+                                                    href="#home"    
+                                                >
+                                                    <Button variant="ghost" className="my-4">
+                                                        {item.title}
+                                                    </Button>
+                                                </Link>
+                                            </SheetClose>
+                                        </div>
                                     ) : (
-                                    <p>{item.title}</p>
+                                        <>
+                                            <Accordion type="single" collapsible>
+                                                <AccordionItem value={`item-${item.title}`}>
+                                                    <AccordionTrigger>
+                                                        <Button variant="ghost" className="mr-24">
+                                                            {item.title}
+                                                        </Button>
+                                                    </AccordionTrigger>
+                                                    <AccordionContent>
+                                                        <div>
+                                                            {item.items?.map((subItem) => (
+                                                                <SheetClose asChild>
+                                                                    <Link
+                                                                        href={subItem.href}
+                                                                        key={subItem.title}
+                                                                        className="flex flex-col ml-5"
+                                                                    >
+                                                                        <span className="text-muted-foreground my-1">{subItem.title}</span>
+                                                                    </Link>
+                                                                </SheetClose>
+                                                            ))}
+                                                        </div>
+                                                    </AccordionContent>
+                                                </AccordionItem>
+                                            </Accordion>
+                                        </>
                                     )}
-                                    {item.items &&
-                                    item.items.map((subItem) => (
-                                        <Link
-                                        key={subItem.title}
-                                        href={subItem.href}
-                                        className="flex justify-between items-center"
-                                        >
-                                        <span className="text-muted-foreground">
-                                            {subItem.title}
-                                        </span>
-                                        </Link>
-                                    ))}
-                                </div>
-                                </div>
-                            ))}
-                        </div>
+                                    </NavigationMenuItem>
+                                ))}
+                            </NavigationMenuList>
+                        </NavigationMenu>
                     <SheetFooter className="px-4 flex-row-reverse gap-4 mt-10">
                             <SheetClose asChild>
                                 <Link href="/sign-up">
