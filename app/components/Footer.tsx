@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
         <div className="w-full text-slate-200 dark:text-gray-300 grid grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-b-gray-200 dark:border-b-gray-800">
           <div>
             <Link href="#" className="flex gap-1 items-center">
-              <Image src={Logo} alt="Logo" width={27} height={27} className="rounded-[5px]" />
+              <Image src={Logo} alt="Logo" width={30} height={30} className="rounded-[5px]" />
               <p className="font-tertiary text-base md:text-lg">Tnses</p>
             </Link>
           </div>

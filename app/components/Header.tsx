@@ -228,9 +228,9 @@ export const Header = () => {
                                         <div className="w-full border-b">
                                             <SheetClose asChild>
                                                 <Link
-                                                    href="#home"    
+                                                    href={item}    
                                                 >
-                                                    <Button variant="ghost" className="my-4">
+                                                    <Button variant="ghost" className="my-4 text-[16px]">
                                                         {item.title}
                                                     </Button>
                                                 </Link>
@@ -241,7 +241,7 @@ export const Header = () => {
                                             <Accordion type="single" collapsible>
                                                 <AccordionItem value={`item-${item.title}`}>
                                                     <AccordionTrigger>
-                                                        <Button variant="ghost" className="mr-24">
+                                                        <Button variant="ghost" className="mr-24 text-[16px]">
                                                             {item.title}
                                                         </Button>
                                                     </AccordionTrigger>
