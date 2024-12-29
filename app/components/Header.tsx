@@ -139,7 +139,7 @@ export const Header = () => {
                                     {item.description}
                                 </p>
                                 </div>
-                                <Button size="sm" className="mt-10" onClick={() => window.location.href = 'tel:+123456789'}>
+                                <Button size="sm" variant="secndary" className="mt-10" onClick={() => window.location.href = 'tel:+123456789'}>
                                     Book a call today
                                 </Button>
 
@@ -149,7 +149,7 @@ export const Header = () => {
                                 <NavigationMenuLink
                                     href={subItem.href}
                                     key={subItem.title}
-                                    className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
+                                    className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 leading-relaxed rounded"
                                 >
                                     <span>{subItem.title}</span>
                                     <MoveRight className="w-4 h-4 text-muted-foreground" />
