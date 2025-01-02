@@ -24,7 +24,7 @@ import Image from "next/image";
 const heroData = [
   {
       id: 1,
-      heading: "Slide Four",
+      heading: "Slide One",
       text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: Hero1,
       button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
@@ -32,7 +32,7 @@ const heroData = [
   },
   {
       id: 2,
-      heading: "Slide Five",
+      heading: "Slide Two",
       text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: Hero2,
       button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
@@ -40,7 +40,7 @@ const heroData = [
   },
   {
       id: 3,
-      heading: "Slide Six",
+      heading: "Slide Three",
       text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: Hero3,
       button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
