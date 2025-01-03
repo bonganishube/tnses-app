@@ -42,7 +42,7 @@ const data = {
   },
   teams: [
     {
-      name: "Tnses",
+      name: "Ads",
       logo: Logo,
       plan: "Non Profit Organisation",
     },

@@ -45,7 +45,7 @@ export function TeamSwitcher({
                 <Image src={activeTeam.logo} alt="Team logo" className="rounded-[5px]" />
               </div>
               <div className="grid text-left leading-tight">
-                <span className="truncate font-medium font-tertiary text-xl text-secondaryColor">
+                <span className="truncate font-medium font-tertiary text-lg text-secondaryColor">
                   {activeTeam.name}
                 </span>
                 {/* <span className="truncate text-xs">{activeTeam.plan}</span> */}
