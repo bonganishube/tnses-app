@@ -11,6 +11,7 @@ import ChapterAccessForm from './_components/chapter-access-form';
 import ChapterVideoForm from './_components/chapter-video-form';
 import { Banner } from '@/components/banner';
 import { ChapterActions } from './_components/chapter-actions';
+import { Button } from '@/components/ui/button';
 
 const ChapterIdPage = async (
     props: {
@@ -66,8 +67,10 @@ const ChapterIdPage = async (
                       href={`/teacher/courses/${params.courseId}`}
                       className="flex items-center text-sm hover:opacity-75 transition mb-6"
                   >
+                    <Button variant="outline">
                       <ArrowLeft className="h-4 w-4 mr-4" />
                       Back to course setup
+                    </Button>
                   </Link>
                   <div className="flex items-center justify-between w-full">
                       <div className="flex flex-col gap-y-2">

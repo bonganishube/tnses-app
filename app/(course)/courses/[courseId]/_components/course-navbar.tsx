@@ -18,14 +18,18 @@ const CourseNavbar = ({
     progressCount,
 }: CourseNavbarProps) => {
   return (
-    <div className="p-4 h-full w-full flex items-center bg-white">
-        <CourseMobileSidebar
-            course={course}
-            progressCount={progressCount}
-        />
-        <UserButton 
-            afterSignOutUrl="/"
-        />
+    <div className="p-4 h-12 w-full flex items-center place-content-between bg-white">
+        <div className="flex">
+            <CourseMobileSidebar
+                course={course}
+                progressCount={progressCount}
+            />
+        </div>
+        <div className="flex mr-2">
+            <UserButton 
+                afterSignOutUrl="/"
+            />
+        </div>
     </div>
   )
 }

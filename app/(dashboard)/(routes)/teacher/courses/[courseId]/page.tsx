@@ -14,6 +14,7 @@ import ChaptersForm from './_components/chapters-form';
 import { Banner } from '@/components/banner';
 import { Actions } from './_components/actions';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const CourseIdPage = async (
     props: {
@@ -86,8 +87,10 @@ const CourseIdPage = async (
                           href={`/teacher/courses`}
                           className="flex items-center text-sm hover:opacity-75 transition mb-6"
                       >
+                        <Button variant="outline">
                           <ArrowLeft className="h-4 w-4 mr-4" />
                           Back to courses
+                        </Button>
                       </Link>
                       <div className="flex flex-wrap items-center justify-between w-full">
                           <div className="flex flex-col gap-y-2">
@@ -107,12 +110,6 @@ const CourseIdPage = async (
                   </div>
               </div>
               <div className="mt-16 space-y-6 md:w-2/3 xl:w-1/2">
-                  {/* <div className="flex items-center gap-x-2">
-                      <IconBadge icon={LayoutDashboard} size="md" />
-                      <h2 className="text-lg font-semibold">
-                          Customise your course
-                      </h2>
-                  </div> */}
                   <TitleForm 
                       initialData={course}
                       courseId={course.id}
@@ -134,36 +131,22 @@ const CourseIdPage = async (
                       }))}
                   />
                   <div>
-                      {/* <div className="flex items-center gap-x-2">
-                          <IconBadge icon={ListChecks} size="md" />
-                          <h2 className="text-lg font-semibold">
-                              Course chapters
-                          </h2>
-                      </div> */}
                       <ChaptersForm
                           initialData={course}
                           courseId={course.id}
                       />
                   </div>
                   <div>
-                      {/* <div className="flex items-center gap-x-2">
-                          <IconBadge icon={CircleDollarSign} size="md" />
-                          <h2 className="text-lg font-semibold">
-                              Sell your course
-                          </h2>
-                      </div> */}
                       <PriceForm 
                           initialData={course}
                           courseId={course.id}
                       />
                   </div>
                   <div>
-                      {/* <div className="flex items-center gap-x-2">
-                          <IconBadge icon={File} size="md" />
-                          <h2 className="text-lg font-semibold">
-                              Resources & Attachments
-                          </h2>
-                      </div> */}
+                      <DescriptionForm
+                      initialData={course}
+                      courseId={course.id}
+                  />
                       <AttachmentForm
                       initialData={course}
                       courseId={course.id}

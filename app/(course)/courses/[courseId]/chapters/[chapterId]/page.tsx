@@ -6,8 +6,11 @@ import React from 'react';
 import { VideoPlayer } from './_components/video-player';
 import CourseEnrollButton from './_components/course-enroll-button';
 import { Separator } from '@/components/ui/separator';
-import { File } from 'lucide-react';
+import { ArrowLeft, File } from 'lucide-react';
 import CourseProgressButton from './_components/course-progress-button';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
 const ChapterIdPage = async ({
     params,
@@ -58,6 +61,20 @@ const ChapterIdPage = async ({
                     label="You need to purchase this course to watch this chapter."
                 />
             )}
+
+            <Link 
+                href={`/home`}
+                className="flex items-center text-sm hover:opacity-75 transition p-6"
+            >
+                <Button variant="outline" className=""><ArrowLeft className="h-4 w-4 mr-4" />
+                    Back to courses
+                </Button>
+            </Link>
+
+            <div className="p-6 space-y-3 md:hidden">
+                <Badge variant="outline" className="font-tertiary">{course.title}</Badge>
+                <h1 className="text-2xl font-semibold text-secondaryColor">{chapter.title}</h1>
+            </div>
             <div className="flex flex-col max-w-4xl mx-auto pb-20">
                 <div className="p-4">
                     <VideoPlayer
@@ -71,10 +88,7 @@ const ChapterIdPage = async ({
                     />
                 </div>
                 <div>
-                    <div className="p-4 flex flex-col md:flex-row items-center justify-between">
-                        <h2 className="text-2xl font-semibold mb-2">
-                            {chapter.title}
-                        </h2>
+                    <div className="p-4">
                         {purchase ? (
                             <CourseProgressButton
                                 chapterId={chapterId}

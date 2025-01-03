@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/lib/format";
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { LaptopMinimalCheck } from 'lucide-react';
 
 interface CourseEnrollButtonProps {
     price: number;
@@ -34,11 +35,12 @@ const CourseEnrollButton = ({
    <Button
         onClick={onClick}
         disabled={isLoading}
-        variant="primary"
+        variant="outline"
         size="sm" 
         className="md:w-auto"
     >
         Enrol for {formatPrice(price)}
+        <LaptopMinimalCheck className="h-4 w-4 ml-2" />
    </Button>
   )
 }
