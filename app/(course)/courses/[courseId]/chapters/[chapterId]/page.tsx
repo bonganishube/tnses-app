@@ -72,8 +72,8 @@ const ChapterIdPage = async ({
             </Link>
 
             <div className="p-6 space-y-3 md:hidden">
-                <Badge variant="outline" className="bg-sky-700 text-white">{course.title}</Badge>
                 <h1 className="text-2xl font-semibold text-secondaryColor">{chapter.title}</h1>
+                <Badge variant="outline" className="bg-slate-500 text-white">{course.title}</Badge>
             </div>
             <div className="flex flex-col max-w-4xl mx-auto pb-20">
                 <div className="p-4">
