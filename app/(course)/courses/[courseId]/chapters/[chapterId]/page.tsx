@@ -10,7 +10,6 @@ import { ArrowLeft, File } from 'lucide-react';
 import CourseProgressButton from './_components/course-progress-button';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 
 const ChapterIdPage = async ({
     params,
@@ -71,9 +70,9 @@ const ChapterIdPage = async ({
                 </Button>
             </Link>
 
-            <div className="p-6 space-y-3 md:hidden">
+            <div className="p-6 space-y-2 md:hidden">
                 <h1 className="text-2xl font-semibold text-secondaryColor">{chapter.title}</h1>
-                <Badge variant="outline" className="bg-slate-500 text-white">{course.title}</Badge>
+                <h2 className="text-base text-muted-foreground">{course.title}</h2>
             </div>
             <div className="flex flex-col max-w-4xl mx-auto pb-20">
                 <div className="p-4">
