@@ -105,7 +105,16 @@ const ChapterIdPage = async ({
                     </div>
                     <Separator />
                     <div className="p-4">
-                        <ReadText value={chapter.description} />
+                        <h1 className="font-semibold">Description</h1>
+                        <ReadText value={chapter.description!} />
+                    </div>
+                    <div>
+                        {purchase ? (
+                            <div className="p-4">
+                                <p className="font-semibold">Instructions</p>
+                                <ReadText value={course.instructions!} />
+                            </div>
+                        ) : null}
                     </div>
                     {!!attachments.length && (
                         <>

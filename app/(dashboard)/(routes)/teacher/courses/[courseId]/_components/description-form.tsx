@@ -22,6 +22,7 @@ import { cn } from '@/lib/utils';
 import { Textarea } from '@/components/ui/textarea';
 import { Course } from '@prisma/client';
 import RichEditor from './rich-editor';
+import ReadText from './read-text';
 
 
 
@@ -76,18 +77,22 @@ export const DescriptionForm = ({
                 ) : (
                     <>
                         <Pencil className="h-4 w-4" />
-                        {/* Edit */}
                     </>
                 )}
             </Button>
         </div> 
         {!isEditing && (
-            <p className={cn(
-                "text-sm mt-2",
-                !initialData.description && "text-slate-500 italic"
-            )}>
-                {initialData.description || "No description"}
-            </p>
+            <div
+            className={cn(
+              "text-sm mt-2",
+              !initialData.description && "text-slate-500 italic"
+            )}
+          >
+            {!initialData.description && "No description"}
+            {initialData.description && (
+              <ReadText value={initialData.description} />
+            )}
+          </div>
         )}
         {isEditing && (
             <Form {...form}>
@@ -101,11 +106,6 @@ export const DescriptionForm = ({
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
-                                    {/* <Textarea 
-                                        disabled={isSubmitting}
-                                        placeholder="e.g. 'This course is about...'"
-                                        {...field}
-                                    /> */}
                                     <RichEditor placeholder="What is this course about?" {...field} />
                                 </FormControl>
                                 <FormMessage />

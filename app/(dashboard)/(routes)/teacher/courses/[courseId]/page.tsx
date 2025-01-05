@@ -2,10 +2,9 @@ import React from 'react'
 import { db } from "@/lib/db";
 import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
-import { IconBadge } from '@/components/icon-badge';
-import { ArrowLeft, CircleDollarSign, File, LayoutDashboard, ListChecks } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import TitleForm from './_components/title-form';
-import { DescriptionForm } from './_components/description-form';
+import InstructionsForm from './_components/instructions-form';
 import ImageForm from './_components/image-form';
 import CategoryForm from './_components/category-form';
 import PriceForm from './_components/price-form';
@@ -15,6 +14,7 @@ import { Banner } from '@/components/banner';
 import { Actions } from './_components/actions';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import DescriptionForm from './_components/description-form';
 
 const CourseIdPage = async (
     props: {
@@ -143,7 +143,7 @@ const CourseIdPage = async (
                       />
                   </div>
                   <div>
-                      <DescriptionForm
+                      <InstructionsForm
                       initialData={course}
                       courseId={course.id}
                   />

@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 datasource db {
@@ -20,6 +19,7 @@ model Course {
   userId String 
   title String @db.Text
   description String? @db.Text
+  instructions String? @db.Text
   imageUrl String? @db.Text
   price Float? 
   isPublished Boolean @default(false)

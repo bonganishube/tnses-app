@@ -31,6 +31,7 @@ const getChapter = async ({
         select: {
             title: true,
             price: true,
+            instructions: true,
         }
     });
 
