@@ -10,6 +10,7 @@ import { ArrowLeft, File } from 'lucide-react';
 import CourseProgressButton from './_components/course-progress-button';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import ReadText from '@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/read-text';
 
 const ChapterIdPage = async ({
     params,
@@ -104,7 +105,7 @@ const ChapterIdPage = async ({
                     </div>
                     <Separator />
                     <div className="p-4">
-                        <p>{chapter.description}</p>
+                        <ReadText value={chapter.description} />
                     </div>
                     {!!attachments.length && (
                         <>

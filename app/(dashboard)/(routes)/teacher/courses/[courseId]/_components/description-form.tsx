@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button"
 import { cn } from '@/lib/utils';
 import { Textarea } from '@/components/ui/textarea';
 import { Course } from '@prisma/client';
+import RichEditor from './rich-editor';
 
 
 
@@ -100,11 +101,12 @@ export const DescriptionForm = ({
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
-                                    <Textarea 
+                                    {/* <Textarea 
                                         disabled={isSubmitting}
                                         placeholder="e.g. 'This course is about...'"
                                         {...field}
-                                    />
+                                    /> */}
+                                    <RichEditor placeholder="What is this course about?" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

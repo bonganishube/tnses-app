@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button"
 import { cn } from '@/lib/utils';
 import { Chapter } from '@prisma/client';
 import { Textarea } from '@/components/ui/textarea';
+import RichEditor from '../../../_components/rich-editor';
 
 
 
@@ -110,11 +111,12 @@ export const ChapterDescriptionForm = ({
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
-                                <Textarea 
+                                {/* <Textarea 
                                         disabled={isSubmitting}
                                         placeholder="e.g. 'This course is about...'"
                                         {...field}
-                                    />
+                                /> */}
+                                <RichEditor placeholder="What is this course about?" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
