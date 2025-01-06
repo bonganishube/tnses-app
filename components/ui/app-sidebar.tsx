@@ -229,7 +229,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarFooter>
         <div className="p-2">
-          <Button variant="outline" className="w-auto">
+          <Button size="sm" variant="outline" className="w-auto">
             <LogOut className="h-4 w-4 mr-2" />
             <SignOutButton />
           </Button>
