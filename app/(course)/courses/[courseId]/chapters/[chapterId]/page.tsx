@@ -67,7 +67,7 @@ const ChapterIdPage = async ({
         href={`/home`}
         className="flex items-center text-sm hover:opacity-75 transition p-6"
       >
-        <Button variant="outline" className="text-muted-foreground">
+        <Button size="sm" variant="outline" className="text-muted-foreground">
           <ArrowLeft className="h-4 w-4" />
           Back to courses
         </Button>
