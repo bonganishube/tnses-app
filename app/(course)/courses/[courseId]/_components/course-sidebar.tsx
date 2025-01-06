@@ -38,7 +38,7 @@ const CourseSidebar = async ({
     });
 
   return (
-    <div className="h-full border-r flex flex-col overflow-y-auto shadow-sm">
+    <div className="h-screen border-r flex flex-col overflow-y-auto shadow-sm">
         <div className="p-8 flex flex-col border-b">
             <h1 className="font-semibold">
                 {course.title}
@@ -67,7 +67,7 @@ const CourseSidebar = async ({
             })}
         </div>
         <div className="inset-y-full relative p-2">
-            <Button variant="outline" className="w-auto">
+            <Button size="sm" variant="outline" className="w-auto">
                 <LogOut className="h-4 w-4 mr-2" />
                 <SignOutButton />
             </Button>
