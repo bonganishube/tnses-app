@@ -52,7 +52,7 @@ const SidebarRoutes = () => {
   return (
     <>
       {/* Render Search Input for Browse Page */}
-      {isStudentPage && (
+      {pathname === "/browse" && (
         <div className="hidden md:block">
           <SearchInput />
         </div>

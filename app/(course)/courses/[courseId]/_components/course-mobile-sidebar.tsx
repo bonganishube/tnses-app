@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, PanelRight, PanelRightClose } from "lucide-react";
+import { LogOut, Menu, PanelRight, PanelRightClose } from "lucide-react";
 import { Chapter, Course, UserProgress } from "@prisma/client";
 
 import {
@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/sheet";
 import CourseSidebar from './course-sidebar';
 import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
+import { SignOutButton } from '@clerk/nextjs';
 
 
 
@@ -36,6 +38,12 @@ const CourseMobileSidebar = ({
                 course={course}
                 progressCount={progressCount}
             />
+            <div className="p-2 mt-auto">
+                <Button size="sm" variant="outline" className="w-auto">
+                    <LogOut className="h-4 w-4" />
+                    <SignOutButton />
+                </Button>
+            </div>
         </SheetContent>
     </Sheet>
   )

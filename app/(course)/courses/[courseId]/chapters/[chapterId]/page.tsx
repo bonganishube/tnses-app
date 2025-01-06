@@ -77,7 +77,7 @@ const ChapterIdPage = async ({
         <h1 className="text-2xl font-semibold text-secondaryColor">
           {chapter.title}
         </h1>
-        <h2 className="text-base text-muted-foreground">{course.title}</h2>
+        <h2 className="text-sm text-muted-foreground">{course.title}</h2>
       </div>
       <div className="flex flex-col max-w-4xl mx-auto pb-20">
         <div className="p-4">
