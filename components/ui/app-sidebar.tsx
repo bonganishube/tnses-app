@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   AudioWaveform,
   BookOpen,
@@ -11,27 +11,29 @@ import {
   Frame,
   GalleryVerticalEnd,
   List,
+  LogOut,
   Map,
   PieChart,
   Settings2,
   SquareTerminal,
-} from "lucide-react"
+} from "lucide-react";
 
-import { NavMain } from "./nav-main"
-import { NavProjects } from "./nav.projects"
-import { NavUser } from "./new-user"
-import { TeamSwitcher } from "./team-switcher"
+import { NavMain } from "./nav-main";
+import { NavProjects } from "./nav.projects";
+import { NavUser } from "./new-user";
+import { TeamSwitcher } from "./team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar"
-import { UserButton } from "@clerk/nextjs"
-import SidebarRoutes from "@/app/(dashboard)/_components/sidebar-routes"
-import { usePathname } from "next/navigation"
-import Logo from "../../public/logo.png"
+} from "@/components/ui/sidebar";
+import { SignOutButton, UserButton,  } from "@clerk/nextjs";
+import SidebarRoutes from "@/app/(dashboard)/_components/sidebar-routes";
+import { usePathname } from "next/navigation";
+import Logo from "../../public/logo.png";
+import { Button } from "./button";
 
 // This is sample data.
 const data = {
@@ -153,7 +155,7 @@ const data = {
         {
           title: "None",
           url: "#",
-        }
+        },
       ],
     },
     {
@@ -164,7 +166,7 @@ const data = {
         {
           title: "None",
           url: "#",
-        }
+        },
       ],
     },
   ],
@@ -177,7 +179,7 @@ const data = {
         {
           title: "None",
           url: "#",
-        }
+        },
       ],
     },
     {
@@ -188,9 +190,9 @@ const data = {
         {
           title: "None",
           url: "#",
-        }
+        },
       ],
-    }
+    },
   ],
   projects: [
     {
@@ -209,13 +211,13 @@ const data = {
       icon: Map,
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
   const isTeacherPage = pathname?.includes("/teacher");
   const routes = isTeacherPage ? data.teacherRoutes : data.guestRoutes;
-  
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -226,9 +228,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* <NavProjects projects={routes} /> */}
       </SidebarContent>
       <SidebarFooter>
-        {/* <NavUser user={data.user} /> */}
+        <div className="p-2">
+          <Button variant="outline" className="w-auto">
+            <LogOut className="h-4 w-4 mr-2" />
+            <SignOutButton />
+          </Button>
+        </div>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }

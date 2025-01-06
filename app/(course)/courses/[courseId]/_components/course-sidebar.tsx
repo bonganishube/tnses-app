@@ -5,6 +5,9 @@ import { redirect } from 'next/navigation';
 import React from 'react'
 import CourseSidebarItem from './course-sidebar-item';
 import CourseProgress from '@/components/course-progress';
+import { SignOutButton } from '@clerk/nextjs';
+import { Button } from '@/components/ui/button';
+import { LogOut } from 'lucide-react';
 
 interface CourseSidebarProps {
     course: Course & {
@@ -62,6 +65,12 @@ const CourseSidebar = async ({
                     />
                 );
             })}
+        </div>
+        <div className="inset-y-full relative p-2">
+            <Button variant="outline" className="w-auto">
+                <LogOut className="h-4 w-4 mr-2" />
+                <SignOutButton />
+            </Button>
         </div>
     </div>
   )
