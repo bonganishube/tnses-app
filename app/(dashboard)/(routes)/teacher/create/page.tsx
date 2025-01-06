@@ -52,7 +52,7 @@ const CreatePage = () => {
     <div className="max-w-5xl mx-auto flex md:mt-24 md:justify-center h-full p-6">
         <div>
           <h1 className="text-2xl font-semibold">
-            Name your course
+            Give your course a title
           </h1>
           <p className="text-sm text-slate-600">
             What would you like to name your course? Don&apos;t worry, you can change this later.
