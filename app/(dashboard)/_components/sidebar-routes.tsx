@@ -63,7 +63,7 @@ const SidebarRoutes = () => {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-xs text-primaryColor bg-primaryColor/20 font-semibold">
+              <NavigationMenuTrigger className="text-xs text-primaryColor bg-primaryColor/20 font-bold">
                 <Book className="h-3 w-3 mr-2" />
                 {isStudentMode ? "Student Mode" : "Admin Mode"}
               </NavigationMenuTrigger>
