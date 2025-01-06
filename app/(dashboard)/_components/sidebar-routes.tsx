@@ -1,88 +1,100 @@
-"use client"
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { useAuth, UserButton } from '@clerk/nextjs'
-import { isTeacher } from '@/lib/teacher';
-import { Book, Lock, LogOut } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import React from 'react'
-import SearchInput from './search-input';
+import { Button } from "@/components/ui/button";
+import { useAuth, UserButton } from "@clerk/nextjs";
+import { isTeacher } from "@/lib/teacher";
+import { Book, Lock, LogOut } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React, { useState } from "react";
+import SearchInput from "./search-input";
 
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu"
-  
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu"; // Import NavigationMenu components
 
 const SidebarRoutes = () => {
-    const { userId }  = useAuth()
-    const pathname = usePathname();
+  const { userId } = useAuth();
+  const pathname = usePathname();
 
-    const isTeacherPage = pathname?.startsWith("/teacher");
-    const isCoursePage = pathname?.includes("/courses");
-    const isBrowsePage = pathname === "/browse";
+  // Check if we are on a "teacher" page or any page starting with "teacher"
+  const isTeacherPage = pathname?.startsWith("/teacher");
+  // Check if we're on any of the student-friendly pages
+  const isStudentPage =
+    pathname === "/home" ||
+    pathname === "/browse" ||
+    pathname?.startsWith("/course");
+
+  const isStudentMode = isStudentPage || (isTeacher(userId) && !isTeacherPage); // Show student mode on specific pages or for teacher users not on teacher pages
+  const isAdminMode = !isStudentMode; // Admin mode is the reverse of student mode
+
+  const [isOpen, setIsOpen] = useState(false); // Local state to manage dropdown open/close
+
+  // Function to close the dropdown after selecting an option
+  const handleItemClick = () => {
+    setIsOpen(false); // Close the dropdown
+  };
 
   return (
     <>
-        {isBrowsePage && (
-            <div className="hidden md:block">
-                <SearchInput />
-            </div>
-        )}
-        <div className="flex gap-4 p-2 ml-auto">
-            {isTeacherPage || isCoursePage ? (
-                
-                <DropdownMenu>
-                    <DropdownMenuTrigger>
-                        <Button variant="outline" size="sm">
-                            <Lock className="h-4 w-4"/>
-                            Admin Mode
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                        <DropdownMenuLabel className="p-0">
-                        <Link href="/home">
-                            <Button size="sm" variant="ghost">
-                                <Book className="h-4 w-4"/>
-                                Student Mode
-                            </Button>
-                        </Link>
-                        </DropdownMenuLabel>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            ) : isTeacher(userId) ? (
-                <DropdownMenu>
-                    <DropdownMenuTrigger>
-                        <Button variant="outline" size="sm">
-                            <Book className="h-4 w-4"/>
-                            Student Mode
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                        <DropdownMenuLabel className="p-0">
-                        <Link href="/teacher/courses">
-                            <Button size="sm" variant="ghost">
-                                <Lock className="h-4 w-4"/>
-                                Admin Mode
-                            </Button>
-                        </Link>
-                        </DropdownMenuLabel>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            ) : null}
-            <div className="flex items-center active:bg-color-0 active:border-0">
-                <UserButton 
-                    afterSignOutUrl="/"
-                />
-            </div>
+      {/* Render Search Input for Browse Page */}
+      {isStudentPage && (
+        <div className="hidden md:block">
+          <SearchInput />
         </div>
-    </>
-  )
-}
+      )}
 
-export default SidebarRoutes
+      <div className="flex gap-4 p-2 ml-auto">
+        {/* Render NavigationMenu with Dropdown inside */}
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="text-primaryColor bg-primaryColor/20 font-semibold">
+                <Book className="h-4 w-4 mr-2" />
+                {isStudentMode ? "Student Mode" : "Admin Mode"}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuLink>
+                  <Link href={isStudentMode ? "/teacher/courses" : "/home"}>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="font-medium text-gray-500 hover:text-gray-700"
+                      onClick={handleItemClick} // Close dropdown after click
+                    >
+                      <Lock className="h-4 w-4" />
+                      {isStudentMode
+                        ? "Switch to Admin Mode"
+                        : "Switch to Student Mode"}
+                    </Button>
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        {/* User Button for signing out */}
+        <div className="flex items-center active:bg-color-0 active:border-0">
+          <UserButton afterSignOutUrl="/" />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default SidebarRoutes;

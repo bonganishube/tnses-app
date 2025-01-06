@@ -84,7 +84,7 @@ export const ChapterDescriptionForm = ({
       {!isEditing && (
         <div
           className={cn(
-            "text-sm mt-2",
+            "text-sm mt-2 text-muted-foreground",
             !initialData.description && "text-slate-500 italic"
           )}
         >

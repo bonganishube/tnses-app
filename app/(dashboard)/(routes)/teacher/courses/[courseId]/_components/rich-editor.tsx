@@ -15,12 +15,14 @@ const RichEditor = ({ placeholder, onChange, value }: RichEditorProps) => {
   );
 
   return (
-    <ReactQuill
-      theme="snow"
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-    />
+    <div>
+      <ReactQuill
+        theme="snow"
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   );
 };
 

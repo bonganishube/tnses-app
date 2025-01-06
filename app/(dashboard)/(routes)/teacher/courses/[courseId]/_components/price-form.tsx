@@ -74,14 +74,13 @@ export const PriceForm = ({
                 ) : (
                     <>
                         <Pencil className="h-4 w-4" />
-                        {/* Edit */}
                     </>
                 )}
             </Button>
         </div> 
         {!isEditing && (
             <p className={cn(
-                "text-sm mt-2",
+                "text-sm mt-2 ml-4 text-muted-foreground",
                 !initialData.price && "text-slate-500 italic"
             )}>
                 {initialData.price

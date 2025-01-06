@@ -102,7 +102,6 @@ export const ChaptersForm = ({
                 ) : (
                     <>
                         <PlusCircle className="h-4 w-4" />
-                        {/* Add */}
                     </>
                 )}
             </Button>

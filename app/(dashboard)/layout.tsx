@@ -14,6 +14,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import SidebarRoutes from "./_components/sidebar-routes";
+import Logo from "./_components/logo";
 
 const Dashboard = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -41,7 +42,7 @@ const Dashboard = ({ children }: { children: React.ReactNode }) => {
                     </BreadcrumbItem>
                   </BreadcrumbList>
                 </Breadcrumb> */}
-                
+                <Logo />
                 <SidebarRoutes />
               </div>
             </header>

@@ -70,7 +70,6 @@ export const AttachmentForm = ({
                 {!isEditing && (
                     <>
                         <PlusCircle className="w-4 h-4" />
-                        {/* Add */}
                     </>
                 )}
             </Button>
@@ -78,7 +77,7 @@ export const AttachmentForm = ({
         {!isEditing && (
             <>
                 {initialData.attachments.length === 0 && (
-                    <p className="text-sm mt-2 text-slate-500 italic">
+                    <p className="text-sm mt-2 text-slate-500 italic ml-4 text-muted-foreground">
                         No attachments yet
                     </p>
                 )}

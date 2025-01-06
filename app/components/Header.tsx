@@ -238,7 +238,7 @@ export const Header = () => {
                                         </div>
                                     ) : (
                                         <>
-                                            <Accordion type="single" collapsible>
+                                            <Accordion type="single" collapsible defaultValue={`item-${item.title}`}>
                                                 <AccordionItem value={`item-${item.title}`}>
                                                     <AccordionTrigger>
                                                         <Button variant="ghost" className="mr-24 text-[16px]">
@@ -268,7 +268,7 @@ export const Header = () => {
                                 ))}
                             </NavigationMenuList>
                         </NavigationMenu>
-                    <SheetFooter className="px-4 flex-row-reverse gap-4 mt-10">
+                    {/* <SheetFooter className="px-4 flex-row-reverse gap-4 mt-10">
                             <SheetClose asChild>
                                 <Link href="/sign-up">
                                     <Button className="bg-primaryColor lg:hidden ">
@@ -283,7 +283,7 @@ export const Header = () => {
                                     </Button>
                                 </Link>
                             </SheetClose>
-                    </SheetFooter>   
+                    </SheetFooter>    */}
                 </SheetContent>
             </Sheet>
             </div>

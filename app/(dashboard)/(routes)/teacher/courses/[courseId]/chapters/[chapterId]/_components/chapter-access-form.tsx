@@ -84,7 +84,7 @@ export const ChapterAccessForm = ({
         </div> 
         {!isEditing && (
             <p className={cn(
-                "text-sm mt-2",
+                "text-sm mt-2 ml-4 text-muted-foreground",
                 !initialData.isFree && "text-slate-500 italic"
             )}>
                 {initialData.isFree ? (

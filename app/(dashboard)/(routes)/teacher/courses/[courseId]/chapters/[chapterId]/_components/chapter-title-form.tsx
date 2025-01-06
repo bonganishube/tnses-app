@@ -73,13 +73,12 @@ export const ChapterTitleForm = ({
                 ) : (
                     <>
                         <Pencil className="h-4 w-4" />
-                        {/* Edit Title */}
                     </>
                 )}
             </Button>
         </div> 
         {!isEditing && (
-            <p className="text-sm mt-2">
+            <p className="text-sm mt-2 ml-4 text-muted-foreground">
                 {initialData.title}
             </p>
         )}

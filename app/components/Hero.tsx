@@ -20,6 +20,7 @@ import Hero4 from "../../public/hero/hero4.jpg";
 import Hero5 from "../../public/hero/hero5.jpg";
 import Hero6 from "../../public/hero/hero6.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 const heroData = [
   {
@@ -28,7 +29,7 @@ const heroData = [
       text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: Hero1,
       button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
-      button2: <Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button>
+      button2: <Link href="/sign-up"><Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button></Link>
   },
   {
       id: 2,
@@ -55,7 +56,7 @@ const heroDataMobile = [
       text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: Hero4,
       button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
-      button2: <Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button>
+      button2: <Link href="/sign-up"><Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button></Link>
   },
   {
       id: 2,

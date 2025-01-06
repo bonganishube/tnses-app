@@ -17,7 +17,7 @@ interface CourseNavbarProps {
 
 const CourseNavbar = ({ course, progressCount }: CourseNavbarProps) => {
   return (
-    <div className="p-4 h-12 w-full flex items-center place-content-between bg-white">
+    <div className="p-4 h-12 w-full flex items-center bg-white">
       <div className="flex">
         <CourseMobileSidebar course={course} progressCount={progressCount} />
       </div>
@@ -29,9 +29,7 @@ const CourseNavbar = ({ course, progressCount }: CourseNavbarProps) => {
           Ads
         </span>
       </div>
-      <div className="flex mr-2">
-        <UserButton afterSignOutUrl="/" />
-      </div>
+      <SidebarRoutes />
     </div>
   );
 };
