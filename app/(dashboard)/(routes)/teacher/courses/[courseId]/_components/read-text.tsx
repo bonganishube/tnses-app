@@ -1,13 +1,14 @@
 import dynamic from "next/dynamic";
-import React, { useMemo } from "react";
+import React from "react";
 import "react-quill/dist/quill.bubble.css";
 
-const ReadText = ({ value }: { value: string }) => {
-  const ReactQuill = useMemo(
-    () => dynamic(() => import("react-quill"), { ssr: false }),
-    []
-  );
+// Dynamically import ReactQuill with SSR disabled
+const ReactQuill = dynamic(() => import("react-quill"), {
+  ssr: false, // Disable SSR for this component
+  loading: () => <div>Loading viewer...</div>, // Display loading state while the component is being loaded
+});
 
+const ReadText = ({ value }: { value: string }) => {
   return (
     <div>
       <ReactQuill theme="bubble" value={value} readOnly />

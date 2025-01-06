@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ReadText from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/read-text";
 
+
 const ChapterIdPage = async ({
   params,
 }: {
@@ -106,13 +107,13 @@ const ChapterIdPage = async ({
           <Separator />
           <div className="p-4">
             <h1 className="font-semibold">Description</h1>
-            <ReadText value={chapter.description!} />
+            {/* <ReadText value={chapter.description!} /> */}
           </div>
           <div>
             {purchase && course.instructions && (
               <div className="p-4">
                 <p className="font-semibold">Instructions</p>
-                <ReadText value={course.instructions} />
+                {/* <ReadText value={course.instructions!} /> */}
               </div>
             )}
           </div>
