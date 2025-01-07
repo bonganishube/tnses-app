@@ -2,7 +2,7 @@ import React from "react";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Terminal } from "lucide-react";
 import TitleForm from "./_components/title-form";
 import InstructionsForm from "./_components/instructions-form";
 import ImageForm from "./_components/image-form";
@@ -15,6 +15,7 @@ import { Actions } from "./_components/actions";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import DescriptionForm from "./_components/description-form";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const CourseIdPage = async (props: {
   params: Promise<{ courseId: string }>;
@@ -74,7 +75,18 @@ const CourseIdPage = async (props: {
   return (
     <>
       {!course.isPublished && (
-        <Banner label="This course is unpublished. It will not be visible to the students." />
+        <div className="p-6 pb-0">
+          <div className="w-full md:w-4/5 xl:w-1/2">
+            <Alert variant="warning">
+              <Terminal className="h-4 w-4" style={{ color: "#f59e0b" }} />
+              <AlertTitle>Heads up!</AlertTitle>
+              <AlertDescription>
+                This course is unpublished. It will not be visible to the
+                students.
+              </AlertDescription>
+            </Alert>
+          </div>
+        </div>
       )}
       <div className="p-6">
         <div className="flex items-center justify-between">

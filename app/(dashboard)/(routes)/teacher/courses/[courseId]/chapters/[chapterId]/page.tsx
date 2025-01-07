@@ -1,7 +1,7 @@
 import { IconBadge } from "@/components/icon-badge";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
-import { ArrowLeft, Eye, LayoutDashboard, Video } from "lucide-react";
+import { ArrowLeft, Eye, LayoutDashboard, Terminal, Video } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -12,6 +12,7 @@ import ChapterVideoForm from "./_components/chapter-video-form";
 import { Banner } from "@/components/banner";
 import { ChapterActions } from "./_components/chapter-actions";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const ChapterIdPage = async (props: {
   params: Promise<{ courseId: string; chapterId: string }>;
@@ -49,10 +50,18 @@ const ChapterIdPage = async (props: {
   return (
     <>
       {!chapter.isPublished && (
-        <Banner
-          variant="warning"
-          label="This chapter is unpublished. It will not be visible in the course"
-        />
+        <div className="p-6 pb-0">
+          <div className="w-full md:w-4/5 xl:w-1/2">
+            <Alert variant="warning">
+              <Terminal className="h-4 w-4" style={{ color: "#f59e0b" }} />
+              <AlertTitle>Heads up!</AlertTitle>
+              <AlertDescription>
+                This chapter is unpublished. It will not be visible in the
+                course.
+              </AlertDescription>
+            </Alert>
+          </div>
+        </div>
       )}
       <div className="p-6">
         <div className="flex items-center justify-between">

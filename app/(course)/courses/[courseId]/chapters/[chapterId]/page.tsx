@@ -6,12 +6,12 @@ import React from "react";
 import { VideoPlayer } from "./_components/video-player";
 import CourseEnrollButton from "./_components/course-enroll-button";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft, File } from "lucide-react";
+import { ArrowLeft, CheckCircle, File, Terminal } from "lucide-react";
 import CourseProgressButton from "./_components/course-progress-button";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ReadText from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/read-text";
-
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const ChapterIdPage = async ({
   params,
@@ -51,16 +51,26 @@ const ChapterIdPage = async ({
   return (
     <div>
       {userProgress?.isCompleted && (
-        <Banner
-          variant="success"
-          label="You have already completed this chapter."
-        />
+        <div className="px-6">
+        <Alert variant="success">
+          <CheckCircle className="h-4 w-4" style={{ color: '#047857' }} />
+          <AlertTitle>Well done!</AlertTitle>
+          <AlertDescription>
+            You have already completed this chapter
+          </AlertDescription>
+        </Alert>
+      </div>
       )}
       {isLocked && (
-        <Banner
-          variant="warning"
-          label="You need to purchase this course to watch this chapter."
-        />
+        <div className="px-6">
+          <Alert variant="warning">
+            <Terminal className="h-4 w-4" style={{ color: '#f59e0b' }} />
+            <AlertTitle>Heads up!</AlertTitle>
+            <AlertDescription>
+              You need to purchase this course to watch this chapter.
+            </AlertDescription>
+          </Alert>
+        </div>
       )}
 
       <Link
@@ -107,13 +117,13 @@ const ChapterIdPage = async ({
           <Separator />
           <div className="p-4">
             <h1 className="font-semibold">Description</h1>
-            {/* <ReadText value={chapter.description!} /> */}
+            <ReadText value={chapter.description!} />
           </div>
           <div>
             {purchase && course.instructions && (
               <div className="p-4">
                 <p className="font-semibold">Instructions</p>
-                {/* <ReadText value={course.instructions!} /> */}
+                <ReadText value={course.instructions!} />/
               </div>
             )}
           </div>
