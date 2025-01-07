@@ -1,12 +1,4 @@
 import { AppSidebar } from "@/components/ui/app-sidebar";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
@@ -18,37 +10,24 @@ import Logo from "./_components/logo";
 
 const Dashboard = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen overflow-hidden flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-hidden">
       <SidebarProvider>
-        <div className="flex flex-1">
+        <div className="flex flex-1 overflow-hidden">
+          {/* Sidebar */}
           <AppSidebar />
-          <SidebarInset className="flex-1 overflow-hidden">
+          {/* Main Content */}
+          <SidebarInset className="flex-1 flex flex-col overflow-hidden">
             <header className="flex h-12 shrink-0 items-center gap-2 w-full px-4 transition-all ease-linear">
               <div className="flex items-center gap-2 w-full">
                 <SidebarTrigger className="w-4 h-4 ml-2" />
                 <Separator orientation="vertical" className="mr-2 h-4" />
-                
-                {/* Optional breadcrumb */}
-                {/* <Breadcrumb>
-                  <BreadcrumbList>
-                    <BreadcrumbItem className="hidden md:block">
-                      <BreadcrumbLink href="#">
-                        Building Your Application
-                      </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator className="hidden md:block" />
-                    <BreadcrumbItem>
-                      <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                    </BreadcrumbItem>
-                  </BreadcrumbList>
-                </Breadcrumb> */}
                 <Logo />
                 <SidebarRoutes />
               </div>
             </header>
 
             {/* Main Content Area */}
-            <div className="pt-0 h-full max-w-full overflow-x-hidden">
+            <div className="pt-0 h-full overflow-auto max-w-full">
               {children}
             </div>
           </SidebarInset>
