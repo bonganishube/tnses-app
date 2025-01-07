@@ -123,7 +123,7 @@ const ChapterIdPage = async ({
             {purchase && course.instructions && (
               <div className="p-4">
                 <p className="font-semibold">Instructions</p>
-                <ReadText value={course.instructions!} />/
+                <ReadText value={course.instructions!} />
               </div>
             )}
           </div>
