@@ -76,7 +76,7 @@ const SidebarRoutes = () => {
                       className="font-medium text-gray-500 hover:text-gray-700"
                       onClick={handleItemClick} // Close dropdown after click
                     >
-                      <Lock className="h-4 w-4" />
+                      <Lock className="h-3 w-3" />
                       {isStudentMode
                         ? "Switch to Admin Mode"
                         : "Switch to Student Mode"}
