@@ -26,9 +26,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent,
   NavigationMenuLink,
-} from "@/components/ui/navigation-menu"; // Import NavigationMenu components
-import { NavUser } from "@/components/ui/new-user";
-import { SidebarProvider } from "@/components/ui/sidebar";
+} from "@/components/ui/navigation-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const data = {
@@ -114,7 +112,7 @@ const SidebarRoutes = () => {
               >
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={data.user.avatar} alt={data.user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                  <AvatarFallback className="rounded-lg bg-slate-200 font-normal">CN</AvatarFallback>
                 </Avatar>
                 {/* <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">
