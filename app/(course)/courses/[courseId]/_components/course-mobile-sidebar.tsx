@@ -38,12 +38,6 @@ const CourseMobileSidebar = ({
                 course={course}
                 progressCount={progressCount}
             />
-            <div className="p-2 mt-auto">
-                <Button size="sm" variant="outline" className="w-auto">
-                    <LogOut className="h-4 w-4" />
-                    <SignOutButton />
-                </Button>
-            </div>
         </SheetContent>
     </Sheet>
   )

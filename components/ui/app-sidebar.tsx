@@ -16,6 +16,7 @@ import {
   PieChart,
   Settings2,
   SquareTerminal,
+  UserRoundPen,
 } from "lucide-react";
 
 import { NavMain } from "./nav-main";
@@ -169,6 +170,17 @@ const data = {
         },
       ],
     },
+    {
+      title: "Profile",
+      url: "/profile",
+      icon: UserRoundPen,
+      items: [
+        {
+          title: "None",
+          url: "#",
+        },
+      ],
+    },
   ],
   teacherRoutes: [
     {
@@ -186,6 +198,17 @@ const data = {
       title: "Analytics",
       url: "/teacher/analytics",
       icon: ChartNoAxesColumnIncreasing,
+      items: [
+        {
+          title: "None",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Profile",
+      url: "/teacher/profile",
+      icon: UserRoundPen,
       items: [
         {
           title: "None",

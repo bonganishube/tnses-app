@@ -67,7 +67,7 @@ const CourseSidebar = async ({
                 })}
             </div>
             {/* Button at the bottom */}
-            <div className="p-2 mt-auto">
+            <div className="p-4">
                 <Button size="sm" variant="outline" className="w-auto">
                     <LogOut className="h-4 w-4" />
                     <SignOutButton />
