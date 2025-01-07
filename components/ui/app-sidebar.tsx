@@ -251,11 +251,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* <NavProjects projects={routes} /> */}
       </SidebarContent>
       <SidebarFooter>
-        <div className="p-2">
-          <Button size="sm" variant="outline" className="w-auto">
-            <LogOut className="h-4 w-4" />
-            <SignOutButton />
-          </Button>
+        <div>
+          {/* <Button size="sm" variant="outline" className="w-auto"> */}
+            {/* <LogOut className="h-4 w-4" /> */}
+            {/* <SignOutButton /> */}
+          {/* </Button> */}
+          <NavUser user={data.user} />
         </div>
       </SidebarFooter>
       <SidebarRail />
