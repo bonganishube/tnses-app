@@ -88,7 +88,7 @@ export const DescriptionForm = ({
           {initialData.description ? (
             <ReadText value={initialData.description} />
           ) : (
-            <span className="text-slate-500 italic">No description</span>
+            <span className="text-slate-500 italic pl-4">No description</span>
           )}
         </div>
       )}
