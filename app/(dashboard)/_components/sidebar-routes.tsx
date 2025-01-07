@@ -150,7 +150,7 @@ const SidebarRoutes = () => {
                   Upgrade to Pro
                 </DropdownMenuItem>
               </DropdownMenuGroup> */}
-              <DropdownMenuSeparator />
+              {/* <DropdownMenuSeparator /> */}
               <DropdownMenuGroup>
                 <DropdownMenuItem>
                   <BadgeCheck />

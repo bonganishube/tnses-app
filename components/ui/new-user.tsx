@@ -86,12 +86,12 @@ export function NavUser({
                 Upgrade to Pro
               </DropdownMenuItem>
             </DropdownMenuGroup> */}
-            <DropdownMenuSeparator />
+            {/* <DropdownMenuSeparator /> */}
             <DropdownMenuGroup>
-              <DropdownMenuItem>
+              {/* <DropdownMenuItem>
                 <BadgeCheck />
                 Account
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
               <DropdownMenuItem>
                 <CreditCard />
                 Billing
