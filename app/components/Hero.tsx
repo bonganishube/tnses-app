@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { MoveRight, PhoneCall } from "lucide-react";
+import { Megaphone, MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import Hero1 from "../../public/hero/hero1.jpg";
@@ -24,55 +24,107 @@ import Link from "next/link";
 
 const heroData = [
   {
-      id: 1,
-      heading: "Slide One",
-      text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-      img: Hero1,
-      button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
-      button2: <Link href="/sign-up"><Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button></Link>
+    id: 1,
+    heading: "Slide One",
+    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    img: Hero1,
+    button1: (
+      <Button size="lg" className="gap-4" variant="outline">
+        Jump on a call <PhoneCall className="w-4 h-4" />
+      </Button>
+    ),
+    button2: (
+      <Link href="/sign-up">
+        <Button size="lg" className="gap-4 bg-primaryColor">
+          Sign up here <MoveRight className="w-4 h-4" />
+        </Button>
+      </Link>
+    ),
   },
   {
-      id: 2,
-      heading: "Slide Two",
-      text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-      img: Hero2,
-      button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
-      button2: <Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button>
+    id: 2,
+    heading: "Slide Two",
+    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    img: Hero2,
+    button1: (
+      <Button size="lg" className="gap-4" variant="outline">
+        Jump on a call <PhoneCall className="w-4 h-4" />
+      </Button>
+    ),
+    button2: (
+      <Button size="lg" className="gap-4 bg-primaryColor">
+        Sign up here <MoveRight className="w-4 h-4" />
+      </Button>
+    ),
   },
   {
-      id: 3,
-      heading: "Slide Three",
-      text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-      img: Hero3,
-      button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
-      button2: <Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button>
+    id: 3,
+    heading: "Slide Three",
+    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    img: Hero3,
+    button1: (
+      <Button size="lg" className="gap-4" variant="outline">
+        Jump on a call <PhoneCall className="w-4 h-4" />
+      </Button>
+    ),
+    button2: (
+      <Button size="lg" className="gap-4 bg-primaryColor">
+        Sign up here <MoveRight className="w-4 h-4" />
+      </Button>
+    ),
   },
 ];
 
 const heroDataMobile = [
   {
-      id: 1,
-      heading: "Slide One",
-      text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-      img: Hero4,
-      button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
-      button2: <Link href="/sign-up"><Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button></Link>
+    id: 1,
+    heading: "Slide One",
+    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    img: Hero4,
+    button1: (
+      <Button size="lg" className="gap-4" variant="outline">
+        Jump on a call <PhoneCall className="w-4 h-4" />
+      </Button>
+    ),
+    button2: (
+      <Link href="/sign-up">
+        <Button size="lg" className="gap-4 bg-primaryColor">
+          Sign up here <MoveRight className="w-4 h-4" />
+        </Button>
+      </Link>
+    ),
   },
   {
-      id: 2,
-      heading: "Slide Two",
-      text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-      img: Hero5,
-      button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
-      button2: <Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button>
+    id: 2,
+    heading: "Slide Two",
+    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    img: Hero5,
+    button1: (
+      <Button size="lg" className="gap-4" variant="outline">
+        Jump on a call <PhoneCall className="w-4 h-4" />
+      </Button>
+    ),
+    button2: (
+      <Button size="lg" className="gap-4 bg-primaryColor">
+        Sign up here <MoveRight className="w-4 h-4" />
+      </Button>
+    ),
   },
   {
-      id: 3,
-      heading: "Slide Three",
-      text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-      img: Hero6,
-      button1: <Button size="lg" className="gap-4" variant="outline">Jump on a call <PhoneCall className="w-4 h-4" /></Button>,
-      button2: <Button size="lg" className="gap-4 bg-primaryColor">Sign up here <MoveRight className="w-4 h-4" /></Button>
+    id: 3,
+    heading: "Slide Three",
+    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    img: Hero6,
+    button1: (
+      <Button size="lg" className="gap-4" variant="outline">
+        Jump on a call <PhoneCall className="w-4 h-4" />
+      </Button>
+    ),
+    button2: (
+      <Button size="lg" className="gap-4 bg-primaryColor">
+        Sign up here <MoveRight className="w-4 h-4" />
+      </Button>
+    ),
   },
 ];
 
@@ -100,77 +152,89 @@ export const Hero = () => {
     <div className="w-full">
       <div className="mx-auto">
         <div className="flex flex-col gap-10">
-
           {/* Large screen */}
           <Carousel setApi={setApi} className="w-full hidden lg:flex">
             <CarouselContent>
-              {heroData.map(( { id, heading, text, img, button1, button2 }) => (
+              {heroData.map(({ id, heading, text, img, button1, button2 }) => (
                 <CarouselItem key={id}>
-                    <div className="w-full h-screen flex justify-center items-center relative overflow-hidden">
-                        <Image src={img} alt={`slide ${id}`} className="object-cover w-full h-full" />
-                        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-slate-900/[0.5]">
-                              <div className="container flex gap-8 items-center justify-center flex-col">
-                                  <div>
-                                  <Button variant="secondary" size="lg" className="gap-4 hidden md:inline-flex">
-                                      Read our launch article <MoveRight className="w-4 h-4" />
-                                  </Button>
-                                  </div>
-                                  <div className="flex gap-4 flex-col">
-                                  <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-white text-center font-bold">
-                                      {heading}
-                                  </h1>
-                                  <p className="text-md md:text-xl leading-relaxed tracking-tight text-slate-200 text-muted-foreground max-w-2xl text-center">
-                                      {text}
-                                  </p>
-                                  </div>
-                                  <div className="flex flex-wrap gap-5 justify-center">
-                                    <span className="hidden md:flex">{button1}</span>
-                                    {button2}
-                                  </div>
-                              </div>
+                  <div className="w-full h-screen flex justify-center items-center relative overflow-hidden">
+                    <Image
+                      src={img}
+                      alt={`slide ${id}`}
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-slate-900/[0.5]">
+                      <div className="container flex gap-8 items-center justify-center flex-col">
+                        <div>
+                          <Button
+                            variant="secondary"
+                            size="lg"
+                            className="gap-4 hidden md:inline-flex"
+                          >
+                            Read our launch article{" "}
+                            <MoveRight className="w-4 h-4" />
+                          </Button>
                         </div>
+                        <div className="flex gap-4 flex-col">
+                          <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-white text-center font-bold">
+                            {heading}
+                          </h1>
+                          <p className="text-md md:text-xl leading-relaxed tracking-tight text-slate-200 text-muted-foreground max-w-2xl text-center">
+                            {text}
+                          </p>
+                        </div>
+                        <div className="flex flex-wrap gap-5 justify-center">
+                          <span className="hidden md:flex">{button1}</span>
+                          {button2}
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
             <CarouselPrevious className="absolute top-[60%] left-[5%] opacity-50" />
-            <CarouselNext className="absolute top-[60%] right-[5%] opacity-50"/>
+            <CarouselNext className="absolute top-[60%] right-[5%] opacity-50" />
           </Carousel>
 
           {/* Small screen */}
           <Carousel setApi={setApi} className="w-full lg:hidden">
             <CarouselContent>
-              {heroDataMobile.map(( { id, heading, text, img, button1, button2 }) => (
-                <CarouselItem key={id}>
+              {heroDataMobile.map(
+                ({ id, heading, text, img, button1, button2 }) => (
+                  <CarouselItem key={id}>
                     <div className="w-full h-screen flex justify-center items-center relative overflow-hidden">
-                        <Image src={img} alt={`slide ${id}`} className="object-cover w-full h-full" />
-                        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-slate-900/[0.5]">
-                              <div className="container flex gap-8 items-center justify-center flex-col">
-                                  <div>
-                                  <Button variant="secondary" size="lg" className="gap-4 hidden md:inline-flex">
-                                      Read our launch article <MoveRight className="w-4 h-4" />
-                                  </Button>
-                                  </div>
-                                  <div className="flex gap-4 flex-col">
-                                  <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-white text-center font-bold">
-                                      {heading}
-                                  </h1>
-                                  <p className="text-md md:text-xl leading-relaxed tracking-tight text-slate-200 text-muted-foreground max-w-2xl text-center">
-                                      {text}
-                                  </p>
-                                  </div>
-                                  <div className="flex flex-wrap gap-5 justify-center">
-                                    <span className="hidden md:flex">{button1}</span>
-                                    {button2}
-                                  </div>
-                              </div>
+                      <Image
+                        src={img}
+                        alt={`slide ${id}`}
+                        className="object-cover w-full h-full"
+                      />
+                      <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-slate-900/[0.5]">
+                        <div className="container flex gap-8 items-center justify-center flex-col">
+                          <div>
+                            {/* <Megaphone className="w-10 h-10 -rotate-12 hidden md:inline-flex text-white font-thin" /> */}
+                          </div>
+                          <div className="flex gap-4 flex-col">
+                            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-white text-center font-bold">
+                              {heading}
+                            </h1>
+                            <p className="text-md md:text-xl leading-relaxed tracking-tight text-slate-200 text-muted-foreground max-w-2xl text-center">
+                              {text}
+                            </p>
+                          </div>
+                          <div className="flex flex-wrap gap-5 justify-center">
+                            <span className="hidden md:flex">{button1}</span>
+                            {button2}
+                          </div>
                         </div>
+                      </div>
                     </div>
-                </CarouselItem>
-              ))}
+                  </CarouselItem>
+                )
+              )}
             </CarouselContent>
             <CarouselPrevious className="absolute top-[60%] left-[5%] opacity-50" />
-            <CarouselNext className="absolute top-[60%] right-[5%] opacity-50"/>
+            <CarouselNext className="absolute top-[60%] right-[5%] opacity-50" />
           </Carousel>
         </div>
       </div>
