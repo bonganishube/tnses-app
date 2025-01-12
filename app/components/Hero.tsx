@@ -28,7 +28,7 @@ const heroData = [
     id: 1,
     heading: (
       <>
-      Learn Anywhere, <span className="text-primaryColor">Anytime</span>
+      Learn Anywhere, <br></br><span className="text-primaryColor">Anytime</span>
       </>
     ),
     text: "Our flexible online courses fit into your life, not the other way around.",
@@ -50,7 +50,7 @@ const heroData = [
     id: 2,
     heading: (
       <>
-      Unlock <span className="text-primaryColor">Financial Aid </span>Opportunities
+      Unlock <span className="text-primaryColor">Financial Aid </span><br></br>Opportunities
       </>
     ),
     text: "Get expert support with applications and secure funding for your education.",
@@ -70,7 +70,7 @@ const heroData = [
     id: 3,
     heading: (
       <>
-      Nail Your Interview, <span className="text-primaryColor">Land the Job</span>
+      Nail Your Interview, <br></br><span className="text-primaryColor">Land the Job</span>
       </>
     ),
     text: "Master the art of interviews with personalised coaching and expert feedback.",
