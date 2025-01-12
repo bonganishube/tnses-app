@@ -4,7 +4,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section className="py-20 lg:py-20 text-gray-600 body-font relative" id="contact">
+    <section className="py-20 lg:py-20 bg-tertiaryColor text-gray-600 body-font relative" id="contact">
       <div className="container px-4 mx-auto flex sm:flex-nowrap flex-wrap">
         {/* Map Section */}
         <div className="lg:w-2/3 md:w-1/2 w-full min-h-64 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
@@ -41,10 +41,10 @@ const Contact = () => {
             </div>
             <div className="flex gap-2 flex-col">
               <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left text-secondaryColor font-bold">
-                Reach out!
+                Get in touch
               </h4>
               <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-left my-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe neque quia odit distinctio, eum minima doloribus! Rerum consequatur cum in quia similique ducimus dolore adipisci! Molestias deleniti dolorem harum incidunt!
+                Feel free to contact us. Submit your queries here and we will listen
               </p>
             </div>
           </div>
@@ -92,8 +92,7 @@ const Contact = () => {
             </div>
             <Button className="bg-primaryColor w-full">Submit</Button>
             <p className="text-xs text-gray-500 mt-4 ml-1">
-              Chicharrones blog helvetica normcore iceland tousled brook viral
-              artisan.
+              We are committed to providing exceptional service and support.
             </p>
           </div>
         </div>
