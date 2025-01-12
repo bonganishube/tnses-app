@@ -228,7 +228,7 @@ export const Header = () => {
             </Button>
           </Link>
         </div>
-        <div className="flex gap-4 lg:hidden">
+        <div className="flex gap-4 md:gap-0 lg:hidden">
           <Link href="/sign-in">
             <Button
               className={`md:hidden bg-transparent text-white ${

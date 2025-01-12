@@ -114,3 +114,22 @@ body,
  
 /* @import "~@uploadthing/react/styles.css" */
 
+
+@keyframes flicker {
+  0% {
+    color: white; /* Start with white */
+  }
+  50% {
+    color: #FF6100; /* Change to orange at the halfway point */
+  }
+  100% {
+    color: white; /* Back to white */
+  }
+}
+
+.flicker-text {
+  animation: flicker 1s infinite; /* Flicker every 1 second */
+}
+
+
+

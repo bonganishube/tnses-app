@@ -21,12 +21,17 @@ import Hero5 from "../../public/hero/hero5.jpg";
 import Hero6 from "../../public/hero/hero6.jpg";
 import Image from "next/image";
 import Link from "next/link";
+import { BsMegaphone } from "react-icons/bs";
 
 const heroData = [
   {
     id: 1,
-    heading: "Slide One",
-    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    heading: (
+      <>
+      Learn Anywhere, <span className="text-primaryColor">Anytime</span>
+      </>
+    ),
+    text: "Our flexible online courses fit into your life, not the other way around.",
     img: Hero1,
     button1: (
       <Button size="lg" className="gap-4" variant="outline">
@@ -43,8 +48,12 @@ const heroData = [
   },
   {
     id: 2,
-    heading: "Slide Two",
-    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    heading: (
+      <>
+      Unlock <span className="text-primaryColor">Financial Aid </span>Opportunities
+      </>
+    ),
+    text: "Get expert support with applications and secure funding for your education.",
     img: Hero2,
     button1: (
       <Button size="lg" className="gap-4" variant="outline">
@@ -59,8 +68,12 @@ const heroData = [
   },
   {
     id: 3,
-    heading: "Slide Three",
-    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    heading: (
+      <>
+      Nail Your Interview, <span className="text-primaryColor">Land the Job</span>
+      </>
+    ),
+    text: "Master the art of interviews with personalised coaching and expert feedback.",
     img: Hero3,
     button1: (
       <Button size="lg" className="gap-4" variant="outline">
@@ -78,8 +91,12 @@ const heroData = [
 const heroDataMobile = [
   {
     id: 1,
-    heading: "Slide One",
-    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    heading: (
+      <>
+      Learn Anywhere, <span className="text-primaryColor">Anytime</span>
+      </>
+    ),
+    text: "Our flexible online courses fit into your life, not the other way around.",
     img: Hero4,
     button1: (
       <Button size="lg" className="gap-4" variant="outline">
@@ -96,8 +113,12 @@ const heroDataMobile = [
   },
   {
     id: 2,
-    heading: "Slide Two",
-    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    heading: (
+      <>
+      Unlock <span className="text-primaryColor">Financial Aid </span>Opportunities
+      </>
+    ),
+    text: "Get expert support with applications and secure funding for your education.",
     img: Hero5,
     button1: (
       <Button size="lg" className="gap-4" variant="outline">
@@ -112,8 +133,12 @@ const heroDataMobile = [
   },
   {
     id: 3,
-    heading: "Slide Three",
-    text: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    heading: (
+      <>
+      Nail Your Interview, <span className="text-primaryColor">Land the Job</span>
+      </>
+    ),
+    text: "Master the art of interviews with personalised coaching and expert feedback.",
     img: Hero6,
     button1: (
       <Button size="lg" className="gap-4" variant="outline">
@@ -137,15 +162,15 @@ export const Hero = () => {
       return;
     }
 
-    // setTimeout(() => {
-    //   if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
-    //     setCurrent(0);
-    //     api.scrollTo(0);
-    //   } else {
-    //     api.scrollNext();
-    //     setCurrent(current + 1);
-    //   }
-    // }, 4000);
+    setTimeout(() => {
+      if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
+        setCurrent(0);
+        api.scrollTo(0);
+      } else {
+        api.scrollNext();
+        setCurrent(current + 1);
+      }
+    }, 4000);
   }, [api, current]);
 
   return (
@@ -157,34 +182,26 @@ export const Hero = () => {
             <CarouselContent>
               {heroData.map(({ id, heading, text, img, button1, button2 }) => (
                 <CarouselItem key={id}>
-                  <div className="w-full h-screen flex justify-center items-center relative overflow-hidden">
+                  <div className="relative w-full h-screen flex justify-center items-center overflow-hidden">
                     <Image
                       src={img}
                       alt={`slide ${id}`}
                       className="object-cover w-full h-full"
                     />
-                    <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-slate-900/[0.5]">
+                    <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-slate-900/[0.6]">
                       <div className="container flex gap-8 items-center justify-center flex-col">
                         <div>
-                          <Button
-                            variant="secondary"
-                            size="lg"
-                            className="gap-4 hidden md:inline-flex"
-                          >
-                            Read our launch article{" "}
-                            <MoveRight className="w-4 h-4" />
-                          </Button>
+                            <BsMegaphone className="flicker-text -rotate-12 h-10 w-10" />
                         </div>
                         <div className="flex gap-4 flex-col">
-                          <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-white text-center font-bold">
+                          <h1 className="text-3xl md:text-5xl max-w-2xl tracking-tighter text-white text-center font-bold">
                             {heading}
                           </h1>
-                          <p className="text-md md:text-xl leading-relaxed tracking-tight text-slate-200 text-muted-foreground max-w-2xl text-center">
+                          <p className="text-lg md:text-2xl leading-relaxed tracking-tight text-slate-200 text-muted-foreground max-w-2xl text-center">
                             {text}
                           </p>
                         </div>
                         <div className="flex flex-wrap gap-5 justify-center">
-                          <span className="hidden md:flex">{button1}</span>
                           {button2}
                         </div>
                       </div>
@@ -193,8 +210,8 @@ export const Hero = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute top-[60%] left-[5%] opacity-50" />
-            <CarouselNext className="absolute top-[60%] right-[5%] opacity-50" />
+            <CarouselPrevious className="absolute top-[60%] left-[5%] opacity-80" />
+            <CarouselNext className="absolute top-[60%] right-[5%] opacity-80" />
           </Carousel>
 
           {/* Small screen */}
@@ -212,10 +229,10 @@ export const Hero = () => {
                       <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-slate-900/[0.5]">
                         <div className="container flex gap-8 items-center justify-center flex-col">
                           <div>
-                            {/* <Megaphone className="w-10 h-10 -rotate-12 hidden md:inline-flex text-white font-thin" /> */}
+                          <BsMegaphone className="flicker-text -rotate-12 h-8 w-8" />
                           </div>
                           <div className="flex gap-4 flex-col">
-                            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-white text-center font-bold">
+                            <h1 className="text-3xl md:text-5xl max-w-2xl tracking-tighter text-white text-center font-bold">
                               {heading}
                             </h1>
                             <p className="text-md md:text-xl leading-relaxed tracking-tight text-slate-200 text-muted-foreground max-w-2xl text-center">
@@ -223,7 +240,6 @@ export const Hero = () => {
                             </p>
                           </div>
                           <div className="flex flex-wrap gap-5 justify-center">
-                            <span className="hidden md:flex">{button1}</span>
                             {button2}
                           </div>
                         </div>
@@ -233,8 +249,8 @@ export const Hero = () => {
                 )
               )}
             </CarouselContent>
-            <CarouselPrevious className="absolute top-[60%] left-[5%] opacity-50" />
-            <CarouselNext className="absolute top-[60%] right-[5%] opacity-50" />
+            <CarouselPrevious className="absolute top-[60%] left-[5%] opacity-80" />
+            <CarouselNext className="absolute top-[60%] right-[5%] opacity-80" />
           </Carousel>
         </div>
       </div>
