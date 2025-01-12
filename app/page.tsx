@@ -7,6 +7,7 @@ import Contact from './components/Contact'
 import Team from './components/Team'
 import About from './components/About'
 import Testimonials from './components/Testimonials'
+import Services from './components/Services'
 
 
 
@@ -18,7 +19,7 @@ export default function Home() {
       <Hero />
       <Brands />
       <About />
-      <Features />
+      <Services />
       <Testimonials />
       <Team />
       <Contact />

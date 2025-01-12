@@ -119,7 +119,7 @@ const Footer: React.FC = () => {
               Subscribe
             </h1>
             <p className="max-w-xl">
-              Subscribe to get the Blueprint Magazine
+              Subscribe to our Blueprint Magazine
             </p>
             <form onSubmit={undefined} className="grid w-full relative max-w-xl">
               <div className="flex flex-col gap-3 w-full relative">

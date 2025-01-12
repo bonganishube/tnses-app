@@ -54,17 +54,17 @@ export default function Team() {
   return (
     <section className="py-20 lg:py-20 bg-white dark:bg-gray-900" id="team">
       <div className="container px-4 mx-auto">
-        <div className="flex gap-4 flex-col md:text-center">
+        <div className="flex gap-4 flex-col">
           <div>
             <Badge variant="outline" className="text-lg font-tertiary">
               Team
             </Badge>
           </div>
           <div className="flex gap-2 flex-col">
-            <h4 className="text-3xl md:text-5xl tracking-tighter text-secondaryColor font-bold mx-auto">
+            <h4 className="text-3xl md:text-5xl tracking-tighter text-secondaryColor font-bold">
               Meet the talented people driving our vision forward
             </h4>
-            <p className="text-lg max-w-3xl leading-relaxed tracking-tight my-4 mx-auto">
+            <p className="text-lg max-w-3xl leading-relaxed tracking-tight my-4">
               A dedicated team working together to create lasting change and support our mission.
             </p>
           </div>

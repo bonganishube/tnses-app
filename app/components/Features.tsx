@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import Service1 from "../../public/services/service1.jpg";
+import Image1 from "../../public/services/image1.jpg";
 
 const services = [
   {
@@ -29,7 +29,7 @@ const services = [
 ];
 
 export const Features = () => (
-  <div className="w-full py-20 lg:py-20" id="services">
+  <div className="w-full py-20" id="services">
     <div className="container px-4 mx-auto">
       <div className="grid border rounded-lg container py-8 grid-cols-1 gap-8 items-center md:grid-cols-2">
         <div className="flex gap-10 flex-col">
@@ -68,7 +68,7 @@ export const Features = () => (
           </div>
         </div>
         <div className="bg-muted rounded-md aspect-square">
-          <Image src={Service1} alt="Services" className="object-cover w-full h-full rounded-md" />
+          <Image src={Image1} alt="Services" className="object-cover w-full h-full rounded-md" />
         </div>
       </div>
     </div>

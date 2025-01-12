@@ -37,25 +37,25 @@ const Testimonials = () => {
       id="testimonials"
     >
       <div className="container px-4 mx-auto">
-        <div className="flex gap-4 flex-col md:text-center">
+        <div className="flex gap-4 flex-col">
           <div>
             <Badge variant="outline" className="text-white text-lg font-tertiary">
               Testimonials
             </Badge>
           </div>
           <div className="flex gap-2 flex-col">
-            <h4 className="text-3xl  md:text-5xl tracking-tighter text-white font-bold md:mx-auto">
+            <h4 className="text-3xl  md:text-5xl tracking-tighter text-white font-bold">
               What people are saying about our work
             </h4>
-            <p className="text-slate-300 text-lg leading-relaxed tracking-tight my-4 mx-auto">
+            <p className="text-slate-300 text-lg leading-relaxed tracking-tight my-4">
               Our clients' satisfaction is our top priority. Here's what they
               have to say about their experiences working with us.
             </p>
           </div>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap mt-8">
           {testimonialsItems.map((item) => (
-            <div className="p-4 md:w-1/2 w-full">
+            <div className="py-4 md:w-1/2 w-full">
               <div className="h-full bg-[#162449] p-8 rounded-md">
                 <Quote className="block w-5 h-5 mb-4 text-primaryColor" />
                 <Accordion
