@@ -8,6 +8,7 @@ import CourseProgress from '@/components/course-progress';
 import { SignOutButton } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
+import Link from 'next/link';
 
 interface CourseSidebarProps {
     course: Course & {
@@ -70,7 +71,9 @@ const CourseSidebar = async ({
             <div className="p-4">
                 <Button size="sm" variant="outline" className="w-auto">
                     <LogOut className="h-4 w-4" />
-                    <SignOutButton />
+                    <Link href="/">
+                    Log out
+                    </Link>
                 </Button>
             </div>
         </div>

@@ -31,8 +31,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Bongani",
+    email: "bonganishubeaz@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
 };
@@ -112,7 +112,7 @@ const SidebarRoutes = () => {
               >
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={data.user.avatar} alt={data.user.name} />
-                  <AvatarFallback className="rounded-lg bg-slate-200 font-normal">CN</AvatarFallback>
+                  <AvatarFallback className="rounded-lg bg-slate-200 text-slate-600 font-normal">BS</AvatarFallback>
                 </Avatar>
                 {/* <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">
@@ -133,7 +133,7 @@ const SidebarRoutes = () => {
                 <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                   <Avatar className="h-8 w-8 rounded-lg">
                     <AvatarImage src={data.user.avatar} alt={data.user.name} />
-                    <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                    <AvatarFallback className="rounded-lg">BS</AvatarFallback>
                   </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">{data.user.name}</span>
@@ -166,7 +166,9 @@ const SidebarRoutes = () => {
               <DropdownMenuSeparator />
               <DropdownMenuItem>
                 <LogOut />
+                <Link href="/">
                 Log out
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

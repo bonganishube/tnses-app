@@ -39,8 +39,8 @@ import { Button } from "./button";
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Bongani",
+    email: "bonganishubeaz@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
