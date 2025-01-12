@@ -157,7 +157,7 @@ export const Header = () => {
                                 {item.description}
                               </p>
                             </div>
-                            <Button
+                            {/* <Button
                               size="sm"
                               variant="secndary"
                               className="mt-10"
@@ -166,7 +166,7 @@ export const Header = () => {
                               }
                             >
                               Book a call today
-                            </Button>
+                            </Button> */}
                           </div>
                           <div className="flex flex-col text-sm h-full justify-end">
                             {item.items?.map((subItem) => (
