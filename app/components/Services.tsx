@@ -62,30 +62,45 @@ const Services = () => {
                   Applied digital skills
                 </h3>
                 <p className="text-xs font-normal text-gray-300 w-full mb-8 xl:w-64">
-                  Get quoted and covered in under 10 minutes online. no
-                  paperwork or waiting any more{" "}
+                Our Applied Digital Skills service offers tailored training to boost your career with essential digital tools.{" "}
                 </p>
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
-                    <Button size="sm" variant="outline" className="bg-secondaryColor text-white">View More<ChevronRight /></Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="bg-secondaryColor text-white"
+                    >
+                      View More
+                      <ChevronRight />
+                    </Button>
                   </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
                       <AlertDialogTitle>
-                      <span className="rounded-md w-max p-3 flex shadow-md mb-4">
-                        <TvMinimalPlay /> 
-                      </span>
-                      Applied digital skills
+                        <span className="rounded-md w-max p-3 flex shadow-md mb-4">
+                          <TvMinimalPlay />
+                        </span>
+                        Applied digital skills
                       </AlertDialogTitle>
                       <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
+                        Our Applied Digital Skills service is designed to equip
+                        you with practical, in-demand digital skills to thrive
+                        in today’s tech-driven job market. We offer tailored
+                        training in essential tools and platforms, from data
+                        analysis and project management to digital marketing and
+                        software proficiency. Whether you're looking to enhance
+                        your existing skill set or learn new, job-relevant
+                        abilities, our expert-led courses ensure you're ready to
+                        meet the challenges of your career with confidence and
+                        competence.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction className="bg-primaryColor"><Link href="/sign-up">Sign Up</Link></AlertDialogAction>
+                      <AlertDialogAction className="bg-primaryColor">
+                        <Link href="/sign-up">Sign Up</Link>
+                      </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
@@ -109,33 +124,40 @@ const Services = () => {
               <h3 className="py-5 text-white text-lg font-bold xl:text-xl">
                 Blueprint magazine
               </h3>
-              <p className="text-xs font-normal text-white mb-8">
-                We’ve eliminated old analogue process with state-of-the art tech{" "}
+              <p className="text-xs font-normal text-white mb-8"> 
+              Blueprint Magazine delivers expert insights, industry trends, and career advice to inspire professional growth and development.{" "}
               </p>
               <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button size="sm" variant="outline" className="bg-emerald-700 text-white">View More<ChevronRight /></Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-emerald-700 text-white"
+                  >
+                    View More
+                    <ChevronRight />
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
                       <span className="rounded-md w-max p-3 flex shadow-md mb-4">
-                        <BookOpenText /> 
+                        <BookOpenText />
                       </span>
                       Blueprint magazine
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction className="bg-primaryColor"><Link href="/sign-up">Sign Up</Link></AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                    Blueprint Magazine is a comprehensive resource designed to inform, inspire, and empower professionals across various industries. With a focus on career development, industry insights, and personal growth, the magazine features expert interviews, in-depth articles, and thought-provoking content. Whether you're seeking the latest trends, tips on skill development, or advice on navigating the ever-evolving job market, Blueprint Magazine is your go-to source for staying ahead of the curve. Our carefully curated content aims to help you make informed decisions, refine your professional strategies, and ultimately, achieve greater success in your career.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction className="bg-primaryColor">
+                      <Link href="/sign-up">Sign Up</Link>
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </div>
           </div>
           <div className="relative w-full h-auto">
@@ -149,33 +171,39 @@ const Services = () => {
                 Monitoring & evaluation
               </h3>
               <p className="text-xs font-normal text-white mb-8">
-                Every life plan policy has a built-in wealth bonus, and we
-                contribute too{" "}
+              Our Monitoring & Evaluation service tracks progress, measures impact, and provides insights to enhance project outcomes.{" "}
               </p>
               <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button size="sm" variant="outline" className="bg-sky-700 text-white">View More<ChevronRight /></Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-sky-700 text-white"
+                  >
+                    View More
+                    <ChevronRight />
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
                       <span className="rounded-md w-max p-3 flex shadow-md mb-4">
-                        <BriefcaseBusiness /> 
+                        <BriefcaseBusiness />
                       </span>
                       Monitoring & evaluation
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction className="bg-primaryColor"><Link href="/sign-up">Sign Up</Link></AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
+                    </AlertDialogTitle>
+                    <AlertDialogDescription> 
+                    Our Monitoring & Evaluation service is designed to help organizations measure the effectiveness and impact of their projects and initiatives. By systematically tracking progress, assessing outcomes, and analyzing data, we provide valuable insights that drive informed decision-making and continuous improvement. We work closely with clients to develop customized M&E frameworks, ensuring that both qualitative and quantitative indicators are effectively captured. Whether you're focused on enhancing project performance, ensuring accountability, or refining strategies for future success, our service offers the tools and expertise needed to optimize results, demonstrate impact, and foster long-term growth.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction className="bg-primaryColor">
+                      <Link href="/sign-up">Sign Up</Link>
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </div>
           </div>
 
@@ -190,32 +218,39 @@ const Services = () => {
                 Recruitment & training
               </h3>
               <p className="text-xs font-normal text-white mb-8">
-                We’ve eliminated old analogue process with state-of-the art tech{" "}
+              Our Recruitment & Training service attracts top talent and develops essential skills to drive your team's success.{" "}
               </p>
               <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button size="sm" variant="outline" className="bg-indigo-700 text-white">View More<ChevronRight /></Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-indigo-700 text-white"
+                  >
+                    View More
+                    <ChevronRight />
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
                       <span className="rounded-md w-max p-3 flex shadow-md mb-4">
-                        <Building2 /> 
+                        <Building2 />
                       </span>
                       Recruitment & training
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction className="bg-primaryColor"><Link href="/sign-up">Sign Up</Link></AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                    Our Recruitment & Training service is designed to help organizations build high-performing teams by attracting top talent and providing tailored training to enhance skills and productivity. We work closely with clients to understand their specific hiring needs, ensuring the right candidates are selected to fit both the role and the company culture. Beyond recruitment, we offer customized training programs aimed at improving employee performance, leadership abilities, and overall team effectiveness. Whether you're looking to fill critical positions or invest in the growth of your current workforce, our comprehensive approach ensures that your team is well-equipped to meet both short-term objectives and long-term organizational goals.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction className="bg-primaryColor">
+                      <Link href="/sign-up">Sign Up</Link>
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </div>
           </div>
           <div className="relative w-full h-auto">
@@ -233,29 +268,37 @@ const Services = () => {
                 contribute too{" "}
               </p>
               <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button size="sm" variant="outline" className="bg-violet-700 text-white">View More<ChevronRight /></Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-violet-700 text-white"
+                  >
+                    View More
+                    <ChevronRight />
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
                       <span className="rounded-md w-max p-3 flex shadow-md mb-4">
-                        <FileUser /> 
+                        <FileUser />
                       </span>
                       CV write-up assistance
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction className="bg-primaryColor"><Link href="/sign-up">Sign Up</Link></AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      This action cannot be undone. This will permanently delete
+                      your account and remove your data from our servers.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction className="bg-primaryColor">
+                      <Link href="/sign-up">Sign Up</Link>
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </div>
           </div>
           <div className="relative w-full h-auto md:col-span-2">
@@ -275,15 +318,22 @@ const Services = () => {
                 </p>
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
-                    <Button size="sm" variant="outline" className="bg-secondaryColor text-white">View More<ChevronRight /></Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="bg-secondaryColor text-white"
+                    >
+                      View More
+                      <ChevronRight />
+                    </Button>
                   </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
                       <AlertDialogTitle>
-                      <span className="rounded-md w-max p-3 flex shadow-md mb-4">
-                        <University /> 
-                      </span>
-                      College & university application support
+                        <span className="rounded-md w-max p-3 flex shadow-md mb-4">
+                          <University />
+                        </span>
+                        College & university application support
                       </AlertDialogTitle>
                       <AlertDialogDescription>
                         This action cannot be undone. This will permanently
@@ -293,7 +343,9 @@ const Services = () => {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction className="bg-primaryColor"><Link href="/sign-up">Sign Up</Link></AlertDialogAction>
+                      <AlertDialogAction className="bg-primaryColor">
+                        <Link href="/sign-up">Sign Up</Link>
+                      </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
@@ -322,29 +374,37 @@ const Services = () => {
                 contribute too{" "}
               </p>
               <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button size="sm" variant="outline" className="bg-emerald-700 text-white">View More<ChevronRight /></Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-emerald-700 text-white"
+                  >
+                    View More
+                    <ChevronRight />
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
                       <span className="rounded-md w-max p-3 flex shadow-md mb-4">
-                        <AppWindow /> 
+                        <AppWindow />
                       </span>
                       Scholarship & bursary application support
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction className="bg-primaryColor"><Link href="/sign-up">Sign Up</Link></AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      This action cannot be undone. This will permanently delete
+                      your account and remove your data from our servers.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction className="bg-primaryColor">
+                      <Link href="/sign-up">Sign Up</Link>
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </div>
           </div>
           <div className="relative w-full h-auto">
@@ -362,29 +422,37 @@ const Services = () => {
                 contribute too{" "}
               </p>
               <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button size="sm" variant="outline" className="bg-sky-700 text-white">View More<ChevronRight /></Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="bg-sky-700 text-white"
+                  >
+                    View More
+                    <ChevronRight />
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
                       <span className="rounded-md w-max p-3 flex shadow-md mb-4">
-                        <MailCheck /> 
+                        <MailCheck />
                       </span>
                       Job readiness & interview guidance
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction className="bg-primaryColor"><Link href="/sign-up">Sign Up</Link></AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      This action cannot be undone. This will permanently delete
+                      your account and remove your data from our servers.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction className="bg-primaryColor">
+                      <Link href="/sign-up">Sign Up</Link>
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </div>
           </div>
         </div>
