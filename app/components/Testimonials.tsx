@@ -56,7 +56,7 @@ const Testimonials = () => {
         <div className="flex flex-wrap mt-8">
           {testimonialsItems.map((item) => (
             <div className="p-4 pl-0 md:w-1/2 w-full">
-              <div className="h-full bg-[#1d2f61] p-8 rounded-md">
+              <div className="h-full bg-[#1d2f61] p-8 rounded-md shadow-md">
                 <Quote className="block w-5 h-5 mb-4 text-primaryColor" />
                 <Accordion
                   type="single"
