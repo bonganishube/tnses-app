@@ -157,16 +157,15 @@ export const Header = () => {
                                 {item.description}
                               </p>
                             </div>
-                            {/* <Button
+                            <Link href="#contact">
+                            <Button
                               size="sm"
                               variant="secndary"
                               className="mt-10"
-                              onClick={() =>
-                                (window.location.href = "tel:+123456789")
-                              }
                             >
-                              Book a call today
-                            </Button> */}
+                              Contact Us
+                            </Button>
+                            </Link>
                           </div>
                           <div className="flex flex-col text-sm h-full justify-end">
                             {item.items?.map((subItem) => (
