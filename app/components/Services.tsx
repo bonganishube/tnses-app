@@ -1,9 +1,17 @@
 import { Badge } from "@/components/ui/badge";
 import React from "react";
-import Image1 from '@/public/services/image1.jpg';
-import Image2 from '@/public/services/image2.jpg';
+import Image1 from "@/public/services/image1.jpg";
+import Image2 from "@/public/services/image2.jpg";
 import Image from "next/image";
-import { AppWindow, BookOpenText, BriefcaseBusiness, Building2, FileUser, TvMinimalPlay, University } from "lucide-react";
+import {
+  AppWindow,
+  BookOpenText,
+  BriefcaseBusiness,
+  Building2,
+  FileUser,
+  TvMinimalPlay,
+  University,
+} from "lucide-react";
 
 const Services = () => {
   return (
@@ -31,7 +39,9 @@ const Services = () => {
             <div className="bg-secondaryColor rounded-lg flex justify-between flex-row flex-wrap">
               <div className="p-5  xl:p-8 w-full md:w-1/2 ">
                 <div className="block text-white">
-                  <TvMinimalPlay />
+                  <span className="rounded-md bg-[#1d2f61] dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex shadow-md">
+                    <TvMinimalPlay className="" />
+                  </span>
                 </div>
                 <h3 className="text-lg font-bold xl:text-xl text-white py-5 w-full xl:w-64">
                   Applied digital skills
@@ -71,7 +81,9 @@ const Services = () => {
           <div className="relative w-full h-auto">
             <div className="bg-emerald-700 rounded-lg p-5  xl:p-8 h-full">
               <div className="block text-white">
-              <BookOpenText />
+                <span className="rounded-md bg-emerald-600 dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex shadow-md">
+                  <BookOpenText />
+                </span>
               </div>
               <h3 className="py-5 text-white text-lg font-bold xl:text-xl">
                 Blueprint magazine
@@ -102,7 +114,9 @@ const Services = () => {
           <div className="relative w-full h-auto">
             <div className="bg-sky-700 rounded-lg p-5 xl:p-8 h-full">
               <div className="block text-white">
-              <BriefcaseBusiness />
+                <span className="rounded-md bg-sky-600 dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex shadow-md">
+                  <BriefcaseBusiness />
+                </span>
               </div>
               <h3 className="py-5 text-white text-lg font-bold xl:text-xl">
                 Monitoring & evaluation
@@ -132,11 +146,12 @@ const Services = () => {
             </div>
           </div>
 
-          
           <div className="relative w-full h-auto">
-            <div className="bg-sky-700 rounded-lg p-5  xl:p-8 h-full">
+            <div className="bg-emerald-700 rounded-lg p-5  xl:p-8 h-full">
               <div className="block text-white">
-              <Building2 />
+              <span className="rounded-md bg-emerald-600 dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex shadow-md">
+                <Building2 />
+                </span>
               </div>
               <h3 className="py-5 text-white text-lg font-bold xl:text-xl">
                 Recruitment & training
@@ -165,9 +180,11 @@ const Services = () => {
             </div>
           </div>
           <div className="relative w-full h-auto">
-            <div className="bg-emerald-700 rounded-lg p-5 xl:p-8 h-full">
+            <div className="bg-sky-700 rounded-lg p-5 xl:p-8 h-full">
               <div className="block text-white">
+              <span className="rounded-md bg-sky-600 dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex shadow-md">
                 <FileUser />
+                </span>
               </div>
               <h3 className="py-5 text-white text-lg font-bold xl:text-xl">
                 CV write-up assistance
@@ -200,7 +217,9 @@ const Services = () => {
             <div className="bg-secondaryColor rounded-lg flex justify-between flex-row flex-wrap">
               <div className="p-5  xl:p-8 w-full md:w-1/2 ">
                 <div className="block text-white">
-                <University />
+                  <span className="rounded-md bg-[#1d2f61] dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex shadow-md">
+                    <University />
+                  </span>
                 </div>
                 <h3 className="text-lg font-bold xl:text-xl text-white py-5 w-full xl:w-64">
                   College & university application support
@@ -238,9 +257,11 @@ const Services = () => {
             </div>
           </div>
           <div className="relative w-full h-auto md:hidden">
-            <div className="bg-violet-500 rounded-lg p-5 xl:p-8 h-full">
+            <div className="bg-emerald-700 rounded-lg p-5 xl:p-8 h-full">
               <div className="block text-white">
-              <AppWindow />
+              <span className="rounded-md bg-emerald-600 dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex shadow-md">
+                <AppWindow />
+                </span>
               </div>
               <h3 className="py-5 text-white text-lg font-bold xl:text-xl">
                 Scholarship & bursary application support

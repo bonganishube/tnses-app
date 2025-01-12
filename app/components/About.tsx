@@ -23,31 +23,28 @@ const About = () => {
                 Making the world a better place
               </h4>
               <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-left my-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-                neque quia odit distinctio, eum minima doloribus! Rerum
-                consequatur cum in quia similique ducimus dolore adipisci!
-                Molestias deleniti dolorem harum incidunt!
+              The National Socio-Economic Support (TNSES) is a registered Nonprofit Organisation (NPO 240-957) founded in 2019, based in Cape Town, South Africa. We are a team of passionate individuals committed to making a positive impact. Through collaboration and dedication, we work to create meaningful change and support those in need.
               </p>
             </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-6">
-            <div className="space-y-6 p-4 rounded-xl bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-900">
-              <span className="rounded-full bg-secondaryColor dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex">
+            <div className="space-y-6 p-4 rounded-md bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-900">
+              <span className="rounded-md bg-secondaryColor dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex shadow-md">
                 <Sparkles className="h-6 w-6" />
               </span>
               <h2 className="font-semibold text-xl text-gray-900 dark:text-white">
                 Our Mission
               </h2>
-              <p>Lorem ipsum dolor sit amet consectetur.</p>
+              <p>To provide vital support and resourses that empower individuals and strengthen communities</p>
             </div>
-            <div className="space-y-6 p-4 rounded-xl bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-900">
-              <span className="rounded-full bg-secondaryColor dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex">
+            <div className="space-y-6 p-4 rounded- bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-900">
+              <span className="rounded-md bg-secondaryColor dark:bg-gray-100 text-gray-100 dark:text-gray-900 w-max p-3 flex shadow-md">
                 <Eye className="h-6 w-6" />
               </span>
               <h2 className="font-semibold text-xl text-gray-900 dark:text-white">
                 Our Vision
               </h2>
-              <p>Lorem ipsum dolor sit amet consectetur</p>
+              <p>A future where everyone has the opportunity to thrive and contribute to a stronger, united society.</p>
             </div>
           </div>
         </div>
