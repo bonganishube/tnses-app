@@ -61,7 +61,7 @@ const Testimonials = () => {
                 <Accordion
                   type="single"
                   collapsible
-                  className="w-full text-slate-400 mb-6"
+                  className="w-full text-slate-100 mb-6"
                 >
                   <AccordionItem value="item-1">
                     <AccordionTrigger>
@@ -81,7 +81,7 @@ const Testimonials = () => {
                     className="w-12 h-12 rounded-md flex-shrink-0 object-cover object-center"
                   />
                   <span className="flex-grow flex flex-col pl-4">
-                    <span className="title-font font-medium text-slate-300">
+                    <span className="title-font font-medium text-slate-100">
                       {item.name}
                     </span>
                     {/* <span className="text-gray-500 text-sm">DESIGNER</span> */}

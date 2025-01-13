@@ -223,7 +223,7 @@ export const Header = () => {
                 isHeaderActive ? "text-secondaryColor" : "text-white"
               }`}
             >
-              Log In <GraduationCap />
+              Log in <GraduationCap />
             </Button>
           </Link>
         </div>
@@ -235,7 +235,7 @@ export const Header = () => {
               }`}
               variant="outline"
             >
-              Log In <GraduationCap />
+              Log in <GraduationCap />
             </Button>
           </Link>
           <Sheet>
