@@ -71,9 +71,7 @@ const CourseSidebar = async ({
             <div className="p-4">
                 <Button size="sm" variant="outline" className="w-auto">
                     <LogOut className="h-4 w-4" />
-                    <Link href="/">
-                    Log out
-                    </Link>
+                    <SignOutButton />
                 </Button>
             </div>
         </div>

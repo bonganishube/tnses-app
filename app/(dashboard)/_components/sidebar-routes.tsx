@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useAuth, UserButton } from "@clerk/nextjs";
+import { SignOutButton, useAuth, UserButton } from "@clerk/nextjs";
 import { isTeacher } from "@/lib/teacher";
 import { BadgeCheck, Bell, Book, ChevronsUpDown, CreditCard, Lock, LogOut, Sparkles } from "lucide-react";
 import Link from "next/link";
@@ -166,9 +166,7 @@ const SidebarRoutes = () => {
               <DropdownMenuSeparator />
               <DropdownMenuItem>
                 <LogOut />
-                <Link href="/">
-                Log out
-                </Link>
+                <SignOutButton />
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
