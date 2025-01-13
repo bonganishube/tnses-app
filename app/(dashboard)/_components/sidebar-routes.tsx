@@ -3,7 +3,17 @@
 import { Button } from "@/components/ui/button";
 import { SignOutButton, useAuth, UserButton } from "@clerk/nextjs";
 import { isTeacher } from "@/lib/teacher";
-import { BadgeCheck, Bell, Book, ChevronsUpDown, CreditCard, Lock, LogOut, Sparkles } from "lucide-react";
+import {
+  BadgeCheck,
+  Bell,
+  Book,
+  ChevronsUpDown,
+  CreditCard,
+  Lock,
+  LogOut,
+  Sparkles,
+  UserRoundPen,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
@@ -112,7 +122,9 @@ const SidebarRoutes = () => {
               >
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={data.user.avatar} alt={data.user.name} />
-                  <AvatarFallback className="rounded-lg bg-slate-200 text-slate-600 font-normal">BS</AvatarFallback>
+                  <AvatarFallback className="rounded-lg bg-slate-200 text-slate-600 font-normal">
+                    BS
+                  </AvatarFallback>
                 </Avatar>
                 {/* <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">
@@ -136,7 +148,9 @@ const SidebarRoutes = () => {
                     <AvatarFallback className="rounded-lg">BS</AvatarFallback>
                   </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-semibold">{data.user.name}</span>
+                    <span className="truncate font-semibold">
+                      {data.user.name}
+                    </span>
                     <span className="truncate text-xs">{data.user.email}</span>
                   </div>
                 </div>
@@ -151,8 +165,10 @@ const SidebarRoutes = () => {
               {/* <DropdownMenuSeparator /> */}
               <DropdownMenuGroup>
                 <DropdownMenuItem>
-                  <BadgeCheck />
-                  Account
+                  <UserRoundPen />
+                  <Link href={isStudentMode ? "/profile" : "/teacher/profile"}>
+                    Profile
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <CreditCard />
