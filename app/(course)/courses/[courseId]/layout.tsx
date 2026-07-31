@@ -6,6 +6,9 @@ import React from "react";
 import CourseSidebar from "./_components/course-sidebar";
 import CourseNavbar from "./_components/course-navbar";
 
+// Per-user and database-backed — see the note in app/(dashboard)/layout.tsx.
+export const dynamic = "force-dynamic";
+
 const CourseLayout = async (props: {
   children: React.ReactNode;
   params: Promise<{ courseId: string }>;

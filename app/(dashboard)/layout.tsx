@@ -8,6 +8,18 @@ import {
 import SidebarRoutes from "./_components/sidebar-routes";
 import Logo from "./_components/logo";
 
+/**
+ * Every dashboard page is per-user and database-backed, so none of them may be
+ * prerendered. Next would otherwise run their Prisma queries at build time —
+ * baking one user's data into static HTML, and failing the build outright when
+ * DATABASE_URL is absent from the build environment (as it is on Vercel).
+ *
+ * Real Clerk marks these routes dynamic implicitly because its `auth()` reads
+ * headers(). The local auth stub returns a fixed object without touching any
+ * request API, so that signal disappears and this has to be explicit.
+ */
+export const dynamic = "force-dynamic";
+
 const Dashboard = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
