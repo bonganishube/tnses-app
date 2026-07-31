@@ -77,15 +77,15 @@ export default function Team() {
                 <Image
                   src={item.image}
                   alt={item.name}
-                  width={128}
-                  height={128}
+                  width={160}
+                  height={160}
                   className="h-20 w-20 rounded-full object-cover object-top ring-2 ring-secondaryColor/10 transition-all duration-300 group-hover:ring-primaryColor/40"
                 />
 
                 <h3 className="mt-5 text-lg font-semibold leading-tight text-secondaryColor">
                   {item.name}
                 </h3>
-                <p className="mt-1 font-tertiary text-xs tracking-[0.12em] text-primaryColor">
+                <p className="mt-1.5 text-sm font-medium text-primaryColor-700">
                   {item.role}
                 </p>
 

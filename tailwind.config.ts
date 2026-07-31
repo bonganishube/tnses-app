@@ -12,9 +12,9 @@ const config: Config = withUt({
   theme: {
     extend: {
       fontFamily: {
-        primary: 'Public Sans',
-        secondary: 'Marcellus',
-        tertiary: 'Marcellus SC'
+        primary: ['var(--font-public-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        secondary: ['var(--font-marcellus)', 'ui-serif', 'Georgia', 'serif'],
+        tertiary: ['var(--font-marcellus-sc)', 'ui-serif', 'Georgia', 'serif']
       },
       container: {
         center: true,
@@ -54,6 +54,10 @@ const config: Config = withUt({
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))'
         },
+        tertiaryColor: {
+          DEFAULT: '#F1F4F9',
+          soft: '#F7F9FC'
+        },
         primaryColor: {
           DEFAULT: '#FF6100',
           50: '#FFF3EB',
@@ -81,7 +85,6 @@ const config: Config = withUt({
           900: '#0F1730',
           950: '#080D1C'
         },
-        tertiaryColor: '#F9FAFB',
         muted: {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))'

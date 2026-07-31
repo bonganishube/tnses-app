@@ -39,7 +39,8 @@ const Testimonials = () => {
       className="relative overflow-hidden bg-secondaryColor py-24 lg:py-32"
       id="testimonials"
     >
-      {/* Ambient brand glows */}
+      {/* Ambient brand wash: warm top-right, cool bottom-left, reading as a
+          diagonal orange-to-blue gradient across the navy. */}
       <div
         aria-hidden
         className="pointer-events-none absolute -right-32 -top-24 h-96 w-96 rounded-full bg-primaryColor/10 blur-3xl"
@@ -50,18 +51,22 @@ const Testimonials = () => {
       />
 
       <div className="container relative mx-auto px-4">
+        {/* Centred here on purpose — breaks the run of left-aligned headers */}
         <SectionHeading
           invert
+          align="center"
           eyebrow="Testimonials"
           title="What people are saying about our work"
           description="Our clients' satisfaction is our top priority. Here's what they have to say about their experiences working with us."
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
           {testimonialsItems.map((item, index) => (
             <Reveal key={item.name} delay={index * 120} className="h-full">
-              <figure className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-8 shadow-card backdrop-blur-sm transition-colors duration-300 hover:border-primaryColor/30">
-                <Quote className="mb-5 h-7 w-7 text-primaryColor" />
+              {/* Flat navy tint — no backdrop-blur or shadow, both of which
+                  picked up the ambient glows and haloed the card edges. */}
+              <figure className="flex h-full flex-col rounded-2xl border border-white/10 bg-secondaryColor-700/40 p-8 transition-colors duration-300 hover:border-white/25">
+                <Quote className="mb-5 h-7 w-7 text-white/40" />
 
                 <blockquote className="text-pretty text-lg font-medium leading-relaxed text-white">
                   “{item.description}”

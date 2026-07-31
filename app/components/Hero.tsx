@@ -145,7 +145,7 @@ export const Hero = () => {
                   <div className="flex max-w-3xl flex-col gap-5">
                     <h1
                       className={cn(
-                        "text-balance text-4xl font-bold leading-[1.05] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-7xl",
+                        "display-serif text-balance text-[2.6rem] leading-[1.08] text-white drop-shadow-[0_2px_12px_rgba(15,23,48,0.45)] sm:text-6xl md:text-7xl lg:text-[5.25rem]",
                         current === index && "animate-fade-up"
                       )}
                     >

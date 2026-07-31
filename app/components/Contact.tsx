@@ -28,10 +28,53 @@ const Contact = () => {
   return (
     <section className="bg-white py-24 lg:py-32" id="contact">
       <div className="container mx-auto grid gap-12 px-4 lg:grid-cols-2 lg:items-start lg:gap-16">
-        {/* Map + contact details */}
-        <div className="space-y-6">
+        {/* Map + contact details. Ordered second on mobile so the section
+            heading leads rather than an unexplained map. */}
+        <div className="space-y-6 lg:order-1">
+          {/* One panel of rows rather than two standalone boxes — reads as a
+              single "how to reach us" block and sits quieter next to the map. */}
           <Reveal>
-            <div className="relative h-[320px] overflow-hidden rounded-2xl border border-secondaryColor/10 shadow-soft lg:h-[420px]">
+            <div className="divide-y divide-secondaryColor/10 overflow-hidden rounded-2xl border border-secondaryColor/10 bg-tertiaryColor-soft">
+              {details.map((detail) => {
+                const content = (
+                  <>
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-secondaryColor ring-1 ring-secondaryColor/10 transition-colors duration-300 group-hover:bg-primaryColor group-hover:text-white group-hover:ring-primaryColor/30">
+                      <detail.icon className="h-[18px] w-[18px]" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[0.7rem] font-medium uppercase tracking-[0.14em] text-slate-500">
+                        {detail.label}
+                      </span>
+                      <span className="mt-1 block font-medium leading-snug text-secondaryColor">
+                        {detail.value}
+                      </span>
+                    </span>
+                  </>
+                );
+
+                return detail.href ? (
+                  <a
+                    key={detail.label}
+                    href={detail.href}
+                    className="group flex items-center gap-4 p-5 transition-colors duration-300 hover:bg-white sm:px-6"
+                  >
+                    {content}
+                    <MoveRight className="h-4 w-4 shrink-0 text-slate-400 transition-all duration-200 group-hover:translate-x-1 group-hover:text-primaryColor" />
+                  </a>
+                ) : (
+                  <div
+                    key={detail.label}
+                    className="group flex items-center gap-4 p-5 sm:px-6"
+                  >
+                    {content}
+                  </div>
+                );
+              })}
+            </div>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <div className="relative h-[280px] overflow-hidden rounded-2xl border border-secondaryColor/10 shadow-soft lg:h-[380px]">
               <iframe
                 width="100%"
                 height="100%"
@@ -39,47 +82,13 @@ const Contact = () => {
                 title="TNSES office location"
                 loading="lazy"
                 src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Belhar%2C%20Pentech%2C%20Cape%20Town%2C%20Western%20Cape%207493&ie=UTF8&t=&z=14&iwloc=B&output=embed"
-                style={{ filter: "grayscale(1) contrast(1.05) opacity(0.75)" }}
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-secondaryColor/5"
               />
             </div>
           </Reveal>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {details.map((detail, index) => (
-              <Reveal key={detail.label} delay={index * 100}>
-                <div className="flex h-full items-start gap-4 rounded-2xl border border-secondaryColor/10 bg-tertiaryColor p-5">
-                  <span className="flex shrink-0 rounded-xl bg-secondaryColor p-2.5 text-white">
-                    <detail.icon className="h-4 w-4" />
-                  </span>
-                  <div>
-                    <p className="font-tertiary text-xs tracking-[0.15em] text-slate-500">
-                      {detail.label.toUpperCase()}
-                    </p>
-                    {detail.href ? (
-                      <a
-                        href={detail.href}
-                        className="mt-1 block text-sm font-medium text-secondaryColor transition-colors hover:text-primaryColor"
-                      >
-                        {detail.value}
-                      </a>
-                    ) : (
-                      <p className="mt-1 text-sm font-medium text-secondaryColor">
-                        {detail.value}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
 
         {/* Enquiry form */}
-        <div className="space-y-8">
+        <div className="order-first space-y-8 lg:order-2">
           <SectionHeading
             eyebrow="Contact"
             title="Get in touch"

@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { publicSans } from './ui/fonts';
+import { marcellus, marcellusSC, publicSans } from './ui/fonts';
 import { ClerkProvider } from "@clerk/nextjs";
 import ToastProvider from '@/components/providers/toaster.provider';
 
@@ -27,7 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className="scroll-smooth scroll-pt-10 md:scroll-auto">
+      <html
+        lang="en"
+        className={`${publicSans.variable} ${marcellus.variable} ${marcellusSC.variable} scroll-smooth scroll-pt-10 md:scroll-auto`}
+      >
         <body className={`${publicSans.className} antialiased`}>
           <ToastProvider />
           {children}
