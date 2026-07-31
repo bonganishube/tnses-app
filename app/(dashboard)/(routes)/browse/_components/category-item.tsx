@@ -38,8 +38,9 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ label, value, icon: Icon })
         <button
             onClick={onClick}
             className={cn(
-                "py-2 px-3 text-sm border border-slate-200 rounded-full flex items-center gap-x-1 hover:border-sky-700 transition",
-                isSelected && "border-sky-700 bg-sky-200/20 text-sky-800"
+                "flex items-center gap-x-1.5 rounded-full border border-secondaryColor/15 bg-white px-3.5 py-2 text-sm text-secondaryColor transition-colors hover:border-primaryColor/40 hover:bg-primaryColor/5",
+                isSelected &&
+                    "border-primaryColor bg-primaryColor/10 font-medium text-primaryColor-700 hover:bg-primaryColor/15"
             )}
             type="button"
         >

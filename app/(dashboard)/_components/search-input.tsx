@@ -33,13 +33,14 @@ const SearchInput = () => {
 
   return (
     <div className="relative">
-        <Search 
-            className="h-4 w-4 absolute top-[10px] left-3 text-slate-600"
+        <Search
+            className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
         />
-        <Input 
+        <Input
             onChange={(e) => setValue(e.target.value)}
             value={value}
-            className="w-full md:w-[230px] pl-9 rounded-full bg-slate-100 focus-visible:ring-slate-200"
+            aria-label="Search for a course"
+            className="w-full rounded-full border-secondaryColor/10 bg-tertiaryColor pl-10 text-secondaryColor placeholder:text-muted-foreground focus-visible:border-primaryColor focus-visible:ring-2 focus-visible:ring-primaryColor/25 focus-visible:ring-offset-0 md:w-[260px]"
             placeholder="Search for a course"
         />
     </div>

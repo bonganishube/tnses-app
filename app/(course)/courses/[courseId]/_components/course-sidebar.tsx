@@ -5,9 +5,8 @@ import { redirect } from 'next/navigation';
 import React from 'react';
 import CourseSidebarItem from './course-sidebar-item';
 import CourseProgress from '@/components/course-progress';
-import { SignOutButton } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
-import { LogOut } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 interface CourseSidebarProps {
@@ -39,24 +38,28 @@ const CourseSidebar = async ({
     });
 
     return (
-        <div className="h-screen border-r flex flex-col overflow-y-auto shadow-sm">
-            <div className="p-8 flex flex-col border-b">
-                <h1 className="font-semibold">
-                    {course.title}
-                </h1>
+        <div className="flex h-full flex-col overflow-y-auto border-r border-secondaryColor/10 bg-white">
+            <div className="flex flex-col gap-6 border-b border-secondaryColor/10 p-6">
+                <div className="space-y-1">
+                    <p className="font-tertiary text-[0.7rem] tracking-[0.14em] text-muted-foreground">
+                        COURSE
+                    </p>
+                    <h1 className="font-secondary text-xl leading-snug tracking-[-0.01em] text-secondaryColor">
+                        {course.title}
+                    </h1>
+                </div>
                 {purchase && (
-                    <div className="mt-10">
-                        <CourseProgress 
-                            variant="success"
-                            value={progressCount}
-                        />
-                    </div>
+                    <CourseProgress
+                        variant="success"
+                        value={progressCount}
+                    />
                 )}
             </div>
-            <div className="flex-grow">
+
+            <nav className="flex flex-1 flex-col py-2">
                 {course.chapters.map((chapter) => {
                     return (
-                        <CourseSidebarItem 
+                        <CourseSidebarItem
                             key={chapter.id}
                             id={chapter.id}
                             label={chapter.title}
@@ -66,13 +69,20 @@ const CourseSidebar = async ({
                         />
                     );
                 })}
-            </div>
-            {/* Button at the bottom */}
-            <div className="p-4">
-                <Button size="sm" variant="outline" className="w-auto">
-                    <LogOut className="h-4 w-4" />
-                    <SignOutButton />
-                </Button>
+            </nav>
+
+            {/* Way back out of the player — sign-out lives in the top bar menu */}
+            <div className="border-t border-secondaryColor/10 p-4">
+                <Link href="/home">
+                    <Button
+                        size="sm"
+                        variant="ghost"
+                        className="w-full justify-start gap-2 rounded-lg text-muted-foreground hover:text-secondaryColor"
+                    >
+                        <ArrowLeft className="h-4 w-4" />
+                        Back to my courses
+                    </Button>
+                </Link>
             </div>
         </div>
     );

@@ -88,13 +88,13 @@ export const ChaptersForm = ({
     }
 
   return (
-    <div className="relative mt-6 border rounded-md p-4">
+    <div className="relative rounded-2xl border border-secondaryColor/10 bg-white p-5 shadow-soft transition-shadow duration-300 hover:shadow-card">
         {isUpdating && (
             <div className="absolute h-full w-full bg-slate-500/20 top-0 right-0 rounded-md flex items-center justify-center">
                 <Loader2 className="animate-spin h-6 w-6 text-sky-700"/>
             </div>
         )}
-        <div className="font-medium flex items-center justify-between">
+        <div className="flex items-center justify-between font-medium text-secondaryColor">
             Course chapters
             <Button onClick={toggleCreating} variant="ghost">
                 {isCreating ? (

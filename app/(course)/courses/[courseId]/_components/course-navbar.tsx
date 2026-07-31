@@ -2,9 +2,9 @@ import SidebarRoutes from "@/app/(dashboard)/_components/sidebar-routes";
 import { Chapter, Course, UserProgress } from "@prisma/client";
 import React from "react";
 import CourseMobileSidebar from "./course-mobile-sidebar";
-import { UserButton } from "@clerk/nextjs";
 import Logo from "@/public/logo.png";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CourseNavbarProps {
   course: Course & {
@@ -17,18 +17,18 @@ interface CourseNavbarProps {
 
 const CourseNavbar = ({ course, progressCount }: CourseNavbarProps) => {
   return (
-    <div className="p-4 h-12 w-full flex items-center bg-white">
-      <div className="flex">
-        <CourseMobileSidebar course={course} progressCount={progressCount} />
-      </div>
-      <div className="flex flex-row items-center gap-2">
-        <div className="aspect-square size-8 justify-center rounded-lg text-sidebar-primary-foreground">
-          <Image src={Logo} alt="Team logo" className="rounded-[5px]" />
-        </div>
-        <span className="truncate font-medium font-tertiary text-lg text-secondaryColor">
-          Ads
+    <div className="flex h-14 w-full items-center gap-2 border-b border-secondaryColor/10 bg-white/85 px-4 backdrop-blur-xl">
+      <CourseMobileSidebar course={course} progressCount={progressCount} />
+
+      <Link href="/home" className="flex flex-row items-center gap-2.5">
+        <span className="aspect-square size-8 rounded-lg">
+          <Image src={Logo} alt="" className="rounded-[5px]" />
         </span>
-      </div>
+        <span className="truncate font-tertiary text-lg tracking-wide text-secondaryColor">
+          Tnses
+        </span>
+      </Link>
+
       <SidebarRoutes />
     </div>
   );

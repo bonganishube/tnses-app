@@ -1,6 +1,6 @@
-import { IconBadge } from '@/components/icon-badge';
 import { LucideIcon } from 'lucide-react';
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 interface InfoCardProps {
     numberOfItems: number;
@@ -10,23 +10,32 @@ interface InfoCardProps {
 }
 
 const InfoCard = ({
-    variant,
+    variant = "default",
     icon: Icon,
     numberOfItems,
     label
 }: InfoCardProps) => {
   return (
-    <div className="border rounded-md flex items-center gap-x-2 p-3">
-        <IconBadge 
-            variant={variant}
-            icon={Icon}
-        />
+    <div className="flex items-center gap-4 rounded-2xl border border-secondaryColor/10 bg-white p-5 shadow-soft transition-shadow duration-300 hover:shadow-card">
+        <span
+            className={cn(
+                "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl",
+                variant === "success"
+                    ? "bg-emerald-50 text-emerald-600"
+                    : "bg-primaryColor/10 text-primaryColor"
+            )}
+        >
+            <Icon className="h-5 w-5" />
+        </span>
         <div>
-          <p className="font-medium">
+          <p className="text-sm text-muted-foreground">
             {label}
           </p>
-          <p className="text-gray-500 text-sm">
-            {numberOfItems} {numberOfItems === 1 ? "Course" : "Courses"}
+          <p className="text-2xl font-semibold leading-tight text-secondaryColor">
+            {numberOfItems}
+            <span className="ml-1.5 text-sm font-normal text-muted-foreground">
+              {numberOfItems === 1 ? "course" : "courses"}
+            </span>
           </p>
         </div>
     </div>

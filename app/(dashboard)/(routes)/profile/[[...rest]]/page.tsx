@@ -1,9 +1,14 @@
+import PageHeader from '@/components/page-header'
 import { UserProfile } from '@clerk/nextjs'
 import React from 'react'
 
 const Profile = () => {
   return (
-    <div className="pt-6 px-4 md:p-6 h-full w-full overflow-x-auto mx-auto md:ml-auto">
+    <div className="mx-auto max-w-5xl space-y-8 p-6 lg:p-8">
+        <PageHeader
+            title="Profile"
+            description="Manage your account details, email address and password."
+        />
         <UserProfile />
     </div>
   )

@@ -16,20 +16,18 @@ const Dashboard = ({ children }: { children: React.ReactNode }) => {
           {/* Sidebar */}
           <AppSidebar />
           {/* Main Content */}
-          <SidebarInset className="flex-1 flex flex-col overflow-hidden">
-            <header className="flex h-12 shrink-0 items-center gap-2 w-full px-4 transition-all ease-linear">
-              <div className="flex items-center gap-2 w-full">
-                <SidebarTrigger className="w-4 h-4 ml-2" />
-                <Separator orientation="vertical" className="mr-2 h-4" />
+          <SidebarInset className="flex flex-1 flex-col overflow-hidden bg-tertiaryColor-soft">
+            <header className="sticky top-0 z-20 flex h-14 shrink-0 items-center gap-2 border-b border-secondaryColor/10 bg-white/85 px-4 backdrop-blur-xl">
+              <div className="flex w-full items-center gap-2">
+                <SidebarTrigger className="h-8 w-8 text-muted-foreground hover:text-secondaryColor" />
+                <Separator orientation="vertical" className="mr-1 h-4" />
                 <Logo />
                 <SidebarRoutes />
               </div>
             </header>
 
             {/* Main Content Area */}
-            <div className="pt-0 h-full overflow-auto max-w-full">
-              {children}
-            </div>
+            <div className="h-full max-w-full overflow-auto">{children}</div>
           </SidebarInset>
         </div>
       </SidebarProvider>
