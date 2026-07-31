@@ -1,100 +1,152 @@
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { AtSign, MapPin, MoveRight } from "lucide-react";
 import React from "react";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
+
+const details = [
+  {
+    icon: MapPin,
+    label: "Visit us",
+    value: "Belhar, Pentech, Cape Town, Western Cape 7493",
+  },
+  {
+    icon: AtSign,
+    label: "Email us",
+    value: "info@tnses.org",
+    href: "mailto:info@tnses.org",
+  },
+];
+
+const fieldClass =
+  "border-secondaryColor/15 bg-white text-secondaryColor placeholder:text-slate-400 focus-visible:border-primaryColor focus-visible:ring-2 focus-visible:ring-primaryColor/25 focus-visible:ring-offset-0";
 
 const Contact = () => {
   return (
-    <section className="py-20 lg:py-20 bg-tertiaryColor text-gray-600 body-font relative" id="contact">
-      <div className="container px-4 mx-auto flex sm:flex-nowrap flex-wrap">
-        {/* Map Section */}
-        <div className="lg:w-2/3 md:w-1/2 w-full min-h-64 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-          <iframe
-            width="100%"
-            height="100%"
-            className="absolute inset-0"
-            frameBorder="0"
-            title="map"
-            marginHeight={0}
-            marginWidth={0}
-            scrolling="no"
-            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Belhar%2C%20Pentech%2C%20Cape%20Town%2C%20Western%20Cape%207493&ie=UTF8&t=&z=14&iwloc=B&output=embed"
-            style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
-          ></iframe>
-          {/* <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-            <div className="lg:w-1/2 px-6">
-              <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
-                ADDRESS
-              </h2>
-              <p className="mt-1">
-                Photo booth tattooed prism, portland taiyaki hoodie neutra
-                typewriter
-              </p>
+    <section className="bg-white py-24 lg:py-32" id="contact">
+      <div className="container mx-auto grid gap-12 px-4 lg:grid-cols-2 lg:items-start lg:gap-16">
+        {/* Map + contact details */}
+        <div className="space-y-6">
+          <Reveal>
+            <div className="relative h-[320px] overflow-hidden rounded-2xl border border-secondaryColor/10 shadow-soft lg:h-[420px]">
+              <iframe
+                width="100%"
+                height="100%"
+                className="absolute inset-0 h-full w-full border-0"
+                title="TNSES office location"
+                loading="lazy"
+                src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Belhar%2C%20Pentech%2C%20Cape%20Town%2C%20Western%20Cape%207493&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+                style={{ filter: "grayscale(1) contrast(1.05) opacity(0.75)" }}
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-secondaryColor/5"
+              />
             </div>
-          </div> */}
+          </Reveal>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {details.map((detail, index) => (
+              <Reveal key={detail.label} delay={index * 100}>
+                <div className="flex h-full items-start gap-4 rounded-2xl border border-secondaryColor/10 bg-tertiaryColor p-5">
+                  <span className="flex shrink-0 rounded-xl bg-secondaryColor p-2.5 text-white">
+                    <detail.icon className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="font-tertiary text-xs tracking-[0.15em] text-slate-500">
+                      {detail.label.toUpperCase()}
+                    </p>
+                    {detail.href ? (
+                      <a
+                        href={detail.href}
+                        className="mt-1 block text-sm font-medium text-secondaryColor transition-colors hover:text-primaryColor"
+                      >
+                        {detail.value}
+                      </a>
+                    ) : (
+                      <p className="mt-1 text-sm font-medium text-secondaryColor">
+                        {detail.value}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
-        {/* Feedback Form Section */}
-        <div className="lg:w-1/3 md:w-1/2 bg-tertiaryColor flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-        <div className="flex gap-4 flex-col">
-            <div>
-              <Badge variant="outline" className="text-lg font-tertiary">Contact</Badge>
-            </div>
-            <div className="flex gap-2 flex-col">
-              <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left text-secondaryColor font-bold">
-                Get in touch
-              </h4>
-              <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-left my-4">
-                Feel free to contact us. Submit your queries here and we will listen
+        {/* Enquiry form */}
+        <div className="space-y-8">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Get in touch"
+            description="Feel free to contact us. Submit your queries here and we will listen."
+          />
+
+          <Reveal delay={120}>
+            <form className="space-y-5 rounded-2xl border border-secondaryColor/10 bg-tertiaryColor p-6 shadow-soft sm:p-8">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-sm text-slate-600">
+                    Name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    placeholder="Your full name"
+                    required
+                    className={fieldClass}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm text-slate-600">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    required
+                    className={fieldClass}
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-sm text-slate-600">
+                  Message
+                </Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  placeholder="How can we help?"
+                  required
+                  className={`${fieldClass} resize-none`}
+                />
+              </div>
+
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full gap-2 rounded-full bg-primaryColor text-white shadow-glow transition-transform hover:bg-primaryColor-600 active:scale-[0.99]"
+              >
+                Submit
+                <MoveRight className="h-4 w-4" />
+              </Button>
+
+              <p className="text-center text-xs text-slate-500">
+                We are committed to providing exceptional service and support.
               </p>
-            </div>
-          </div>
-          <div className="p-4">
-            <div className="relative mb-4 ">
-              <label
-                htmlFor="name"
-                className="leading-7 text-sm text-gray-600"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              />
-            </div>
-            <div className="relative mb-4">
-              <label
-                htmlFor="email"
-                className="leading-7 text-sm text-gray-600"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              />
-            </div>
-            <div className="relative mb-4">
-              <label
-                htmlFor="message"
-                className="leading-7 text-sm text-gray-600"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-              ></textarea>
-            </div>
-            <Button className="bg-primaryColor w-full">Submit</Button>
-            <p className="text-xs text-gray-500 mt-4 ml-1">
-              We are committed to providing exceptional service and support.
-            </p>
-          </div>
+            </form>
+          </Reveal>
         </div>
       </div>
     </section>

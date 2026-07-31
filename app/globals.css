@@ -102,9 +102,89 @@ body,
   }
   html {
     font-family: "Public Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  /* Keep anchored sections clear of the fixed header */
+  section[id],
+  header[id] {
+    scroll-margin-top: 5rem;
+  }
+  ::selection {
+    @apply bg-primaryColor/20 text-secondaryColor;
+  }
+}
+
+@layer components {
+  /* Small caps eyebrow used above every section heading */
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-secondaryColor/15
+           bg-white/60 px-4 py-1.5 font-tertiary text-sm tracking-[0.18em]
+           text-secondaryColor backdrop-blur;
+  }
+  .section-eyebrow-invert {
+    @apply border-white/20 bg-white/5 text-white;
+  }
+  .section-title {
+    @apply text-balance font-bold tracking-[-0.03em] text-secondaryColor
+           text-[2rem] leading-[1.1] sm:text-4xl md:text-5xl;
+  }
+  .section-subtitle {
+    @apply max-w-2xl text-pretty text-base leading-relaxed text-slate-600 md:text-lg;
+  }
+  /* Fades the left/right edges of the logo marquee into the page background */
+  .edge-fade {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  /* Scroll reveal: set by the <Reveal /> observer */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
+  .pause-on-hover:hover [data-marquee] {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  [data-marquee],
+  .flicker-text,
+  .animate-ken-burns,
+  .animate-scroll-cue,
+  .animate-pulse-ring {
+    animation: none !important;
   }
 }
 
@@ -116,19 +196,17 @@ body,
 
 
 @keyframes flicker {
-  0% {
-    color: white; /* Start with white */
+  0%,
+  100% {
+    color: #ffffff;
   }
   50% {
-    color: #FF6100; /* Change to orange at the halfway point */
-  }
-  100% {
-    color: white; /* Back to white */
+    color: #ff6100;
   }
 }
 
 .flicker-text {
-  animation: flicker 1s infinite; /* Flicker every 1 second */
+  animation: flicker 2.4s ease-in-out infinite;
 }
 
 

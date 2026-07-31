@@ -1,81 +1,60 @@
-"use client";
+import Reveal from "./Reveal";
 
-import { useEffect, useState } from "react";
-import {
-Carousel,
-CarouselApi,
-CarouselContent,
-CarouselItem,
-} from "@/components/ui/carousel";
-import Image from "next/image";
-
-const brandsData = [
-    { id: 1, img: "https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg" },
-    { id: 2, img: "https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg" },
-    { id: 3, img: "https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg" },
-    { id: 4, img: "https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg" },
-    { id: 5, img: "https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg" },
-    { id: 6, img: "https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg" },
-    { id: 7, img: "https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg" },
-    { id: 8, img: "https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg" },
-    { id: 9, img: "https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg" },
-    { id: 10, img: "https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg" },
-    { id: 11, img: "https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg" },
-    { id: 12, img: "https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg" },
-    { id: 13, img: "https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg" },
-    { id: 14, img: "https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg" },
-    { id: 15, img: "https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg" },
-    { id: 16, img: "https://tailwindui.com/plus/img/logos/158x48/transistor-logo-gray-900.svg" },
-    { id: 17, img: "https://tailwindui.com/plus/img/logos/158x48/reform-logo-gray-900.svg" },
-    { id: 18, img: "https://tailwindui.com/plus/img/logos/158x48/tuple-logo-gray-900.svg" },
-    { id: 19, img: "https://tailwindui.com/plus/img/logos/158x48/savvycal-logo-gray-900.svg" },
-    { id: 20, img: "https://tailwindui.com/plus/img/logos/158x48/statamic-logo-gray-900.svg" }
-];
+/**
+ * Partner / funder logo strip.
+ *
+ * TODO: drop real partner marks into `public/brands` (SVG or transparent PNG,
+ * roughly 158x48) and list them here — the section renders itself only once
+ * this array has entries, so it stays hidden rather than showing placeholders.
+ *
+ * e.g. { name: "UNICEF", img: "/brands/unicef.svg" }
+ *
+ * The previous placeholders pointed at tailwindui.com URLs that now 404, which
+ * is why this section was rendering broken images.
+ */
+const brands: { name: string; img: string }[] = [];
 
 export const Brands = () => {
-const [api, setApi] = useState<CarouselApi>();
-const [current, setCurrent] = useState(0);
+  if (brands.length === 0) return null;
 
-useEffect(() => {
-    if (!api) {
-    return;
-    }
+  // Repeated so the -50% translate loops seamlessly regardless of logo count.
+  const marqueeItems = [...brands, ...brands, ...brands, ...brands];
 
-    setTimeout(() => {
-    if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
-        setCurrent(0);
-        api.scrollTo(0);
-    } else {
-        api.scrollNext();
-        setCurrent(current + 1);
-    }
-    }, 1000);
-}, [api, current]);
+  return (
+    <section
+      className="w-full border-b border-secondaryColor/5 bg-white py-16 lg:py-20"
+      id="brands"
+    >
+      <div className="container mx-auto px-4">
+        <Reveal>
+          <p className="text-center font-tertiary text-xs tracking-[0.25em] text-slate-500">
+            TRUSTED BY MARKET LEADERS
+          </p>
+        </Reveal>
+      </div>
 
-return (
-    <div className="w-full py-20 lg:py-20" id="brands">
-        <div className="container px-0 mx-auto">
-            <h3 className="text-md text-secondaryColor md:text-3xl tracking-tighter font-bold text-left m-7 mt-0">
-                Trusted by market leaders
-            </h3>
-            <div className="relative w-full col-span-4">
-                <div className="bg-gradient-to-r from-background via-white/0 to-background z-10 absolute left-0 top-0 right-0 bottom-0 w-full h-full"></div>
-                <Carousel setApi={setApi} className="w-full">
-                <CarouselContent>
-                    {brandsData.map(( {id, img }) => (
-                    <CarouselItem
-                        className="basis-1/4 lg:basis-1/12"
-                        key={id}
-                    >
-                        <div className="flex rounded-md aspect-square bg-muted items-center justify-center p-2">
-                            <Image src={img} alt={`brand ${id}`} width="158" height="40" className="object-cover w-full" />
-                        </div>
-                    </CarouselItem>
-                    ))}
-                </CarouselContent>
-                </Carousel>
-            </div>
+      <Reveal delay={120}>
+        <div className="edge-fade pause-on-hover mt-10 w-full overflow-hidden">
+          <div
+            data-marquee
+            className="flex w-max animate-marquee items-center gap-14 pr-14 sm:gap-20 sm:pr-20"
+          >
+            {marqueeItems.map((brand, index) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={`${brand.name}-${index}`}
+                src={brand.img}
+                alt={brand.name}
+                width={158}
+                height={40}
+                loading="lazy"
+                aria-hidden={index >= brands.length}
+                className="h-8 w-auto shrink-0 opacity-40 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 sm:h-9"
+              />
+            ))}
+          </div>
         </div>
-    </div>
-);
+      </Reveal>
+    </section>
+  );
 };

@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import React from "react";
 import Image1 from "../../public/testimonials/image1.png";
@@ -10,6 +9,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Quote } from "lucide-react";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
 const testimonialsItems = [
   {
@@ -19,6 +20,7 @@ const testimonialsItems = [
       "There is hope for the future and there is hope for a change in our community. I joined the organisation TNSES and at first, I was hesistant about learning Digital Applied Skills through the organisation itself. As I am completing my assignments I realised that I underestimated the organisation and have come to realise how much I am learning and how much fun I am having doing all my assignments.",
     image: Image1,
     name: "Shannon-Lee",
+    role: "Applied Digital Skills",
   },
   {
     description:
@@ -27,68 +29,74 @@ const testimonialsItems = [
       "Not only were the assessments mentally stimulating. They were fun as well, which I think is an important component of learning anything.",
     image: Image2,
     name: "Tsholofelo",
+    role: "Communications",
   },
 ];
 
 const Testimonials = () => {
   return (
     <section
-      className="py-40 bg-secondaryColor"
+      className="relative overflow-hidden bg-secondaryColor py-24 lg:py-32"
       id="testimonials"
     >
-      <div className="container px-4 mx-auto">
-        <div className="flex gap-4 flex-col">
-          <div>
-            <Badge variant="outline" className="text-white text-lg font-tertiary">
-              Testimonials
-            </Badge>
-          </div>
-          <div className="flex gap-2 flex-col">
-            <h4 className="text-3xl  md:text-5xl tracking-tighter text-white font-bold">
-              What people are saying about our work
-            </h4>
-            <p className="text-slate-300 text-lg leading-relaxed tracking-tight my-4">
-              Our clients' satisfaction is our top priority. Here's what they
-              have to say about their experiences working with us.
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-wrap mt-8">
-          {testimonialsItems.map((item) => (
-            <div className="p-4 pl-0 md:w-1/2 w-full">
-              <div className="h-full bg-[#1d2f61] p-8 rounded-md shadow-md">
-                <Quote className="block w-5 h-5 mb-4 text-primaryColor" />
+      {/* Ambient brand glows */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-32 -top-24 h-96 w-96 rounded-full bg-primaryColor/10 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl"
+      />
+
+      <div className="container relative mx-auto px-4">
+        <SectionHeading
+          invert
+          eyebrow="Testimonials"
+          title="What people are saying about our work"
+          description="Our clients' satisfaction is our top priority. Here's what they have to say about their experiences working with us."
+        />
+
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {testimonialsItems.map((item, index) => (
+            <Reveal key={item.name} delay={index * 120} className="h-full">
+              <figure className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-8 shadow-card backdrop-blur-sm transition-colors duration-300 hover:border-primaryColor/30">
+                <Quote className="mb-5 h-7 w-7 text-primaryColor" />
+
+                <blockquote className="text-pretty text-lg font-medium leading-relaxed text-white">
+                  “{item.description}”
+                </blockquote>
+
                 <Accordion
                   type="single"
                   collapsible
-                  className="w-full text-slate-100 mb-6"
+                  className="mt-2 w-full flex-1 text-slate-300"
                 >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger>
-                      <p className="mt-2 text-sm">{item.description}</p>
+                  <AccordionItem value="item-1" className="border-white/10">
+                    <AccordionTrigger className="text-sm text-slate-300 hover:text-white">
+                      Read the full story
                     </AccordionTrigger>
-                    <AccordionContent className="leading-relaxed ml-2">
+                    <AccordionContent className="text-sm leading-relaxed text-slate-300">
                       {item.descriptionExtension}
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
-                <a className="inline-flex items-center">
+
+                <figcaption className="mt-6 flex items-center gap-4 border-t border-white/10 pt-6">
                   <Image
-                    alt="testimonial"
+                    alt={item.name}
                     src={item.image}
-                    width={80}
-                    height={80}
-                    className="w-12 h-12 rounded-md flex-shrink-0 object-cover object-center"
+                    width={96}
+                    height={96}
+                    className="h-12 w-12 shrink-0 rounded-full object-cover object-center ring-2 ring-primaryColor/40"
                   />
-                  <span className="flex-grow flex flex-col pl-4">
-                    <span className="title-font font-medium text-slate-100">
-                      {item.name}
-                    </span>
-                    {/* <span className="text-gray-500 text-sm">DESIGNER</span> */}
+                  <span className="flex flex-col">
+                    <span className="font-medium text-white">{item.name}</span>
+                    <span className="text-sm text-slate-400">{item.role}</span>
                   </span>
-                </a>
-              </div>
-            </div>
+                </figcaption>
+              </figure>
+            </Reveal>
           ))}
         </div>
       </div>

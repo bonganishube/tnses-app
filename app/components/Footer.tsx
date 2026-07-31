@@ -13,7 +13,10 @@ type FooterItemProps = {
 const FooterItem: React.FC<FooterItemProps> = ({ text, link }) => {
   return (
     <li>
-      <Link href={link} className="duration-200 hover:text-blue-600 dark:hover:text-blue-500">
+      <Link
+        href={link}
+        className="text-slate-300 transition-colors duration-200 hover:text-primaryColor"
+      >
         {text}
       </Link>
     </li>
@@ -28,10 +31,10 @@ type FooterBlockItemProps = {
 const FooterBlockItem: React.FC<FooterBlockItemProps> = ({ title, items }) => {
   return (
     <div className="space-y-5">
-      <h1 className="text-base md:text-lg font-semibold text-slate-200 dark:text-gray-100">
-        {title}
-      </h1>
-      <ul className="text-sm md:text-base space-y-3">
+      <h3 className="font-tertiary text-sm tracking-[0.15em] text-white">
+        {title.toUpperCase()}
+      </h3>
+      <ul className="space-y-3 text-sm">
         {
           items.map(item => (
             <FooterItem key={item.id} {...item} />
@@ -50,10 +53,9 @@ const footerItems = [
       { id: 1, text: "Home", link: "#home" },
       { id: 2, text: "About Us", link: "#about" },
       { id: 3, text: "Services", link: "#services" },
-      { id: 4, text: "FAQ", link: "#faq" },
-      { id: 5, text: "Team", link: "#team" },
-      { id: 6, text: "Testimonials", link: "#testimonials" },
-      { id: 7, text: "Contact Us", link: "#contact" },
+      { id: 4, text: "Team", link: "#team" },
+      { id: 5, text: "Testimonials", link: "#testimonials" },
+      { id: 6, text: "Contact Us", link: "#contact" },
     ]
   },
   {
@@ -76,66 +78,92 @@ const footerItems = [
   },
 ]
 
+const socials = [
+  { id: 1, label: "Instagram", icon: Instagram, link: "#" },
+  { id: 2, label: "Facebook", icon: Facebook, link: "#" },
+  { id: 3, label: "LinkedIn", icon: Linkedin, link: "#" },
+]
+
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-secondaryColor dark:bg-gray-900 py-20 lg:py-20">
-      <div className="container mx-auto px-6">
-        <div className="w-full text-slate-200 dark:text-gray-300 grid grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-b-gray-200 dark:border-b-gray-800">
-          <div>
-            <Link href="#" className="flex gap-1 items-center">
-              <Image src={Logo} alt="Logo" width={30} height={30} className="rounded-[5px]" />
-              <p className="font-tertiary text-base md:text-lg">Tnses</p>
-            </Link>
+    <footer className="bg-secondaryColor-900 pt-20 lg:pt-24">
+      <div className="container mx-auto px-4 lg:px-6">
+        {/* Identity + quick contact */}
+        <div className="grid gap-8 border-b border-white/10 pb-10 sm:grid-cols-2 lg:grid-cols-4 lg:items-center">
+          <Link href="#home" className="group flex items-center gap-2.5">
+            <Image
+              src={Logo}
+              alt="TNSES"
+              width={36}
+              height={36}
+              className="rounded-lg transition-transform duration-300 group-hover:scale-105"
+            />
+            <p className="font-tertiary text-xl tracking-wide text-white">Tnses</p>
+          </Link>
+
+          <div className="flex items-center gap-3 text-slate-300">
+            <MapPin className="h-5 w-5 shrink-0 text-primaryColor" />
+            <span className="text-sm">Belhar, Pentech, Cape Town</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <MapPin />
-            <span className="text-sm md:text-base">Belhar, Pentech</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <AtSign />
-            <span className="text-sm md:text-base">info@tnses.org</span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <Link href="">
-            <Instagram />
-            </Link>
-            <Link href="">
-            <Facebook />
-            </Link>
-            <Link href="">
-            <Linkedin />
-            </Link>
-            <span className="text-sm md:text-base"></span>
+
+          <a
+            href="mailto:info@tnses.org"
+            className="flex items-center gap-3 text-slate-300 transition-colors hover:text-white"
+          >
+            <AtSign className="h-5 w-5 shrink-0 text-primaryColor" />
+            <span className="text-sm">info@tnses.org</span>
+          </a>
+
+          <div className="flex items-center gap-3 lg:justify-end">
+            {socials.map(({ id, label, icon: Icon, link }) => (
+              <Link
+                key={id}
+                href={link}
+                aria-label={label}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-slate-300 transition-all duration-200 hover:border-primaryColor hover:bg-primaryColor hover:text-white"
+              >
+                <Icon className="h-4 w-4" />
+              </Link>
+            ))}
           </div>
         </div>
-        <nav className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-8 py-10 text-slate-200 dark:text-gray-300 font-extralight">
+
+        {/* Link columns + subscribe */}
+        <nav className="grid grid-cols-2 gap-8 gap-y-10 py-12 md:grid-cols-3 lg:grid-cols-4">
           {
             footerItems.map(item => (
               <FooterBlockItem key={item.id} {...item} />
             ))
           }
-          <div className="space-y-5 col-span-2 md:col-span-3 lg:col-span-1">
-            <h1 className="text-lg font-semibold text-slate-200 dark:text-gray-100">
-              Subscribe
-            </h1>
-            <p className="max-w-xl">
-              Subscribe to our Blueprint Magazine
+          <div className="col-span-2 space-y-5 md:col-span-3 lg:col-span-1">
+            <h3 className="font-tertiary text-sm tracking-[0.15em] text-white">
+              SUBSCRIBE
+            </h3>
+            <p className="max-w-xl text-sm text-slate-300">
+              Get Blueprint Magazine in your inbox.
             </p>
-            <form onSubmit={undefined} className="grid w-full relative max-w-xl">
-              <div className="flex flex-col gap-3 w-full relative">
-                <Input type="Email" placeholder="johndoe@gmail.com" />
-                <Button className="bg-primaryColor">Subscribe</Button>
-              </div>
+            <form className="flex w-full max-w-sm flex-col gap-3">
+              <Input
+                type="email"
+                name="email"
+                autoComplete="email"
+                aria-label="Email address"
+                placeholder="you@example.com"
+                className="border-white/15 bg-white/5 text-white placeholder:text-slate-500 focus-visible:border-primaryColor focus-visible:ring-2 focus-visible:ring-primaryColor/25 focus-visible:ring-offset-0"
+              />
+              <Button
+                type="submit"
+                className="rounded-full bg-primaryColor text-white hover:bg-primaryColor-600"
+              >
+                Subscribe
+              </Button>
             </form>
           </div>
         </nav>
-        <div className="w-full flex flex-col md:flex-row gap-4 items-center sm:justify-between py-3 border-t border-gray-200 dark:border-t-gray-800 text-slate-200 dark:text-gray-300">
-          <div className="flex text-center sm:text-left sm:min-w-max font-extralight">
-            <p className="text-sm md:text-base"> © 2024 TNSES, All rights reserved. </p>
-          </div>
-          <div className="flex justify-center sm:justify-end w-full gap-3">
-            {/* Add social icons here */}
-          </div>
+
+        <div className="flex flex-col items-center gap-3 border-t border-white/10 py-6 text-sm text-slate-400 sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} TNSES. All rights reserved.</p>
+          <p>NPO 240-957 · Cape Town, South Africa</p>
         </div>
       </div>
     </footer>
