@@ -144,6 +144,18 @@ body,
   .section-subtitle {
     @apply max-w-2xl text-pretty text-base leading-relaxed text-slate-600 md:text-lg;
   }
+  /* Full-viewport hero.
+     Declared as a cascade rather than a Tailwind arbitrary value so there is a
+     real fallback: browsers without dvh support drop that line and keep 100vh,
+     whereas a lone `h-[100svh]` is dropped outright and collapses the hero to
+     its content height. dvh also tracks mobile browser chrome, so the hero
+     fills the screen on load instead of stopping short of it. */
+  .h-hero {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 34rem;
+  }
+
   /* Fades the left/right edges of the logo marquee into the page background */
   .edge-fade {
     -webkit-mask-image: linear-gradient(

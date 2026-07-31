@@ -43,8 +43,36 @@ export const SignedIn = ({ children }: { children: React.ReactNode }) => (
 
 export const SignedOut = (_props: { children?: React.ReactNode }) => null;
 
-export const SignOutButton = ({ children }: { children?: React.ReactNode }) =>
-    children ? <>{children}</> : <span>Sign out</span>;
+/**
+ * There is no session to end while Clerk is stubbed, so this just leaves the
+ * app. It mirrors Clerk's own `redirectUrl` prop, so call sites keep working
+ * unchanged once the real SDK is restored. Previously it rendered an inert
+ * <span>, which is why signing out appeared to do nothing.
+ */
+export const SignOutButton = ({
+    children,
+    redirectUrl = "/",
+}: {
+    children?: React.ReactNode;
+    redirectUrl?: string;
+}) => (
+    <span
+        role="button"
+        tabIndex={0}
+        className="w-full cursor-pointer"
+        onClick={() => {
+            window.location.href = redirectUrl;
+        }}
+        onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                window.location.href = redirectUrl;
+            }
+        }}
+    >
+        {children ?? "Sign out"}
+    </span>
+);
 
 export const SignInButton = ({ children }: { children?: React.ReactNode }) =>
     children ? <>{children}</> : <span>Sign in</span>;

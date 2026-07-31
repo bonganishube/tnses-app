@@ -161,7 +161,7 @@ const SidebarRoutes = () => {
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 text-destructive focus:text-destructive">
               <LogOut className="h-4 w-4" />
-              <SignOutButton />
+              <SignOutButton redirectUrl="/" />
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

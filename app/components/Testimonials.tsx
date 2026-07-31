@@ -68,7 +68,9 @@ const Testimonials = () => {
               <figure className="flex h-full flex-col rounded-2xl border border-white/10 bg-secondaryColor-700/40 p-8 transition-colors duration-300 hover:border-white/25">
                 <Quote className="mb-5 h-7 w-7 text-white/40" />
 
-                <blockquote className="text-pretty text-lg font-medium leading-relaxed text-white">
+                {/* Slate rather than pure white — full-strength white at this
+                    size glared against the navy. */}
+                <blockquote className="text-pretty text-lg font-normal leading-relaxed text-slate-300">
                   “{item.description}”
                 </blockquote>
 

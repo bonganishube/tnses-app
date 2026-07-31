@@ -102,7 +102,7 @@ export const Hero = () => {
         <CarouselContent className="ml-0">
           {slides.map(({ id, eyebrow, heading, text, img, imgMobile }, index) => (
             <CarouselItem key={id} className="pl-0">
-              <div className="relative flex h-[100svh] min-h-[600px] w-full items-center justify-center overflow-hidden">
+              <div className="h-hero relative flex w-full items-center justify-center overflow-hidden">
                 {/* Desktop / mobile crops of the same slide */}
                 <Image
                   src={img}

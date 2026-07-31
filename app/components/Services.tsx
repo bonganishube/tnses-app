@@ -46,7 +46,7 @@ const services: Service[] = [
   {
     icon: TvMinimalPlay,
     title: "Applied digital skills",
-    accent: "bg-primaryColor",
+    accent: "bg-secondaryColor",
     blurb:
       "Tailored training that boosts your career with the digital tools employers actually use.",
     detail:
@@ -92,7 +92,7 @@ const services: Service[] = [
   {
     icon: University,
     title: "College & university application support",
-    accent: "bg-primaryColor",
+    accent: "bg-secondaryColor",
     blurb:
       "Step-by-step guidance through institution applications, deadlines and documents.",
     detail:
@@ -126,10 +126,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
   return (
     <div
       className={cn(
-        "group relative flex h-full overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1",
-        featured
-          ? "border-secondaryColor bg-secondaryColor shadow-card hover:shadow-lift"
-          : "border-secondaryColor/10 bg-white shadow-soft hover:border-primaryColor/25 hover:shadow-lift"
+        "group relative flex h-full overflow-hidden rounded-2xl border border-secondaryColor/10 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primaryColor/25 hover:shadow-lift"
       )}
     >
       <div
@@ -140,8 +137,9 @@ const ServiceCard = ({ service }: { service: Service }) => {
       >
         <span
           className={cn(
-            "mb-6 flex w-max rounded-xl p-3 text-white shadow-soft transition-transform duration-300 group-hover:scale-105",
-            service.accent
+            "mb-6 flex w-max rounded-xl p-3 text-white shadow-soft transition-all duration-300 group-hover:scale-105",
+            service.accent,
+            featured && "group-hover:bg-primaryColor"
           )}
         >
           <Icon className="h-5 w-5" />
@@ -149,8 +147,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
 
         <h3
           className={cn(
-            "text-lg font-semibold leading-snug tracking-tight xl:text-xl",
-            featured ? "text-white" : "text-secondaryColor"
+            "text-lg font-semibold leading-snug tracking-tight text-secondaryColor xl:text-xl"
           )}
         >
           {service.title}
@@ -158,8 +155,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
 
         <p
           className={cn(
-            "mt-3 flex-1 text-sm leading-relaxed",
-            featured ? "text-slate-300" : "text-slate-600"
+            "mt-3 flex-1 text-sm leading-relaxed text-slate-600"
           )}
         >
           {service.blurb}
@@ -171,10 +167,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
               size="sm"
               variant="ghost"
               className={cn(
-                "mt-6 w-max gap-2 rounded-full px-0 text-sm font-medium hover:bg-transparent",
-                featured
-                  ? "text-white hover:text-primaryColor"
-                  : "text-secondaryColor hover:text-primaryColor"
+                "mt-6 w-max gap-2 rounded-full px-0 text-sm font-medium text-secondaryColor hover:bg-transparent hover:text-primaryColor"
               )}
             >
               View more
@@ -222,11 +215,10 @@ const ServiceCard = ({ service }: { service: Service }) => {
             alt=""
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          {/* Feather only the seam against the navy panel. A full-width navy
-              wash over these warm photos read as a purple cast. */}
+          {/* Feather the seam against the white panel */}
           <div
             aria-hidden
-            className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-secondaryColor to-transparent"
+            className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent"
           />
         </div>
       ) : null}
