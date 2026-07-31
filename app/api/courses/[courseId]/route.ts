@@ -1,5 +1,4 @@
 import { db } from "@/lib/db";
-import { getMuxVideo } from "@/lib/mux";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
@@ -19,24 +18,11 @@ export async function DELETE(req: Request, props: { params: Promise<{courseId: s
                 id: params.courseId,
                 userId: userId,
             },
-            include: {
-                chapters: {
-                    include: {
-                        muxData: true,
-                    }
-                }
-            }
         });
 
 
         if (!course) {
             return new NextResponse("Not found", { status: 404 });
-        }
-
-        for (const chapter of course.chapters) {
-            if (chapter.muxData?.assetId) {
-                await getMuxVideo().assets.delete(chapter.muxData.assetId)
-            }
         }
 
         const deletedCourse  = await db.course.delete({

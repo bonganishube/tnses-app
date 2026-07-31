@@ -1,5 +1,4 @@
 import { db } from "@/lib/db";
-import { getMuxVideo } from "@/lib/mux";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
@@ -39,21 +38,6 @@ export async function DELETE(
         }
 
         if (chapter.videoUrl) {
-            const existingMuxData = await db.muxData.findFirst({
-                where: {
-                    chapterId: params.chapterId,
-                }
-            });
-
-            if (existingMuxData) {
-                await getMuxVideo().assets.delete(existingMuxData.assetId);
-                await db.muxData.delete({
-                    where: {
-                        id: existingMuxData.id,
-                    }
-                });
-            }
-
             const deletedChapter = await db.chapter.delete({
                 where: {
                     id: params.chapterId
@@ -121,40 +105,10 @@ export async function PATCH(
             }
         });
 
-        if (values.videoUrl) {
-            const existingMuxData = await db.muxData.findFirst({
-                where: {
-                    chapterId: params.chapterId,
-                }
-            });
-
-            if (existingMuxData) {
-                await getMuxVideo().assets.delete(existingMuxData.assetId);
-                await db.muxData.delete({
-                    where: {
-                        id: existingMuxData.id,
-                    }
-                });
-            }
-
-            const asset = await getMuxVideo().assets.create({
-                input: values.videoUrl,
-                playback_policy: ['public'],
-                // text: false,
-            });
-
-            await db.muxData.create({
-                data: {
-                    chapterId: params.chapterId,
-                    assetId: asset.id,
-                    playbackId: asset.playback_ids?.[0]?.id,
-                }
-            });
-        }
-
-        return NextResponse.json(chapter);        
+        return NextResponse.json(chapter);
 
     } catch (error) {
-        
+        console.log("[CHAPTER_ID_PATCH]", error);
+        return new NextResponse("Internal Error", { status: 500 });
     }
 }

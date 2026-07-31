@@ -17,11 +17,7 @@ export async function PATCH(req: Request, props: { params: Promise<{ courseId: s
                 userId,
             },
             include: {
-                chapters: {
-                    include: {
-                        muxData: true,
-                    }
-                }
+                chapters: true,
             }
         });
 

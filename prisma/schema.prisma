@@ -9,9 +9,11 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "postgresql"
+  // Pooled connection (pgbouncer) for the app
+  url       = env("DATABASE_URL")
+  // Direct connection, required for migrations — they cannot run over the pooler
+  directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 model Course {
@@ -35,7 +37,6 @@ model Course {
   updatedAt DateTime @updatedAt
 
   @@index([categoryId])
-  @@fulltext([title])
 }
 
 model Category {
@@ -62,12 +63,10 @@ model Chapter {
   id String @id @default(uuid())
   title String
   description String? @db.Text
-  videoUrl String? @ db.Text
+  videoUrl String? @db.Text
   position Int
   isPublished Boolean @default(false)
   isFree Boolean @default(false)
-
-  muxData MuxData? 
 
   courseId String
   course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
@@ -78,15 +77,6 @@ model Chapter {
   updatedAt DateTime @updatedAt 
 
   @@index([courseId])
-}
-
-model MuxData {
-  id String @id @default(uuid())
-  assetId String
-  playbackId String? 
-
-  chapterId String @unique
-  chapter Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 }
 
 model UserProgress {

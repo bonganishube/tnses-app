@@ -1,16 +1,16 @@
 "use client"
 
 import axios from "axios";
-import MuxPlayer from "@mux/mux-player-react";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { Loader2, Lock } from "lucide-react";
+import { Loader2, Lock, Video } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 interface VideoPlayerProps {
-    playbackId: string;
+    /** Direct URL of the uploaded video file */
+    videoUrl: string | null;
     courseId: string;
     chapterId: string;
     nextChapterId?: string;
@@ -20,7 +20,7 @@ interface VideoPlayerProps {
 };
 
 export const VideoPlayer = ({
-    playbackId,
+    videoUrl,
     courseId,
     chapterId,
     nextChapterId,
@@ -37,8 +37,8 @@ export const VideoPlayer = ({
                 await axios.put(`/api/courses/${courseId}/chapters/${chapterId}/progress`, {
                     isCompleted: true,
                 });
-            } 
-            
+            }
+
             toast.success("Progress updated");
             router.refresh();
 
@@ -52,34 +52,41 @@ export const VideoPlayer = ({
     }
 
     return (
-        <div>
-            <div className="relative aspect-video rounded-sm">
-                {!isReady && !isLocked && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-slate-500">
-                        <Loader2 className="h-8 w-8 animate-spin text-secondary"/>
-                    </div>
-                )}
-                {isLocked && (
-                    <div className="absolute  inset-0 flex items-center justify-center bg-slate-500 flex-col gap-y-2 text-secondary">
-                        <Lock className="h-8 w-8" />
-                        <p className="text-sm">
-                            This chapter is locked
-                        </p>
-                    </div>
-                )}
-                {!isLocked && (
-                    <MuxPlayer 
+        <div className="relative aspect-video bg-secondaryColor">
+            {isLocked ? (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-y-2 text-slate-300">
+                    <Lock className="h-8 w-8" />
+                    <p className="text-sm">This chapter is locked</p>
+                </div>
+            ) : !videoUrl ? (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-y-2 text-slate-400">
+                    <Video className="h-8 w-8" />
+                    <p className="text-sm">No video for this chapter yet</p>
+                </div>
+            ) : (
+                <>
+                    {!isReady && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <Loader2 className="h-8 w-8 animate-spin text-slate-300" />
+                        </div>
+                    )}
+                    <video
+                        key={videoUrl}
+                        src={videoUrl}
                         title={title}
-                        className={cn(
-                            !isReady && "hidden"
-                        )}
+                        controls
+                        controlsList="nodownload"
+                        playsInline
+                        preload="metadata"
                         onCanPlay={() => setIsReady(true)}
                         onEnded={onEnd}
-                        autoPlay
-                        playbackId={playbackId}
+                        className={cn(
+                            "h-full w-full object-contain",
+                            !isReady && "opacity-0"
+                        )}
                     />
-                )}
-            </div>
+                </>
+            )}
         </div>
     )
 }

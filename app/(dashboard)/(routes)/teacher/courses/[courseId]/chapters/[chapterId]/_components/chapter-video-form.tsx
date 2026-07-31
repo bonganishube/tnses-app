@@ -4,20 +4,18 @@ import React, { useState } from 'react'
 
 import * as z from "zod";
 import axios from "axios";
-import MuxPlayer from "@mux/mux-player-react";
 import { Pencil, PlusCircle, Video } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
 import { Button } from "@/components/ui/button"
-import { Chapter, MuxData } from '@prisma/client';
-import Image from 'next/image';
+import { Chapter } from '@prisma/client';
 import { FileUpload } from '@/components/file-upload';
 
 
 
 interface ChapterVideoFormProps {
-    initialData: Chapter & { muxData?: MuxData | null }
+    initialData: Chapter
     courseId: string;
     chapterId: string;
 };
@@ -72,13 +70,18 @@ export const ChapterVideoForm = ({
         </div> 
         {!isEditing && (
             !initialData.videoUrl ? (
-                <div className="flex items-center justify-center h-60 bg-slate-200 mt-4 rounded-md">
-                    <Video className="h-10 w-10 text-slate-500"/>
+                <div className="mt-4 flex h-60 items-center justify-center rounded-xl bg-secondaryColor/5">
+                    <Video className="h-10 w-10 text-secondaryColor/30"/>
                 </div>
             ) : (
-                <div className="relative aspect-video mt-2">
-                    <MuxPlayer 
-                        playbackId={initialData?.muxData?.playbackId || ""}
+                <div className="mt-4 overflow-hidden rounded-xl bg-secondaryColor">
+                    <video
+                        key={initialData.videoUrl}
+                        src={initialData.videoUrl}
+                        controls
+                        playsInline
+                        preload="metadata"
+                        className="aspect-video w-full object-contain"
                     />
                 </div>
             )
@@ -98,9 +101,10 @@ export const ChapterVideoForm = ({
                 </div>
             </div>
         )}
-        {initialData.videoUrl && ! isEditing && (
-            <div className="text-xs text-muted-foreground mt-2">
-                Videos can take a few minutes to process. Refresh the page if video does not appear
+        {initialData.videoUrl && !isEditing && (
+            <div className="mt-3 text-xs text-muted-foreground">
+                Learners play this file directly. Keep uploads reasonably small so
+                they start quickly on slower connections.
             </div>
         )}
     </div>

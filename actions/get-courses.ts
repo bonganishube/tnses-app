@@ -26,6 +26,10 @@ export const getCourses = async ({
                 isPublished: true,
                 title: {
                     contains: title,
+                    // Postgres `contains` is case-sensitive, unlike the MySQL
+                    // collation this used to run against — without this, a
+                    // search for "web" stops matching "Web Dev".
+                    mode: "insensitive",
                 },
                 categoryId,
             },
