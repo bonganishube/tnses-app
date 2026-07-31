@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { currentUser } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
@@ -61,7 +61,7 @@ export async function POST(req: Request, props: {params: Promise<{ courseId: str
         });
 
         if(!stripeCustomer) {
-            const customer = await stripe.customers.create({
+            const customer = await getStripe().customers.create({
                 email: user.emailAddresses[0].emailAddress,
             });
 
@@ -73,7 +73,7 @@ export async function POST(req: Request, props: {params: Promise<{ courseId: str
             });
         }
 
-        const session = await stripe.checkout.sessions.create({
+        const session = await getStripe().checkout.sessions.create({
             customer: stripeCustomer.stripeCustomerId,
             line_items,
             mode: 'payment',

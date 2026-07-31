@@ -1,13 +1,9 @@
-import Mux from "@mux/mux-node";
 import { db } from "@/lib/db";
+import { getMuxVideo } from "@/lib/mux";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 
-const { video } = new Mux({
-    tokenId: process.env['MUX_TOKEN_ID'],
-    tokenSecret: process.env['MUX_TOKEN_SECRET'],
-  });
 
 export async function DELETE(req: Request, props: { params: Promise<{courseId: string }> }) {
     const params = await props.params;
@@ -39,7 +35,7 @@ export async function DELETE(req: Request, props: { params: Promise<{courseId: s
 
         for (const chapter of course.chapters) {
             if (chapter.muxData?.assetId) {
-                await video.assets.delete(chapter.muxData.assetId)
+                await getMuxVideo().assets.delete(chapter.muxData.assetId)
             }
         }
 
