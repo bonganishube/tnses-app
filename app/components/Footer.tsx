@@ -86,7 +86,7 @@ const socials = [
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-secondaryColor-900 pt-20 lg:pt-24">
+    <footer className="bg-secondaryColor-900 pt-12 lg:pt-12">
       <div className="container mx-auto px-4 lg:px-6">
         {/* Identity + quick contact */}
         <div className="grid gap-8 border-b border-white/10 pb-10 sm:grid-cols-2 lg:grid-cols-4 lg:items-center">

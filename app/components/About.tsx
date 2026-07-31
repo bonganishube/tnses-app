@@ -38,6 +38,9 @@ const About = () => {
               controls
               preload="metadata"
               poster="/about/thumbnail.jpg"
+              autoPlay
+              muted
+              loop
               className="relative aspect-video w-full rounded-2xl object-cover shadow-card ring-1 ring-secondaryColor/10"
             >
               <source src="/about/about.mp4" type="video/mp4" />
