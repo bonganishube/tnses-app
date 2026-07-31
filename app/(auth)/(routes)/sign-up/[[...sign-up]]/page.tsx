@@ -1,12 +1,9 @@
-import { SignUp } from '@clerk/nextjs'
-import React from 'react'
+import { redirect } from 'next/navigation'
 
+// TEMPORARY: authentication is disabled, so "Sign up" drops straight into the
+// dashboard. Restore the <SignUp /> form when Clerk is wired back up.
 const page = () => {
-  return (
-    <div className="h-full flex md:items-center p-5 justify-center overflow-y-auto">
-      <SignUp />
-    </div>
-  )
+  redirect("/home")
 }
 
 export default page
