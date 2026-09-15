@@ -97,9 +97,9 @@ const Footer: React.FC = () => {
               height={36}
               className="transition-transform duration-300 group-hover:scale-105"
             />
-            <p className="font-display text-xl font-bold tracking-[0.06em] text-white">
+            {/* <p className="font-display text-xl font-bold tracking-[0.06em] text-white">
               TNSES
-            </p>
+            </p> */}
           </Link>
 
           <div className="flex items-center gap-3 text-slate-300">
