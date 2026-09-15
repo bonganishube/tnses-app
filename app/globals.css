@@ -121,28 +121,48 @@ body,
 }
 
 @layer components {
-  /* Small caps eyebrow used above every section heading */
+  /* The type system this page runs on, so the lower sections read as one piece
+     with the hero and the pathway cards above them:
+       font-display (Montserrat) for headings and tracked-caps labels,
+       font-secondary (Marcellus) for quoted speech only,
+       font-primary for body copy.
+     Squared corners and flat fills throughout, no pills or blurred washes. */
+
+  /* Tracked caps above every section heading. Paired in the markup with a
+     short orange rule, which replaced the old dot-in-a-pill. */
   .section-eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-secondaryColor/15
-           bg-white/60 px-4 py-1.5 font-tertiary text-sm tracking-[0.18em]
-           text-secondaryColor backdrop-blur;
+    @apply inline-flex items-center gap-3 font-display text-xs font-semibold
+           uppercase tracking-[0.22em] text-primaryColor-700;
   }
   .section-eyebrow-invert {
-    @apply border-white/20 bg-white/5 text-white;
+    @apply text-primaryColor;
   }
-  /* Marcellus ships at 400 only — no bold. It carries a headline through size
-     and open tracking instead of weight, so the scale runs a step larger and
-     looser than the old sans-bold treatment. */
+  /* Montserrat bold, the same face and weight as the hero headline and the
+     pathway card titles. Sentence case rather than the hero's uppercase, since
+     these headings run long. */
   .section-title {
-    @apply text-balance font-secondary font-normal tracking-[-0.01em]
-           text-secondaryColor text-[2.15rem] leading-[1.15] sm:text-[2.75rem]
-           md:text-[3.4rem] md:leading-[1.1];
+    @apply text-balance font-display font-bold tracking-[-0.015em]
+           text-secondaryColor text-[1.9rem] leading-[1.1] sm:text-[2.35rem]
+           md:text-[2.9rem] md:leading-[1.06];
   }
+  /* Marcellus, now reserved for pull quotes and testimonials */
   .display-serif {
     @apply font-secondary font-normal tracking-[-0.01em];
   }
   .section-subtitle {
     @apply max-w-2xl text-pretty text-base leading-relaxed text-slate-600 md:text-lg;
+  }
+  /* The square tracked-caps action from the pathway cards. Colour is applied at
+     the call site, since it changes with the panel behind it. */
+  .btn-square {
+    @apply inline-flex w-max items-center gap-2.5 px-6 py-3 font-display text-xs
+           font-semibold uppercase tracking-[0.16em] transition-colors duration-300;
+  }
+  /* Squared-off white card. Lifts on hover rather than translating, so rows of
+     cards stay on their baseline. */
+  .card-flat {
+    @apply border border-secondaryColor/10 bg-white shadow-card
+           transition-shadow duration-300 hover:shadow-lift;
   }
   /* Full-viewport hero.
      Declared as a cascade rather than a Tailwind arbitrary value so there is a

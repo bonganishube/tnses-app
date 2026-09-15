@@ -12,6 +12,7 @@ const config: Config = withUt({
   theme: {
     extend: {
       fontFamily: {
+        display: ['var(--font-montserrat)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         primary: ['var(--font-public-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         secondary: ['var(--font-marcellus)', 'ui-serif', 'Georgia', 'serif'],
         tertiary: ['var(--font-marcellus-sc)', 'ui-serif', 'Georgia', 'serif']
@@ -57,6 +58,11 @@ const config: Config = withUt({
         tertiaryColor: {
           DEFAULT: '#F1F4F9',
           soft: '#F7F9FC'
+        },
+        // Third panel colour in the Pathways cards, from the reference design
+        accentColor: {
+          DEFAULT: '#5E8B6C',
+          600: '#4E7559'
         },
         primaryColor: {
           DEFAULT: '#FF6100',

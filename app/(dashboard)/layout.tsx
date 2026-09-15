@@ -10,7 +10,7 @@ import Logo from "./_components/logo";
 
 /**
  * Every dashboard page is per-user and database-backed, so none of them may be
- * prerendered. Next would otherwise run their Prisma queries at build time —
+ * prerendered. Next would otherwise run their Prisma queries at build time,
  * baking one user's data into static HTML, and failing the build outright when
  * DATABASE_URL is absent from the build environment (as it is on Vercel).
  *

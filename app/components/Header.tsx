@@ -1,19 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { GraduationCap, Menu, MoveRight, PhoneCall } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Logo from "../../public/logo.png";
 import Image from "next/image";
+import Logo from "../../public/logo.png";
 import {
   Sheet,
   SheetClose,
@@ -21,53 +12,29 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 
-type NavItem = {
-  title: string;
-  href?: string;
-  description?: string;
-  items?: { title: string; href: string }[];
-};
+type NavItem = { title: string; href: string };
 
+// Labels come from the reference design, ordered to follow the page as you
+// scroll it: hero, services, about, team, contact.
+//
+// Projects, Volunteers and Donate have no section of their own yet, so each
+// points at the closest existing anchor, repoint them here once those sections
+// exist. Projects sits next to What we do because they share #services, which
+// also keeps the scroll-spy marker on the first of the two.
 const navigationItems: NavItem[] = [
-  {
-    title: "Home",
-    href: "#home",
-  },
-  {
-    title: "Services",
-    description:
-      "Practical programmes that build skills, open doors and support real career moves.",
-    items: [
-      { title: "Applied Digital Skills", href: "#services" },
-      { title: "Blueprint", href: "#services" },
-      { title: "Consultation & Monitoring", href: "#services" },
-      { title: "Recruitment & Fieldwork", href: "#services" },
-    ],
-  },
-  {
-    title: "Organisation",
-    description:
-      "Who we are, the people behind TNSES and how to reach the team.",
-    items: [
-      { title: "About Us", href: "#about" },
-      { title: "Services", href: "#services" },
-      { title: "Team", href: "#team" },
-      { title: "Testimonials", href: "#testimonials" },
-      { title: "Contact Us", href: "#contact" },
-    ],
-  },
+  { title: "Home", href: "#home" },
+  { title: "What we do", href: "#services" },
+  { title: "Projects", href: "#services" },
+  { title: "About us", href: "#about" },
+  { title: "Volunteers", href: "#team" },
+  { title: "Donate", href: "#contact" },
 ];
 
 export const Header = () => {
   const [isHeaderActive, setIsHeaderActive] = useState(false);
+  const [activeHref, setActiveHref] = useState("#home");
 
   useEffect(() => {
     const handleScroll = () => setIsHeaderActive(window.scrollY > 24);
@@ -77,245 +44,151 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // One shared treatment for every top-level nav control, light on the hero
-  // image and dark once the glass bar kicks in.
-  const navLinkClass = cn(
-    "h-9 rounded-full bg-transparent px-4 text-sm font-medium transition-colors",
-    isHeaderActive
-      ? "text-secondaryColor hover:bg-secondaryColor/5 hover:text-secondaryColor data-[state=open]:bg-secondaryColor/5"
-      : "text-white/90 hover:bg-white/10 hover:text-white data-[state=open]:bg-white/10"
+  // Scroll spy: mark whichever section is crossing the middle of the viewport.
+  useEffect(() => {
+    const sections = Array.from(new Set(navigationItems.map((i) => i.href)))
+      .map((href) => document.querySelector(href))
+      .filter((el): el is Element => Boolean(el));
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const inBand = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
+          )[0];
+
+        if (inBand?.target.id) setActiveHref(`#${inBand.target.id}`);
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  // Two labels can share an anchor, so only the first of them takes the marker.
+  const activeIndex = navigationItems.findIndex(
+    (item) => item.href === activeHref
   );
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-30 box-border w-full transition-all duration-300 ease-out",
+        "fixed inset-x-0 top-0 z-40 w-full transition-all duration-300 ease-out",
         isHeaderActive
-          ? "border-b border-secondaryColor/10 bg-white/85 shadow-header backdrop-blur-xl supports-[backdrop-filter]:bg-white/70"
-          : "border-b border-transparent bg-transparent"
+          ? "bg-secondaryColor-950/95 shadow-header backdrop-blur-xl"
+          : "bg-transparent"
       )}
-      id="home"
     >
-      {/* Scrim that fades past the bar so the transparent nav stays legible
-          over the hero without drawing a hard edge. */}
+      {/* Soft scrim so the transparent nav stays legible over the photo */}
       <div
         aria-hidden
         className={cn(
-          "pointer-events-none absolute inset-x-0 top-0 -bottom-16 bg-gradient-to-b from-secondaryColor/60 via-secondaryColor/25 to-transparent transition-opacity duration-300",
+          "pointer-events-none absolute inset-x-0 top-0 -bottom-20 bg-gradient-to-b from-black/50 via-black/20 to-transparent transition-opacity duration-300",
           isHeaderActive ? "opacity-0" : "opacity-100"
         )}
       />
+
       <div
         className={cn(
-          "container relative mx-auto flex flex-row items-center gap-4 px-4 transition-all duration-300 lg:grid lg:grid-cols-3",
-          isHeaderActive ? "min-h-[4rem]" : "min-h-20"
+          "relative flex w-full flex-col items-center px-5 transition-all duration-300 sm:px-8 lg:px-14",
+          isHeaderActive ? "pb-3 pt-3" : "pb-4 pt-6 lg:pt-8"
         )}
       >
-        {/* Desktop navigation */}
-        <div className="hidden flex-row items-center justify-start gap-4 lg:flex">
-          <NavigationMenu className="flex items-start justify-start">
-            <NavigationMenuList className="flex flex-row justify-start gap-1">
-              {navigationItems.map((item) => (
-                <NavigationMenuItem key={item.title}>
-                  {item.href ? (
-                    <NavigationMenuLink asChild>
-                      <Link href={item.href} className={cn(navLinkClass, "inline-flex items-center")}>
-                        {item.title}
-                      </Link>
-                    </NavigationMenuLink>
-                  ) : (
-                    <>
-                      <NavigationMenuTrigger className={navLinkClass}>
-                        {item.title}
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent className="!w-[460px] rounded-xl p-5">
-                        <div className="flex grid-cols-5 flex-col gap-6 lg:grid">
-                          <div className="col-span-2 flex h-full flex-col justify-between">
-                            <div className="flex flex-col gap-2">
-                              <p className="font-semibold text-secondaryColor">
-                                {item.title}
-                              </p>
-                              <p className="text-sm leading-relaxed text-muted-foreground">
-                                {item.description}
-                              </p>
-                            </div>
-                            <Link href="#contact" className="mt-8">
-                              <Button size="sm" variant="secndary" className="w-full rounded-full">
-                                Contact Us
-                              </Button>
-                            </Link>
-                          </div>
-                          <div className="col-span-3 flex h-full flex-col justify-center gap-0.5 text-sm">
-                            {item.items?.map((subItem) => (
-                              <NavigationMenuLink
-                                href={subItem.href}
-                                key={subItem.title}
-                                className="group flex flex-row items-center justify-between rounded-lg px-3 py-2.5 leading-relaxed transition-colors hover:bg-secondaryColor/5"
-                              >
-                                <span className="text-secondaryColor">
-                                  {subItem.title}
-                                </span>
-                                <MoveRight className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primaryColor" />
-                              </NavigationMenuLink>
-                            ))}
-                          </div>
-                        </div>
-                      </NavigationMenuContent>
-                    </>
-                  )}
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-
-        {/* Wordmark */}
-        <Link href="#home" className="group shrink-0">
-          <div className="flex items-center gap-2.5 lg:justify-center">
-            <Image
-              src={Logo}
-              alt="TNSES"
-              width={40}
-              height={40}
-              className={cn(
-                "rounded-lg transition-all duration-300 group-hover:scale-105",
-                isHeaderActive ? "h-9 w-9" : "h-10 w-10"
-              )}
-            />
-            <p
-              className={cn(
-                "font-tertiary text-2xl tracking-wide transition-colors duration-300",
-                isHeaderActive ? "text-secondaryColor" : "text-white"
-              )}
-            >
-              Tnses
-            </p>
-          </div>
+        {/* Centred mark */}
+        <Link href="#home" aria-label="TNSES, home" className="group block">
+          <Image
+            src={Logo}
+            alt="TNSES"
+            priority
+            className={cn(
+              "w-auto transition-all duration-300 group-hover:scale-[1.03]",
+              isHeaderActive ? "h-11" : "h-16 sm:h-20 lg:h-24"
+            )}
+          />
         </Link>
 
-        {/* Desktop actions */}
-        <div className="hidden w-full items-center justify-end gap-3 lg:flex">
-          <Link href="#contact">
-            <Button
-              variant="ghost"
-              className={cn(
-                "gap-2 rounded-full text-sm font-medium",
-                isHeaderActive
-                  ? "text-secondaryColor hover:bg-secondaryColor/5"
-                  : "text-white/90 hover:bg-white/10 hover:text-white"
-              )}
-            >
-              <PhoneCall className="h-4 w-4" />
-              Contact Us
-            </Button>
-          </Link>
-          <Link href="/sign-in">
-            <Button className="gap-2 rounded-full bg-primaryColor text-white shadow-glow transition-transform hover:bg-primaryColor-600 hover:shadow-glow active:scale-[0.98]">
-              Log in
-              <GraduationCap className="h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
+        {/* Desktop nav, spread edge to edge beneath the mark */}
+        <nav
+          className={cn(
+            "hidden w-full items-center justify-between transition-all duration-300 lg:flex",
+            isHeaderActive ? "mt-3" : "mt-6"
+          )}
+        >
+          {navigationItems.map((item, index) => {
+            const isActive = index === activeIndex;
 
-        {/* Mobile actions */}
-        <div className="flex w-full items-center justify-end gap-2 lg:hidden">
-          <Link href="/sign-in">
-            <Button
-              size="sm"
-              className="gap-2 rounded-full bg-primaryColor text-white shadow-glow hover:bg-primaryColor-600"
-            >
-              Log in
-              <GraduationCap className="h-4 w-4" />
-            </Button>
-          </Link>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                aria-label="Open menu"
-                className={cn(
-                  "rounded-full border transition-colors",
-                  isHeaderActive
-                    ? "border-secondaryColor/15 bg-white text-secondaryColor"
-                    : "border-white/30 bg-white/10 text-white backdrop-blur hover:bg-white/20 hover:text-white"
-                )}
+            return (
+              <Link
+                key={item.title}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className="group relative px-1 py-2 font-display text-[0.95rem] font-light tracking-[0.14em] text-white/85 transition-colors hover:text-white xl:text-base"
               >
-                <Menu />
-              </Button>
+                <span
+                  aria-hidden
+                  className={cn(
+                    "absolute inset-x-0 top-0 h-[2px] bg-primaryColor transition-opacity duration-300",
+                    isActive ? "opacity-100" : "opacity-0"
+                  )}
+                />
+                {item.title}
+                <span
+                  aria-hidden
+                  className={cn(
+                    "absolute inset-x-0 bottom-0 h-[2px] bg-primaryColor transition-opacity duration-300",
+                    isActive
+                      ? "opacity-100"
+                      : "opacity-0 group-hover:opacity-50"
+                  )}
+                />
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Mobile menu, parked right so the mark stays centred */}
+        <div
+          className={cn(
+            "absolute right-4 transition-all duration-300 sm:right-6 lg:hidden",
+            isHeaderActive ? "top-4" : "top-7"
+          )}
+        >
+          <Sheet>
+            <SheetTrigger
+              aria-label="Open menu"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/20"
+            >
+              <Menu className="h-5 w-5" />
             </SheetTrigger>
 
-            <SheetContent className="w-[88vw] overflow-y-auto sm:max-w-sm" side="left">
+            <SheetContent
+              className="w-[86vw] overflow-y-auto sm:max-w-sm"
+              side="right"
+            >
               <SheetHeader className="text-left">
                 <SheetClose asChild>
-                  <Link href="#home">
-                    <div className="flex items-center gap-2.5">
-                      <Image
-                        src={Logo}
-                        alt="TNSES"
-                        width={40}
-                        height={40}
-                        className="rounded-lg"
-                      />
-                      <p className="font-tertiary text-2xl tracking-wide text-secondaryColor">
-                        Tnses
-                      </p>
-                    </div>
+                  <Link href="#home" aria-label="TNSES, home">
+                    <Image src={Logo} alt="TNSES" className="h-14 w-auto" />
                   </Link>
                 </SheetClose>
               </SheetHeader>
 
-              <nav className="mt-8 flex w-full flex-col">
-                {navigationItems.map((item) =>
-                  item.href ? (
-                    <SheetClose asChild key={item.title}>
-                      <Link
-                        href={item.href}
-                        className="border-b py-4 text-base font-medium text-secondaryColor transition-colors hover:text-primaryColor"
-                      >
-                        {item.title}
-                      </Link>
-                    </SheetClose>
-                  ) : (
-                    <Accordion
-                      type="single"
-                      collapsible
-                      key={item.title}
-                      defaultValue={`item-${item.title}`}
+              <nav className="mt-10 flex w-full flex-col">
+                {navigationItems.map((item) => (
+                  <SheetClose asChild key={item.title}>
+                    <Link
+                      href={item.href}
+                      className="border-b border-secondaryColor/10 py-4 font-display text-base font-light tracking-[0.14em] text-secondaryColor transition-colors hover:text-primaryColor"
                     >
-                      <AccordionItem value={`item-${item.title}`}>
-                        <AccordionTrigger className="py-4 text-base font-medium text-secondaryColor hover:no-underline">
-                          {item.title}
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="flex flex-col">
-                            {item.items?.map((subItem) => (
-                              <SheetClose asChild key={subItem.title}>
-                                <Link
-                                  href={subItem.href}
-                                  className="flex items-center justify-between py-2.5 pl-3 text-sm text-muted-foreground transition-colors hover:text-primaryColor"
-                                >
-                                  {subItem.title}
-                                  <MoveRight className="h-4 w-4" />
-                                </Link>
-                              </SheetClose>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  )
-                )}
+                      {item.title}
+                    </Link>
+                  </SheetClose>
+                ))}
               </nav>
-
-              <SheetClose asChild>
-                <Link href="#contact" className="mt-8 block">
-                  <Button className="w-full gap-2 rounded-full bg-primaryColor text-white hover:bg-primaryColor-600">
-                    <PhoneCall className="h-4 w-4" />
-                    Contact Us
-                  </Button>
-                </Link>
-              </SheetClose>
             </SheetContent>
           </Sheet>
         </div>

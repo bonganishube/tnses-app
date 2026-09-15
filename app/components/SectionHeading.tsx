@@ -25,7 +25,7 @@ export const SectionHeading = ({
 }: SectionHeadingProps) => (
   <div
     className={cn(
-      "flex flex-col gap-5",
+      "flex flex-col gap-4",
       align === "center" && "items-center text-center",
       className
     )}
@@ -34,12 +34,22 @@ export const SectionHeading = ({
       <span
         className={cn("section-eyebrow", invert && "section-eyebrow-invert")}
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-primaryColor" />
+        <span aria-hidden className="h-[2px] w-7 bg-primaryColor" />
         {eyebrow}
       </span>
     </Reveal>
     <Reveal delay={80}>
-      <h2 className={cn("section-title", invert && "text-white")}>{title}</h2>
+      <h2
+        className={cn(
+          "section-title",
+          invert && "text-white",
+          // Long titles would otherwise run the full container width once
+          // centred, so cap the measure rather than let them touch the gutters
+          align === "center" && "mx-auto max-w-4xl"
+        )}
+      >
+        {title}
+      </h2>
     </Reveal>
     {description ? (
       <Reveal delay={160}>

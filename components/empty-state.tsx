@@ -11,7 +11,7 @@ type EmptyStateProps = {
 };
 
 /**
- * Replaces the bare "No courses found" strings — an empty screen should say
+ * Replaces the bare "No courses found" strings, an empty screen should say
  * what is missing and offer the next step.
  */
 export const EmptyState = ({

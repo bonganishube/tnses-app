@@ -34,7 +34,7 @@ const CourseIdPage = async (
 
   const firstChapter = course.chapters[0];
 
-  // A course can exist with no published chapters yet — previously this
+  // A course can exist with no published chapters yet. Previously this
   // dereferenced chapters[0] straight away and crashed the route.
   if (!firstChapter) {
     return (

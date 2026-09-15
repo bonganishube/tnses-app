@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import Logo from "../../public/logo.png"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { AtSign, Facebook, Instagram, Linkedin, MapPin } from "lucide-react"
 
@@ -31,8 +30,8 @@ type FooterBlockItemProps = {
 const FooterBlockItem: React.FC<FooterBlockItemProps> = ({ title, items }) => {
   return (
     <div className="space-y-5">
-      <h3 className="font-tertiary text-sm tracking-[0.15em] text-white">
-        {title.toUpperCase()}
+      <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white">
+        {title}
       </h3>
       <ul className="space-y-3 text-sm">
         {
@@ -51,8 +50,8 @@ const footerItems = [
     title: "Navigation",
     items: [
       { id: 1, text: "Home", link: "#home" },
-      { id: 2, text: "About Us", link: "#about" },
-      { id: 3, text: "Services", link: "#services" },
+      { id: 2, text: "What We Do", link: "#services" },
+      { id: 3, text: "About Us", link: "#about" },
       { id: 4, text: "Team", link: "#team" },
       { id: 5, text: "Testimonials", link: "#testimonials" },
       { id: 6, text: "Contact Us", link: "#contact" },
@@ -64,8 +63,8 @@ const footerItems = [
     items: [
       { id: 1, text: "Applied Digital Skills", link: "#services" },
       { id: 2, text: "Blueprint", link: "#services" },
-      { id: 3, text: "Consultation & Mentoring", link: "#services" },
-      { id: 4, text: "Recruitment & Fieldwork", link: "#services" },
+      { id: 3, text: "Professional Development", link: "#services" },
+      { id: 4, text: "Monitoring & Evaluation", link: "#services" },
     ]
   },
   {
@@ -96,9 +95,11 @@ const Footer: React.FC = () => {
               alt="TNSES"
               width={36}
               height={36}
-              className="rounded-lg transition-transform duration-300 group-hover:scale-105"
+              className="transition-transform duration-300 group-hover:scale-105"
             />
-            <p className="font-tertiary text-xl tracking-wide text-white">Tnses</p>
+            <p className="font-display text-xl font-bold tracking-[0.06em] text-white">
+              TNSES
+            </p>
           </Link>
 
           <div className="flex items-center gap-3 text-slate-300">
@@ -120,7 +121,7 @@ const Footer: React.FC = () => {
                 key={id}
                 href={link}
                 aria-label={label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-slate-300 transition-all duration-200 hover:border-primaryColor hover:bg-primaryColor hover:text-white"
+                className="flex h-9 w-9 items-center justify-center border border-white/15 text-slate-300 transition-colors duration-200 hover:border-primaryColor hover:bg-primaryColor hover:text-white"
               >
                 <Icon className="h-4 w-4" />
               </Link>
@@ -136,8 +137,8 @@ const Footer: React.FC = () => {
             ))
           }
           <div className="col-span-2 space-y-5 md:col-span-3 lg:col-span-1">
-            <h3 className="font-tertiary text-sm tracking-[0.15em] text-white">
-              SUBSCRIBE
+            <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white">
+              Subscribe
             </h3>
             <p className="max-w-xl text-sm text-slate-300">
               Get Blueprint Magazine in your inbox.
@@ -149,21 +150,23 @@ const Footer: React.FC = () => {
                 autoComplete="email"
                 aria-label="Email address"
                 placeholder="you@example.com"
-                className="border-white/15 bg-white/5 text-white placeholder:text-slate-500 focus-visible:border-primaryColor focus-visible:ring-2 focus-visible:ring-primaryColor/25 focus-visible:ring-offset-0"
+                className="rounded-none border-white/15 bg-white/5 text-white placeholder:text-slate-500 focus-visible:border-primaryColor focus-visible:ring-2 focus-visible:ring-primaryColor/25 focus-visible:ring-offset-0"
               />
-              <Button
+              <button
                 type="submit"
-                className="rounded-full bg-primaryColor text-white hover:bg-primaryColor-600"
+                className="btn-square w-full justify-center bg-primaryColor py-3.5 text-white hover:bg-primaryColor-600"
               >
                 Subscribe
-              </Button>
+              </button>
             </form>
           </div>
         </nav>
 
         <div className="flex flex-col items-center gap-3 border-t border-white/10 py-6 text-sm text-slate-400 sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} TNSES. All rights reserved.</p>
-          <p>NPO 240-957 · Cape Town, South Africa</p>
+          <p className="font-display text-xs uppercase tracking-[0.14em]">
+            NPO 240-957 · Cape Town, South Africa
+          </p>
         </div>
       </div>
     </footer>

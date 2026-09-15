@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Image1 from "../../public/team/image1.png";
+import Image1 from "../../public/team/image1.jpeg";
 import Image2 from "../../public/team/image2.jpg";
 import Image3 from "../../public/team/image3.jpg";
 import Image4 from "../../public/team/image4.png";
@@ -62,49 +62,55 @@ const teamItems = [
 
 export default function Team() {
   return (
-    <section className="bg-tertiaryColor py-24 lg:py-32" id="team">
+    <section className="bg-tertiaryColor py-20 lg:py-28" id="team">
       <div className="container mx-auto px-4">
         <SectionHeading
+          align="center"
           eyebrow="Team"
           title="Meet the talented people driving our vision forward"
           description="A dedicated team working together to create lasting change and support our mission."
         />
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-6 lg:mt-14 lg:grid-cols-4">
           {teamItems.map((item, index) => (
             <Reveal key={item.name} delay={index * 80} className="h-full">
-              <article className="group flex h-full flex-col rounded-2xl border border-secondaryColor/10 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primaryColor/25 hover:shadow-lift">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={160}
-                  height={160}
-                  className="h-20 w-20 rounded-full object-cover object-top ring-2 ring-secondaryColor/10 transition-all duration-300 group-hover:ring-primaryColor/40"
-                />
+              <article className="card-flat group flex h-full flex-col overflow-hidden">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-secondaryColor-950">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={480}
+                    height={600}
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
 
-                <h3 className="mt-5 text-lg font-semibold leading-tight text-secondaryColor">
-                  {item.name}
-                </h3>
-                <p className="mt-1.5 text-sm font-medium text-primaryColor-700">
-                  {item.role}
-                </p>
+                <div className="flex flex-1 flex-col p-4 sm:p-6">
+                  <h3 className="font-display text-[0.95rem] font-bold leading-tight text-secondaryColor sm:text-lg">
+                    {item.name}
+                  </h3>
+                  <p className="mt-2 font-display text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-primaryColor-700 sm:text-[0.7rem] sm:tracking-[0.14em]">
+                    {item.role}
+                  </p>
 
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-600">
-                  {item.description}
-                </p>
+                  <p className="mt-3 flex-1 text-xs leading-relaxed text-slate-600 sm:mt-4 sm:text-sm">
+                    {item.description}
+                  </p>
 
-                <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="bio" className="border-b-0">
-                    <AccordionTrigger className="py-3 text-sm font-medium text-secondaryColor hover:text-primaryColor">
-                      Read bio
-                    </AccordionTrigger>
-                    <AccordionContent className="space-y-3 text-sm leading-relaxed text-slate-600">
-                      {item.paragraphs.map((paragraph) => (
-                        <p key={paragraph.slice(0, 24)}>{paragraph}</p>
-                      ))}
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="bio" className="border-b-0">
+                      <AccordionTrigger className="py-3 font-display text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-secondaryColor hover:text-primaryColor-700 sm:text-xs sm:tracking-[0.14em]">
+                        Read bio
+                      </AccordionTrigger>
+                      <AccordionContent className="space-y-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                        {item.paragraphs.map((paragraph) => (
+                          <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+                        ))}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
               </article>
             </Reveal>
           ))}

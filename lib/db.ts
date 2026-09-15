@@ -9,7 +9,7 @@ declare global {
  * actually used.
  *
  * Vercel's Neon integration prefixes every variable it creates with the store
- * name — this project gets `tnses_DATABASE_URL`, not `DATABASE_URL`. The
+ * name, this project gets `tnses_DATABASE_URL`, not `DATABASE_URL`. The
  * schema's `env("DATABASE_URL")` then resolves to nothing and Prisma fails with
  * "Environment variable not found: DATABASE_URL". Checking the prefixed and
  * Vercel-Postgres names here means the app runs whichever way the variables are

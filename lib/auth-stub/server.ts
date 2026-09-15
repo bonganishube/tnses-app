@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 // Temporary stand-in for `@clerk/nextjs/server` so the app runs without Clerk
-// credentials. Aliased in next.config.js — delete that alias to restore Clerk.
+// credentials. Aliased in next.config.js. Delete that alias to restore Clerk.
 
 export const DEV_USER_ID = process.env.NEXT_PUBLIC_TEACHER_ID || "dev-user";
 

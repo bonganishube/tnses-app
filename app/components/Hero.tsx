@@ -1,230 +1,108 @@
-"use client";
-
-import { useCallback, useEffect, useRef, useState } from "react";
-import Autoplay from "embla-carousel-autoplay";
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
-import { ChevronDown, MoveRight, PhoneCall } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-import Hero1 from "../../public/hero/hero1.jpg";
-import Hero2 from "../../public/hero/hero2.jpg";
-import Hero3 from "../../public/hero/hero3.jpg";
-import Hero4 from "../../public/hero/hero4.jpg";
-import Hero5 from "../../public/hero/hero5.jpg";
-import Hero6 from "../../public/hero/hero6.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import { BsMegaphone } from "react-icons/bs";
+import { ChevronDown } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
-const slides = [
-  {
-    id: 1,
-    eyebrow: "Applied digital skills",
-    heading: (
-      <>
-        Learn Anywhere, <br />
-        <span className="text-primaryColor">Anytime</span>
-      </>
-    ),
-    text: "Our flexible online courses fit into your life, not the other way around.",
-    img: Hero1,
-    imgMobile: Hero4,
-  },
-  {
-    id: 2,
-    eyebrow: "Funding support",
-    heading: (
-      <>
-        Unlock <span className="text-primaryColor">Financial Aid</span>
-        <br />
-        Opportunities
-      </>
-    ),
-    text: "Get expert support with applications and secure funding for your education.",
-    img: Hero2,
-    imgMobile: Hero5,
-  },
-  {
-    id: 3,
-    eyebrow: "Job readiness",
-    heading: (
-      <>
-        Nail Your Interview, <br />
-        <span className="text-primaryColor">Land the Job</span>
-      </>
-    ),
-    text: "Master the art of interviews with personalised coaching and expert feedback.",
-    img: Hero3,
-    imgMobile: Hero6,
-  },
-];
+/* Three background crops, one per screen band. Swap any of them for another
+   file in /public/hero, or drop a new file in there and point the import at it.
+
+     small   phones, under 640px      portrait source, the viewport is tall
+     medium  tablets, 640 to 1023px   portrait source, still taller than wide
+     large   1024px and up            landscape source
+
+   hero1 to hero3 are the landscape crops, hero4 to hero6 the portrait ones.
+
+   Every file in /public/hero is used somewhere on the page, so the medium tier
+   takes hero5, which also backs the impact quote band. That one is grayscale
+   under a heavy navy wash there, so the repeat barely registers. hero6 is the
+   one to avoid, it carries the Projects card in full colour. */
+import HeroSmall from "../../public/hero/hero4.jpg";
+import HeroMedium from "../../public/hero/hero5.jpg";
+import HeroLarge from "../../public/hero/hero1.jpg";
+
+// Shared by all three, so only the file and the breakpoint differ below
+const backdropClass =
+  "absolute inset-0 h-full w-full object-cover grayscale";
+
+// One treatment, two lengths. See the copy variants in the markup below.
+const copyClass =
+  "mt-7 max-w-3xl animate-fade-up text-pretty text-[0.95rem] font-semibold leading-relaxed text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.45)] [animation-delay:180ms] md:text-base lg:text-[1.05rem]";
 
 export const Hero = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const autoplay = useRef(
-    Autoplay({ delay: 5500, stopOnInteraction: false, stopOnMouseEnter: true })
-  );
-
-  useEffect(() => {
-    if (!api) return;
-
-    const onSelect = () => setCurrent(api.selectedScrollSnap());
-    onSelect();
-    api.on("select", onSelect);
-    api.on("reInit", onSelect);
-
-    return () => {
-      api.off("select", onSelect);
-      api.off("reInit", onSelect);
-    };
-  }, [api]);
-
-  const scrollTo = useCallback((index: number) => api?.scrollTo(index), [api]);
-
   return (
-    <section className="relative w-full">
-      <Carousel
-        setApi={setApi}
-        opts={{ loop: true }}
-        plugins={[autoplay.current]}
-        className="w-full"
-      >
-        <CarouselContent className="ml-0">
-          {slides.map(({ id, eyebrow, heading, text, img, imgMobile }, index) => (
-            <CarouselItem key={id} className="pl-0">
-              <div className="h-hero relative flex w-full items-center justify-center overflow-hidden">
-                {/* Desktop / mobile crops of the same slide */}
-                <Image
-                  src={img}
-                  alt=""
-                  priority={index === 0}
-                  placeholder="blur"
-                  className={cn(
-                    "absolute inset-0 hidden h-full w-full object-cover lg:block",
-                    current === index && "animate-ken-burns"
-                  )}
-                />
-                <Image
-                  src={imgMobile}
-                  alt=""
-                  priority={index === 0}
-                  placeholder="blur"
-                  className={cn(
-                    "absolute inset-0 h-full w-full object-cover lg:hidden",
-                    current === index && "animate-ken-burns"
-                  )}
-                />
+    <section
+      id="home"
+      className="h-hero relative flex w-full items-center justify-center overflow-hidden bg-secondaryColor-950"
+    >
+      {/* One crop per screen band, desaturated to match the reference design.
+          Only one is ever displayed, the other two are display:none. */}
+      <Image
+        src={HeroSmall}
+        alt=""
+        priority
+        placeholder="blur"
+        sizes="100vw"
+        className={cn(backdropClass, "sm:hidden")}
+      />
+      <Image
+        src={HeroMedium}
+        alt=""
+        priority
+        placeholder="blur"
+        sizes="100vw"
+        className={cn(backdropClass, "hidden sm:block lg:hidden")}
+      />
+      <Image
+        src={HeroLarge}
+        alt=""
+        priority
+        placeholder="blur"
+        sizes="100vw"
+        className={cn(backdropClass, "hidden lg:block")}
+      />
 
-                {/* Legibility scrim: navy wash + darker top and bottom */}
-                <div className="absolute inset-0 bg-secondaryColor/60" />
-                <div className="absolute inset-0 bg-gradient-to-b from-secondaryColor/80 via-secondaryColor/20 to-secondaryColor/90" />
+      {/* Legibility: a flat wash plus darker top and bottom for the nav and CTA */}
+      <div className="absolute inset-0 bg-black/25" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/45" />
 
-                <div className="container relative z-10 flex flex-col items-center justify-center gap-7 px-4 text-center">
-                  <div
-                    className={cn(
-                      "flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur",
-                      current === index && "animate-fade-in"
-                    )}
-                  >
-                    <BsMegaphone className="flicker-text h-4 w-4 -rotate-12" />
-                    <span className="font-tertiary text-xs tracking-[0.2em] text-white/90">
-                      {eyebrow}
-                    </span>
-                  </div>
+      <div className="relative z-10 flex w-full flex-col items-center px-5 pt-28 text-center sm:px-8 lg:px-14 lg:pt-36">
+        <h1 className="animate-fade-up text-balance font-display text-[2rem] font-extrabold uppercase leading-[1.04] tracking-[-0.01em] text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.4)] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.4rem] xl:text-[4.5rem] 2xl:text-[5.5rem]">
+          Empowering communities.
+          <br />
+          Generating impact.
+        </h1>
 
-                  <div className="flex max-w-3xl flex-col gap-5">
-                    <h1
-                      className={cn(
-                        "display-serif text-balance text-[2.6rem] leading-[1.08] text-white drop-shadow-[0_2px_12px_rgba(15,23,48,0.45)] sm:text-6xl md:text-7xl lg:text-[5.25rem]",
-                        current === index && "animate-fade-up"
-                      )}
-                    >
-                      {heading}
-                    </h1>
-                    <p
-                      className={cn(
-                        "mx-auto max-w-xl text-pretty text-base leading-relaxed text-slate-200 md:text-xl",
-                        current === index && "animate-fade-up [animation-delay:120ms]"
-                      )}
-                    >
-                      {text}
-                    </p>
-                  </div>
-
-                  <div
-                    className={cn(
-                      "flex flex-wrap items-center justify-center gap-3",
-                      current === index && "animate-fade-up [animation-delay:220ms]"
-                    )}
-                  >
-                    <Link href="/sign-up">
-                      <Button
-                        size="lg"
-                        className="gap-2 rounded-full bg-primaryColor px-7 text-white shadow-glow transition-transform hover:bg-primaryColor-600 active:scale-[0.98]"
-                      >
-                        Sign up here
-                        <MoveRight className="h-4 w-4" />
-                      </Button>
-                    </Link>
-                    <Link href="#contact">
-                      <Button
-                        size="lg"
-                        variant="outline"
-                        className="gap-2 rounded-full border-white/30 bg-white/10 px-7 text-white backdrop-blur transition-colors hover:bg-white/20 hover:text-white"
-                      >
-                        Jump on a call
-                        <PhoneCall className="h-4 w-4" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-
-        <CarouselPrevious className="left-4 hidden h-11 w-11 border-white/25 bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25 hover:text-white lg:flex xl:left-8" />
-        <CarouselNext className="right-4 hidden h-11 w-11 border-white/25 bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25 hover:text-white lg:flex xl:right-8" />
-      </Carousel>
-
-      {/* Slide indicators */}
-      <div className="absolute inset-x-0 bottom-24 z-10 flex items-center justify-center gap-2.5">
-        {slides.map((slide, index) => (
-          <button
-            key={slide.id}
-            type="button"
-            onClick={() => scrollTo(index)}
-            aria-label={`Go to slide ${index + 1}`}
-            aria-current={current === index}
-            className={cn(
-              "h-1.5 rounded-full transition-all duration-500",
-              current === index
-                ? "w-10 bg-primaryColor"
-                : "w-4 bg-white/40 hover:bg-white/70"
-            )}
-          />
-        ))}
+        {/* Phones get the condensed line; sm and up get the full statement.
+            Only one is ever rendered, so screen readers read it once. */}
+        <p className={cn(copyClass, "sm:hidden")}>
+          TNSES empowers individuals, organisations and communities through
+          skills, education and enterprise.
+        </p>
+        <p className={cn(copyClass, "hidden sm:block")}>
+          The National Socio-Economic Support (TNSES) empowers individuals,
+          organisations and communities through skills development, education
+          and enterprise.
+          <span className="block">
+            Because everyone deserves the opportunity to thrive.
+          </span>
+        </p>
       </div>
+
+      {/* Square CTA, flush with the header gutter */}
+      <Link
+        href="#about"
+        className="absolute bottom-8 left-5 z-10 animate-fade-up bg-primaryColor px-8 py-3.5 font-display text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-glow transition-colors [animation-delay:360ms] hover:bg-primaryColor-600 sm:left-8 lg:bottom-10 lg:left-14 lg:text-sm"
+      >
+        Learn more
+      </Link>
 
       {/* Scroll cue */}
       <Link
         href="#about"
         aria-label="Scroll to content"
-        className="absolute inset-x-0 bottom-8 z-10 mx-auto flex w-max flex-col items-center gap-1 text-white/70 transition-colors hover:text-white"
+        className="absolute inset-x-0 bottom-9 z-10 mx-auto hidden h-9 w-9 items-center justify-center rounded-full border border-white/60 bg-black/20 text-white backdrop-blur-sm transition-colors hover:border-white hover:bg-black/40 sm:flex lg:bottom-11"
       >
-        <span className="font-tertiary text-[0.65rem] tracking-[0.25em]">
-          SCROLL
-        </span>
         <ChevronDown className="h-4 w-4 animate-scroll-cue" />
       </Link>
     </section>

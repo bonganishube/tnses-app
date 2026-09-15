@@ -102,7 +102,7 @@ const SidebarRoutes = () => {
 
         {/* Account menu */}
         <DropdownMenu>
-          {/* asChild — without it the trigger renders its own <button>
+          {/* asChild, without it the trigger renders its own <button>
               around this one, which is invalid DOM. */}
           <DropdownMenuTrigger asChild>
             <Button

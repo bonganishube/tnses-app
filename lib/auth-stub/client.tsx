@@ -3,7 +3,7 @@
 import React from "react";
 
 // Temporary stand-in for `@clerk/nextjs` so the app runs without Clerk
-// credentials. Aliased in next.config.js — delete that alias to restore Clerk.
+// credentials. Aliased in next.config.js. Delete that alias to restore Clerk.
 
 const DEV_USER_ID = process.env.NEXT_PUBLIC_TEACHER_ID || "dev-user";
 

@@ -8,7 +8,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Quote } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
@@ -35,23 +34,9 @@ const testimonialsItems = [
 
 const Testimonials = () => {
   return (
-    <section
-      className="relative overflow-hidden bg-secondaryColor py-24 lg:py-32"
-      id="testimonials"
-    >
-      {/* Ambient brand wash: warm top-right, cool bottom-left, reading as a
-          diagonal orange-to-blue gradient across the navy. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-32 -top-24 h-96 w-96 rounded-full bg-primaryColor/10 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl"
-      />
-
-      <div className="container relative mx-auto px-4">
-        {/* Centred here on purpose — breaks the run of left-aligned headers */}
+    <section className="bg-secondaryColor py-20 lg:py-28" id="testimonials">
+      <div className="container mx-auto px-4">
+        {/* Centred here on purpose, breaks the run of left-aligned headers */}
         <SectionHeading
           invert
           align="center"
@@ -63,15 +48,20 @@ const Testimonials = () => {
         <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
           {testimonialsItems.map((item, index) => (
             <Reveal key={item.name} delay={index * 120} className="h-full">
-              {/* Flat navy tint — no backdrop-blur or shadow, both of which
-                  picked up the ambient glows and haloed the card edges. */}
-              <figure className="flex h-full flex-col rounded-2xl border border-white/10 bg-secondaryColor-700/40 p-8 transition-colors duration-300 hover:border-white/25">
-                <Quote className="mb-5 h-7 w-7 text-white/40" />
+              <figure className="flex h-full flex-col border border-white/15 bg-white/5 p-8 transition-colors duration-300 hover:border-white/30">
+                {/* Marcellus opening quote, a small echo of the oversized one
+                    in the impact band rather than a second lucide icon */}
+                <span
+                  aria-hidden
+                  className="mb-1 select-none font-secondary text-6xl leading-[0.6] text-primaryColor"
+                >
+                  &ldquo;
+                </span>
 
-                {/* Slate rather than pure white — full-strength white at this
+                {/* Slate rather than pure white, full-strength white at this
                     size glared against the navy. */}
-                <blockquote className="text-pretty text-lg font-normal leading-relaxed text-slate-300">
-                  “{item.description}”
+                <blockquote className="text-pretty font-secondary text-xl leading-relaxed text-slate-200 lg:text-[1.35rem]">
+                  {item.description}
                 </blockquote>
 
                 <Accordion
@@ -80,7 +70,7 @@ const Testimonials = () => {
                   className="mt-2 w-full flex-1 text-slate-300"
                 >
                   <AccordionItem value="item-1" className="border-white/10">
-                    <AccordionTrigger className="text-sm text-slate-300 hover:text-white">
+                    <AccordionTrigger className="font-display text-xs font-semibold uppercase tracking-[0.14em] text-slate-300 hover:text-white">
                       Read the full story
                     </AccordionTrigger>
                     <AccordionContent className="text-sm leading-relaxed text-slate-300">
@@ -95,11 +85,15 @@ const Testimonials = () => {
                     src={item.image}
                     width={96}
                     height={96}
-                    className="h-12 w-12 shrink-0 rounded-full object-cover object-center ring-2 ring-primaryColor/40"
+                    className="h-12 w-12 shrink-0 object-cover object-center"
                   />
                   <span className="flex flex-col">
-                    <span className="font-medium text-white">{item.name}</span>
-                    <span className="text-sm text-slate-400">{item.role}</span>
+                    <span className="font-display font-bold text-white">
+                      {item.name}
+                    </span>
+                    <span className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primaryColor">
+                      {item.role}
+                    </span>
                   </span>
                 </figcaption>
               </figure>

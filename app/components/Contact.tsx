@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -8,7 +7,7 @@ import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 /**
- * Each card is a link with something to do, not just an address on display —
+ * Each card is a link with something to do, not just an address on display,
  * the whole tile is the hit target and carries a visible next step.
  */
 const details = [
@@ -30,18 +29,19 @@ const details = [
   },
 ];
 
+// rounded-none overrides the shared shadcn field radius, which is rounded-md
 const fieldClass =
-  "border-secondaryColor/15 bg-white text-secondaryColor placeholder:text-slate-400 focus-visible:border-primaryColor focus-visible:ring-2 focus-visible:ring-primaryColor/25 focus-visible:ring-offset-0";
+  "rounded-none border-secondaryColor/15 bg-white text-secondaryColor placeholder:text-slate-400 focus-visible:border-primaryColor focus-visible:ring-2 focus-visible:ring-primaryColor/25 focus-visible:ring-offset-0";
 
 const Contact = () => {
   return (
-    <section className="bg-white py-24 lg:py-32" id="contact">
+    <section className="bg-white py-20 lg:py-28" id="contact">
       <div className="container mx-auto grid gap-12 px-4 lg:grid-cols-2 lg:items-start lg:gap-16">
         {/* Map + contact details. Ordered second on mobile so the section
             heading leads rather than an unexplained map. */}
         <div className="space-y-6 lg:order-1">
           <Reveal>
-            <div className="relative h-[260px] overflow-hidden rounded-2xl border border-secondaryColor/10 shadow-soft lg:h-[300px]">
+            <div className="relative h-[260px] overflow-hidden border border-secondaryColor/10 shadow-card lg:h-[300px]">
               <iframe
                 width="100%"
                 height="100%"
@@ -61,24 +61,17 @@ const Contact = () => {
                   {...(detail.external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-secondaryColor/10 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primaryColor/30 hover:shadow-lift"
+                  className="card-flat group flex h-full flex-col p-6"
                 >
-                  {/* Blurred so it reads as a wash — unblurred it clipped to a
-                      hard arc against the card corner. */}
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primaryColor/20 blur-2xl transition-transform duration-500 group-hover:scale-150"
-                  />
-
-                  <span className="relative flex h-11 w-11 items-center justify-center rounded-full bg-primaryColor/10 text-primaryColor transition-colors duration-300 group-hover:bg-primaryColor group-hover:text-white">
+                  <span className="flex h-11 w-11 items-center justify-center bg-secondaryColor text-white transition-colors duration-300 group-hover:bg-primaryColor">
                     <detail.icon className="h-[18px] w-[18px]" />
                   </span>
 
-                  <p className="relative mt-5 font-tertiary text-[0.7rem] tracking-[0.16em] text-slate-500">
-                    {detail.label.toUpperCase()}
+                  <p className="mt-5 font-display text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    {detail.label}
                   </p>
 
-                  <div className="relative mt-1.5 flex-1">
+                  <div className="mt-1.5 flex-1">
                     {detail.lines.map((line) => (
                       <p
                         key={line}
@@ -89,9 +82,9 @@ const Contact = () => {
                     ))}
                   </div>
 
-                  <span className="relative mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-secondaryColor transition-colors duration-300 group-hover:text-primaryColor">
+                  <span className="btn-square mt-5 px-0 text-secondaryColor group-hover:text-primaryColor-700">
+                    <MoveRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     {detail.action}
-                    <MoveRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </span>
                 </a>
               </Reveal>
@@ -108,7 +101,7 @@ const Contact = () => {
           />
 
           <Reveal delay={120}>
-            <form className="space-y-5 rounded-2xl border border-secondaryColor/10 bg-tertiaryColor p-6 shadow-soft sm:p-8">
+            <form className="space-y-5 border border-secondaryColor/10 bg-tertiaryColor p-6 shadow-card sm:p-8">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-sm text-slate-600">
@@ -154,14 +147,13 @@ const Contact = () => {
                 />
               </div>
 
-              <Button
+              <button
                 type="submit"
-                size="lg"
-                className="w-full gap-2 rounded-full bg-primaryColor text-white shadow-glow transition-transform hover:bg-primaryColor-600 active:scale-[0.99]"
+                className="btn-square w-full justify-center bg-primaryColor py-4 text-white hover:bg-primaryColor-600"
               >
-                Submit
                 <MoveRight className="h-4 w-4" />
-              </Button>
+                Submit
+              </button>
 
               <p className="text-center text-xs text-slate-500">
                 We are committed to providing exceptional service and support.

@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
  * Partner / funder logo strip.
  *
  * TODO: drop real partner marks into `public/brands` (SVG or transparent PNG,
- * roughly 158x48) and list them here — the section renders itself only once
+ * roughly 158x48) and list them here, the section renders itself only once
  * this array has entries, so it stays hidden rather than showing placeholders.
  *
  * e.g. { name: "UNICEF", img: "/brands/unicef.svg" }

@@ -20,7 +20,7 @@ interface ChartProps {
     }[];
 }
 
-// Brand orange one step down (#DB5200) — the 500 step sits under 3:1 against a
+// Brand orange one step down (#DB5200), the 500 step sits under 3:1 against a
 // white card; this passes contrast while staying on-palette.
 const BAR_FILL = "#DB5200";
 

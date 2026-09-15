@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LogoImage from "@/public/logo.png";
 
-/** Wordmark shown in the dashboard top bar on small screens only —
+/** Wordmark shown in the dashboard top bar on small screens only,
  *  the sidebar carries the brand from md up. */
 const Logo = () => (
   <Link href="/home" className="flex flex-row items-center gap-2 md:hidden">

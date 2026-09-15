@@ -101,7 +101,7 @@ const CourseIdPage = async (props: {
               Complete all fields {completionText} to publish this course.
             </p>
           </div>
-          {/* Completion meter — the count alone gave no sense of how far off it is */}
+          {/* Completion meter, the count alone gave no sense of how far off it is */}
           <div className="flex items-center gap-3">
             <div className="h-1.5 w-40 overflow-hidden rounded-full bg-secondaryColor/10">
               <div

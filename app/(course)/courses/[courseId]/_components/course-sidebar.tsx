@@ -71,7 +71,7 @@ const CourseSidebar = async ({
                 })}
             </nav>
 
-            {/* Way back out of the player — sign-out lives in the top bar menu */}
+            {/* Way back out of the player, sign-out lives in the top bar menu */}
             <div className="border-t border-secondaryColor/10 p-4">
                 <Link href="/home">
                     <Button

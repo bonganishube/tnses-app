@@ -1,5 +1,7 @@
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
+import { Pathways } from './components/Pathways'
+import { Impact } from './components/Impact'
 import { Brands } from './components/Brands'
 import Footer from './components/Footer'
 import Contact from './components/Contact'
@@ -15,11 +17,13 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Pathways />
+        <Impact />
         <Brands />
-        <About />
         <Services />
-        <Testimonials />
+        <About />
         <Team />
+        <Testimonials />
         <Contact />
         <CallToAction />
       </main>
