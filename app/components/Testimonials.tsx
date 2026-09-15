@@ -91,7 +91,7 @@ const Testimonials = () => {
                     <span className="font-display font-bold text-white">
                       {item.name}
                     </span>
-                    <span className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primaryColor">
+                    <span className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-slate-300">
                       {item.role}
                     </span>
                   </span>

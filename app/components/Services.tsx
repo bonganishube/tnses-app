@@ -11,16 +11,11 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Reveal from "./Reveal";
@@ -129,46 +124,18 @@ const ServiceCard = ({ service }: { service: Service }) => {
           {service.blurb}
         </p>
 
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <button
-              type="button"
-              className="btn-square mt-6 px-0 text-secondaryColor hover:text-primaryColor-700"
-            >
-              <MoveRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+        {/* Detail opens in place rather than in a modal, the same treatment the
+            team and testimonial cards use for their longer copy. */}
+        <Accordion type="single" collapsible className="mt-4 w-full">
+          <AccordionItem value="detail" className="border-b-0">
+            <AccordionTrigger className="py-3 font-display text-xs font-semibold uppercase tracking-[0.16em] text-secondaryColor hover:text-primaryColor-700">
               View more
-            </button>
-          </AlertDialogTrigger>
-          <AlertDialogContent className="rounded-none">
-            <AlertDialogHeader>
-              <span
-                className={cn(
-                  "mb-2 flex w-max p-3 text-white",
-                  service.accent
-                )}
-              >
-                <Icon className="h-5 w-5" />
-              </span>
-              <AlertDialogTitle className="font-display text-2xl font-bold text-secondaryColor">
-                {service.title}
-              </AlertDialogTitle>
-              <AlertDialogDescription className="text-left leading-relaxed">
-                {service.detail}
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel className="rounded-none">
-                Close
-              </AlertDialogCancel>
-              <AlertDialogAction
-                asChild
-                className="rounded-none bg-primaryColor hover:bg-primaryColor-600"
-              >
-                <Link href="/sign-up">Sign Up</Link>
-              </AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
+            </AccordionTrigger>
+            <AccordionContent className="text-sm leading-relaxed text-slate-600">
+              {service.detail}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
 
       {service.image ? (

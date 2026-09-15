@@ -13,11 +13,14 @@ import { cn } from "@/lib/utils";
 
    hero1 to hero3 are the landscape crops, hero4 to hero6 the portrait ones.
 
-   Every file in /public/hero is used somewhere on the page, so the medium tier
-   takes hero5, which also backs the impact quote band. That one is grayscale
-   under a heavy navy wash there, so the repeat barely registers. hero6 is the
-   one to avoid, it carries the Projects card in full colour. */
-import HeroSmall from "../../public/hero/hero4.jpg";
+   Every file in /public/hero is used somewhere else on the page, so each of
+   these repeats a photo. Both repeats are in the two places a photo is hardest
+   to recognise, grayscale under a dark wash:
+     hero5 also backs the impact quote band, under a heavy navy wash
+     hero6 also fills the Projects card, which is the more visible of the two
+   hero4 is currently unused, so it is the file to reach for first if either of
+   these repeats starts to show. */
+import HeroSmall from "../../public/hero/hero6.jpg";
 import HeroMedium from "../../public/hero/hero5.jpg";
 import HeroLarge from "../../public/hero/hero1.jpg";
 
