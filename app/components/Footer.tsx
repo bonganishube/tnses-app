@@ -90,12 +90,12 @@ const Footer: React.FC = () => {
         {/* Identity + quick contact */}
         <div className="grid gap-8 border-b border-white/10 pb-10 sm:grid-cols-2 lg:grid-cols-4 lg:items-center">
           <Link href="#home" className="group flex items-center gap-2.5">
+            {/* Sized off the static import rather than fixed width/height, so the
+                full lockup scales as one piece. 36px left NSES sub-pixel. */}
             <Image
               src={Logo}
               alt="TNSES"
-              width={36}
-              height={36}
-              className="transition-transform duration-300 group-hover:scale-105"
+              className="h-20 w-auto transition-transform duration-300 group-hover:scale-105"
             />
             {/* <p className="font-display text-xl font-bold tracking-[0.06em] text-white">
               TNSES
