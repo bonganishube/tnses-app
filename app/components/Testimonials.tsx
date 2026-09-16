@@ -60,7 +60,7 @@ const Testimonials = () => {
 
                 {/* Slate rather than pure white, full-strength white at this
                     size glared against the navy. */}
-                <blockquote className="text-pretty font-secondary text-xl leading-relaxed text-slate-200 lg:text-[1.35rem]">
+                <blockquote className="text-pretty font-secondary text-base leading-relaxed text-slate-200 sm:text-lg lg:text-[1.35rem]">
                   {item.description}
                 </blockquote>
 

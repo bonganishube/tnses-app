@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
             <Image
               src={Logo}
               alt="TNSES"
-              className="h-20 w-auto transition-transform duration-300 group-hover:scale-105"
+              className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
             />
             {/* <p className="font-display text-xl font-bold tracking-[0.06em] text-white">
               TNSES

@@ -73,7 +73,7 @@ export const Hero = () => {
         <h1 className="animate-fade-up text-balance font-display text-[2rem] font-extrabold uppercase leading-[1.04] tracking-[-0.01em] text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.4)] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.4rem] xl:text-[4.5rem] 2xl:text-[5.5rem]">
           Empowering communities.
           <br />
-          Generating impact.
+          Generating impact<span className="text-primaryColor">.</span>
         </h1>
 
         {/* Phones get the condensed line; sm and up get the full statement.
