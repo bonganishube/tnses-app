@@ -2,7 +2,8 @@ import Image from "next/image";
 import Image1 from "../../public/team/image1.jpeg";
 import Image2 from "../../public/team/image2.jpg";
 import Image3 from "../../public/team/image3.jpg";
-import Image4 from "../../public/team/image4.png";
+import Image4 from "../../public/team/image4.jpg";
+import Image5 from "../../public/team/image5.jpeg";
 import {
   Accordion,
   AccordionContent,
@@ -58,6 +59,16 @@ const teamItems = [
     ],
     image: Image4,
   },
+  {
+    // PLACEHOLDER COPY. Only the photo is real. Replace all four fields below
+    // with this person's actual name, role and biography before this goes live,
+    // the text here is a visible stand-in, not a draft to publish.
+    name: "Name to confirm",
+    role: "Role to confirm",
+    description: "Short introduction to confirm.",
+    paragraphs: ["Full biography to confirm."],
+    image: Image5,
+  },
 ];
 
 export default function Team() {
@@ -71,7 +82,7 @@ export default function Team() {
           description="A dedicated team working together to create lasting change and support our mission."
         />
 
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-6 lg:mt-14 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-6 lg:mt-14 lg:grid-cols-5">
           {teamItems.map((item, index) => (
             <Reveal key={item.name} delay={index * 80} className="h-full">
               <article className="card-flat group flex h-full flex-col overflow-hidden">
