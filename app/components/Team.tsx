@@ -60,10 +60,10 @@ const teamItems = [
     image: Image4,
   },
   {
-    // PLACEHOLDER COPY. Only the photo is real. Replace all four fields below
-    // with this person's actual name, role and biography before this goes live,
-    // the text here is a visible stand-in, not a draft to publish.
-    name: "Name to confirm",
+    // Name and photo are confirmed. The three fields below are still visible
+    // stand-ins, not drafts to publish, replace them with Lebogang's actual
+    // role, introduction and biography before this goes live.
+    name: "Lebogang Moatshe",
     role: "Role to confirm",
     description: "Short introduction to confirm.",
     paragraphs: ["Full biography to confirm."],
