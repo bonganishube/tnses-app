@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import Logo from "../../public/logo.png"
+import Logo from "../../public/original_logo.png"
 import { Input } from "@/components/ui/input"
 import { AtSign, Facebook, Instagram, Linkedin, MapPin } from "lucide-react"
 

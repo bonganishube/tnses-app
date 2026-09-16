@@ -4,7 +4,10 @@ import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../public/logo.png";
+// Full lockup at rest, bare mark once the bar condenses. The wordmark is
+// unreadable at h-11, so the condensed bar drops to the mark on its own.
+import LogoFull from "../../public/original_logo.png";
+import LogoMark from "../../public/logo.png";
 import {
   Sheet,
   SheetClose,
@@ -101,7 +104,7 @@ export const Header = () => {
         {/* Centred mark */}
         <Link href="#home" aria-label="TNSES, home" className="group block">
           <Image
-            src={Logo}
+            src={isHeaderActive ? LogoMark : LogoFull}
             alt="TNSES"
             priority
             className={cn(
@@ -172,7 +175,7 @@ export const Header = () => {
               <SheetHeader className="text-left">
                 <SheetClose asChild>
                   <Link href="#home" aria-label="TNSES, home">
-                    <Image src={Logo} alt="TNSES" className="h-14 w-auto" />
+                    <Image src={LogoFull} alt="TNSES" className="h-14 w-auto" />
                   </Link>
                 </SheetClose>
               </SheetHeader>

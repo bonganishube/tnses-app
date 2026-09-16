@@ -38,8 +38,8 @@ const pathways: Pathway[] = [
     body: "A non-profit organisation based in Cape Town, founded in 2019 to put opportunity within reach for individuals and the communities around them.",
     href: "#about",
     image: AboutImage,
-    panel: "bg-primaryColor",
-    label: "text-primaryColor-700",
+    panel: "bg-accentColor",
+    label: "text-accentColor-600",
   },
   {
     title: "What we do",
@@ -54,8 +54,8 @@ const pathways: Pathway[] = [
     body: "The programmes we run on the ground, and the people whose learning and work they support.",
     href: "#services",
     image: ProjectsImage,
-    panel: "bg-accentColor",
-    label: "text-accentColor-600",
+    panel: "bg-primaryColor",
+    label: "text-primaryColor-700",
     // hero6 is a 2:3 portrait with its subject low in the frame, so a centred
     // 4:3 crop cut her off at the chin. Anchoring to the bottom keeps her, the
     // laptop and the desk in shot.
